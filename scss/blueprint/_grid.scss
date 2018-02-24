@@ -1,0 +1,30 @@
+//  ////  ////  --  --|    GRID
+
+
+
+
+//  ////  --|    GRID
+
+
+//  SET VARIATIONS OF COLUMNS REQUIRED
+$sizes: ( m: 767px, m_sub: 860px, l: 1260px );
+
+
+@mixin col( $value, $float: left ) {
+
+    @if $value == 1 {
+        $value: 3;
+
+    } @else if $value == 2 {
+        $value: 1.5 ;
+
+    } @else {
+        $value: 1;
+
+    }
+
+    width: percentage( 1 / $value ) !important;
+
+    padding: 0 2rem;
+    float: $float;
+}

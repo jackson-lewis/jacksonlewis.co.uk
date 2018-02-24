@@ -1,0 +1,55 @@
+//  ////  ////  --  --|    MIXINS
+
+
+
+
+//  MEDIA QUERIES
+@mixin x( $size ) {
+
+    @media screen and ( min-width: #{map-get( $sizes, $size )} ) {
+        @content;
+    }
+
+}
+
+@mixin y() {
+
+    @media screen and ( min-width: 767px ) and ( orientation: portrait ) {
+        @content;
+    }
+
+}
+
+
+// RESPONSIVE RATIO
+@mixin ratio($x,$y, $pseudo: false) {
+    padding-top: unquote( ( $y / $x ) * 100 + '%' );
+}
+
+
+//  PSEUDO
+@mixin pseudo( $pos: relative ) {
+    content: '';
+    display: block;
+    position: $pos;
+}
+
+
+//  TRUNCATE
+@mixin truncate( $lines ) {
+    position: relative;
+    height: $lines * 2.4rem;
+    overflow: hidden;
+
+    &::after {
+        @include pseudo( absolute );
+        text-align: right;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 2.4rem;
+        background: linear-gradient( to right, rgba( $mellow, 0 ), rgba( $mellow, 1 ) 75% );
+    }
+}
+
+

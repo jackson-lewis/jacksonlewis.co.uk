@@ -1,0 +1,157 @@
+//  ////  ////  --  --|    FORM
+
+
+form {
+	margin-top: 9.6rem;
+	position: relative;
+
+	z-index: $z-a-content;
+
+	h4 {
+		margin-bottom: 4.8rem;
+
+		opacity: 0;
+		transform: translateX( 100px );
+	}
+
+	div {
+		display: block;
+		position: relative;
+
+		z-index: 100;
+	}
+
+	label {
+		display: block;
+		position: relative;
+
+		font-weight: 700;
+		text-transform: uppercase;
+
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	input:not([type="submit"]), textarea {
+		width: 100%;
+		margin-top: 0.6rem;
+		margin-bottom: 6rem;
+		padding: 1.2rem 2rem;
+		position: relative;
+
+		background-color: transparent;
+		border-radius: 0;
+		border: none;
+
+		font-size: 2rem;
+		border-bottom: 0.2rem solid $blue;
+
+		transition: .4s;
+
+		opacity: 0;
+		transform: translateY( 100px );
+
+		&:focus {
+			border-bottom-color: $pink; 
+		}
+	}
+
+	textarea {
+		margin-bottom: 2.4rem;
+		resize: vertical;
+
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	input[type="submit"] {
+		background-color: transparent;
+		border: none;
+
+		position: relative;
+		padding: 0;
+		padding-bottom: 0.2rem;
+		float: right;
+
+		color: $pink;
+		font-weight: 700;
+		line-height: 1.5;
+		text-transform: uppercase;
+
+		opacity: 0;
+		transform: translateY( 100px );
+
+		&::after {
+			@include pseudo( absolute );
+
+			width: 100%;
+			left: 0;
+			bottom: -0.2rem;
+
+			border-bottom: 0.1rem solid $pink;
+			opacity: 0;
+			transition: .3s;
+
+		}
+
+		&:hover {
+			&::after {
+
+				bottom: 0;
+				opacity: 1;
+			}
+		}
+	}
+
+	@include x( m ) {
+		@include col( 2, right );
+		margin-top: 6rem;
+
+		div {
+			width: 50%;
+			padding: 0 2rem;
+			float: left;
+		}
+
+		div:first-of-type {
+			padding-left: 0;
+		}
+
+		div:last-of-type {
+			padding-right: 0;
+		}
+
+		label {
+			font-size: 1.2rem;
+		}
+
+		input:not([type="submit"]), textarea {
+
+			padding: 0.6rem 0;
+
+			font-size: 1.6rem;
+
+		}
+	}
+}
+
+
+.shaker {
+    border-bottom-color: $red !important;
+
+    animation: shaker .8s forwards;
+
+}
+
+@keyframes shaker {
+
+    0% { transform: translatex(0px); }
+
+    33% { transform: translatex(6px); }
+
+    50% { transform: translatex(-6px); }
+
+    67% { transform: translatex(6px); }
+
+    100% { transform: translatex(0px); }
+}

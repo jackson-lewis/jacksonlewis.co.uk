@@ -1,0 +1,186 @@
+//  ////  ////  --  --|    TYPOGRAPHY
+
+
+
+
+p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; border: 0 }
+
+html {
+    font-size: 62.5%;
+}
+
+//  MAIN BODY FONT STYLING
+body {
+	font-family: Rosario, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 400;
+	font-style: normal;
+	color: $l-blue;
+}
+
+p {
+	line-height: 1.5;
+
+	margin-bottom: 2.4rem;
+}
+
+a {
+	padding-bottom: 0.2rem;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	
+	color: $pink;
+	font-weight: 700;
+	line-height: 1.5;
+
+	text-decoration: none;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	&::after {
+		@include pseudo;
+
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: -0.2rem;
+
+		border-bottom: 0.1rem solid $pink;
+		opacity: 0;
+		transition: .3s;
+
+	}
+
+	&:hover {
+		&::after {
+
+			bottom: 0;
+			opacity: 1;
+		}
+	}
+
+}
+
+a + p {
+	margin-top: 2.4rem;
+}
+
+blockquote {
+	margin: 4.8rem 0;
+
+	font-size: 2rem;
+	font-weight: 700;
+	font-style: italic;
+}
+
+h1, h2, h3, h4 {
+	font-family: adonis-web, serif;
+	color: $blue;
+	text-transform: capitalize;
+}
+
+h5, h6 {
+	color: $blue;
+	text-transform: capitalize;
+}
+
+h1 {
+	position: relative;
+	display: block;
+
+	font-size: 4.4rem;
+
+	line-height: 1.3636;
+
+	
+}
+
+h2 {
+	font-size: 3.6rem;
+
+	margin-bottom: 2.4rem;
+
+	line-height: 1.3334;
+}
+
+h3 {
+	font-size: 2.8rem;
+
+	margin-bottom: 2.4rem;
+
+	line-height: 1.3334;
+}
+
+h4 {
+	font-size: 2.8rem;
+
+	margin-top: 1.2rem;
+	margin-bottom: 1.2rem;
+
+	line-height: 1.3334;
+}
+
+h5 {
+	font-size: 2rem;
+
+	margin-bottom: 0.6rem;
+}
+
+h6 {
+	font-size: 1.6rem;
+
+	margin-bottom: 1.2rem;
+}
+
+ul {
+	list-style-type: none;
+	
+	margin: 0;
+	margin-bottom: 2.4rem;
+	padding-left: 0;
+}
+
+li {
+	padding: 0.6rem 0;
+
+	line-height: 1.5;
+
+	&:first-of-type {
+		padding-top: 0;
+	}
+
+	&:last-of-type {
+		padding-bottom: 0;
+	}
+}
+
+@include x( m ) {
+	h1 {
+		font-size: 6rem;
+	}
+	h2 {
+		padding-left: 2rem;
+
+		font-size: 4.8rem;
+	}
+}
+
+@include x( l ) {
+	h1 {
+		font-size: 7.2rem;
+	}
+	h2 {
+		line-height: 1;
+	}
+	h3 {
+		font-size: 3.6rem;
+	}
+}
+
+.h6 {
+	margin-bottom: 1.2rem;
+
+	font-size: 1.8rem;
+	font-weight: 700;
+}

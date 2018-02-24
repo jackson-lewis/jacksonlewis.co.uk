@@ -1,0 +1,67 @@
+//  ////  ////  --  --|    HAMBURGER
+
+
+.hamburger {
+    width: 26px;
+    height: 21px;
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    float: right;
+    cursor: pointer;
+    z-index: $z-hamburger;
+
+    transition: .8s;
+
+    @extend %a_menu;
+
+    div:nth-child(1) {
+        margin: 0;
+    }
+
+    div:nth-child(3) {
+        margin: 0;
+    }
+
+    @include x( m ) {
+        display: none;
+    }
+}
+
+.hamburger > div {
+    width: 26px;
+    height: 3px;
+    margin: 6px 0;
+
+    background-color: $blue;
+    transition: .4s;
+
+    &:nth-child(2) {
+        width: 20px;
+        margin-left: 6px;
+    }
+}
+
+.change {
+    
+}
+
+.change div:nth-child(1) {
+    transform-origin: 100% 50%;
+    transform: translate(0px, 0px) rotate(-45deg);
+}
+.change div:nth-child(2) {
+
+    transform: translate(40px, 0px);
+
+    opacity: 0;
+}
+.change div:nth-child(3) {
+    transform-origin: 100% 50%;
+    transform: translate(0px, 0px) rotate(45deg);
+}
+
+.switch {
+    background-color: $mellow;
+}

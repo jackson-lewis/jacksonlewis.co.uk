@@ -1,0 +1,308 @@
+//  ////  ////  --  --|    PORTFOLIO
+
+
+
+.about {
+
+	@extend %clearfix;
+
+	h2 {
+		position: relative;
+
+		z-index: $z-a-content;
+	}
+
+	p {
+		position: relative;
+		z-index: $z-a-content;
+
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	div[data-bg="about"] {
+		width: calc( 100vw );
+		height: 75vh;
+		max-height: 80rem;
+		min-height: 36rem;
+		margin: 4.8rem 0;
+		position: relative;
+		left: -2rem;
+		overflow: hidden;
+		z-index: $z-me;
+
+		opacity: 0;
+		transform: translateY( 100px );
+
+		&::before, &::after {
+			@include pseudo( absolute );
+
+			width: 100%;
+			height: 14rem;
+			display: block;
+			z-index: 10;
+		}
+
+		&::before {
+			top: 0;
+			background: linear-gradient( to bottom, rgba( $mellow , 1 ) 0%,rgba( $mellow , 0 ) 100% );
+		}
+
+		&::after {
+			bottom: 0;
+			background: linear-gradient( to top, rgba( $mellow , 1 ) 0%,rgba( $mellow , 0 ) 100% );
+		}
+
+		img {
+			width: 150%;
+			max-width: none;
+			position: relative;
+			left: -25%;
+
+			opacity: 0.6;
+
+			z-index: $z-me;
+		}
+	}
+
+	@include x( m ) {
+
+		p {
+			@include col( 2, right );
+		}
+
+		div[data-bg="about"] {
+			width: calc( 33.33333333% - 4rem );
+			height: 40rem;
+			padding: 0;
+			margin: 0 2rem;
+			float: left;
+			left: 0;
+
+			img {
+				position: absolute;
+			}
+		}
+	}
+}
+
+.projects {
+
+	ul {
+		list-style-type: none;
+		margin-bottom: 0;
+		padding: 0;
+		position: relative;
+
+		@extend %clearfix;
+
+		z-index: $z-a-content;
+	}
+
+	li {
+		margin-bottom: 6rem;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		div {
+			position: relative;
+		}
+
+		img {
+			max-width: 100%;
+			margin: 0;
+		}
+
+		p {
+			margin-top: 0;
+
+			@include truncate( 3 );
+		}
+
+		.image, h4 {
+			opacity: 0;
+			transform: translateX( 100px );
+		}
+
+		p, a {
+			opacity: 0;
+			transform: translateY( 100px );
+		}
+
+		&:nth-child(1) {
+			@extend %clearfix;
+		}
+	}
+
+	@include x( m ) {
+		li {
+			@include col( 1 );
+
+			h4, .image, p, a {
+				opacity: 0;
+				transform: translateY( 100px );
+			}
+
+			&:first-of-type, &:last-of-type {
+				width: 100% !important;
+				padding: 0;
+
+				div {
+					width: calc( 66.666666666% - 4rem );
+					margin: 0 2rem;
+					float: left;
+				}
+
+				h4, p {
+					@include col( 1 );
+				}
+
+				a {
+					margin-left: 2rem;
+				}
+
+				h4 {
+					margin-top: 0;
+				}
+
+				.image {
+					transform: translateY( 100px );
+				}
+
+				h4, p, a {
+					transform: translateX( 100px );
+				}
+			}
+
+			&:last-of-type {
+				div {
+					float: right;
+				}
+
+				.image {
+					transform: translateX( 100px );
+				}
+
+				h4, p, a {
+					transform: translateY( 100px );
+				}
+			}
+		}
+	}
+}
+
+.contact {
+
+	#c_opener {
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	.details {
+		width: 67%;
+		margin: 4.8rem 0;
+		position: relative;
+
+		z-index: $z-a-content;
+
+		@extend %clearfix;
+
+		opacity: 0;
+		transform: translateY( 100px );
+		
+		&:first-of-type {
+			margin-left: 33%;
+			text-align: right;
+
+		}
+	}
+
+	div[data-bg="contact"] {
+		width: calc( 100vw );
+		height: 75vh;
+		max-height: 80rem;
+		min-height: 36rem;
+		margin: 4.8rem 0;
+		display: none;
+		position: relative;
+		left: -2rem;
+		overflow-y: hidden;
+		z-index: $z-me;
+
+		opacity: 0;
+		transform: translateY( 100px );
+
+		&::before, &::after {
+			@include pseudo( absolute );
+
+			width: 100%;
+			height: 14rem;
+			display: block;
+			z-index: 10;
+		}
+
+		&::before {
+			top: 0;
+			background: linear-gradient( to bottom, rgba( $mellow , 1 ) 0%,rgba( $mellow , 0 ) 100% );
+		}
+
+		&::after {
+			bottom: 0;
+			background: linear-gradient( to top, rgba( $mellow , 1 ) 0%,rgba( $mellow , 0 ) 100% );
+		}
+
+		img {
+			width: 100%;
+			max-width: none;
+			position: relative;
+			left: 0;
+
+			z-index: -10;
+		}
+	}
+
+	@include x( m ) {
+
+		div[data-bg="contact"] {
+			width: calc( 33.33333333% - 4rem );
+			height: 40rem;
+			padding: 0;
+			margin: 0 2rem;
+			margin-top: 6rem;
+			display: block;
+			float: left;
+			left: 0;
+
+			img {
+				position: absolute;
+			}
+		}
+	}
+
+	@include x( m ) {
+		h2 + p, .details {
+			@include col( 1 );
+		}
+
+		.details {
+			margin: 0;
+
+			&:first-of-type {
+				margin-left: 0;
+				text-align: left;
+
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

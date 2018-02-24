@@ -1,0 +1,42 @@
+//  ////  ////  --  --|    TYPOGRAPHY
+
+
+
+
+.code {
+	position: relative;
+	margin-bottom: 2.4rem;
+
+	&::after {
+		@include pseudo;
+
+		width: 6rem;
+		height: 98%;
+		display: block;
+		position: absolute;
+		right: 2rem;
+		bottom: 1%;
+
+		background: linear-gradient( to left, rgba( $l-blue , 1 ) 0%,rgba( $l-blue , 0 ) 90% );
+	}
+
+	pre {
+		width: 100%;
+		margin: 0;
+		padding: 2rem;
+		position: relative;
+
+		background-color: $l-blue;
+		color: $mellow;
+		border-radius: 0.4rem;
+
+		
+	}
+
+	code {
+		width: 100%;
+		font-size: 1.4rem;
+		line-height: 1.4;
+	}
+	
+}

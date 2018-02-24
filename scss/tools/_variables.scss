@@ -1,0 +1,62 @@
+//  ////  ////  --  --|    VARIABLES
+
+
+
+
+//  ////  --|    COLORS
+
+
+//  COLOR SCHEME
+$mellow:   	#FAFAEA;
+
+$blue: 		#375096;
+$l-blue: 	lighten( $blue, 5% );
+
+$pink: 		#D9377E;
+
+$red:		#D12B2B;
+
+
+
+
+
+//  ////  --|    Z-INDEX ARCHIVE
+
+
+//  TOP LEVEL
+$z-header:      	200;
+$z-container:   	60;
+$z-footer:      	40;
+
+
+//  HEADER SUB LEVEL (CONTENT)
+$z-logo:        	20;
+$z-hamburger:   	20;
+$z-nav:         	10;
+
+
+//  HERO SUB LEVEL (CONTENT)
+$z-hero:      	 	200;
+$z-hero-bg:       	5;
+$z-hero-content:	20;
+$z-hero-text:		10;
+$z-hero-grad:   	10;
+
+
+//  ABOUT SUB LEVEL (CONTENT)
+$z-content:       	300;
+$z-me:				1;
+$z-a-content:   	20;
+
+
+//  FOOTER SUB LEVEL (CONTENT)
+$z-sample:      	10;
+
+
+
+
+//  ////  --|    MISC
+
+
+//  HOVER EFFECT TIMER
+$duration: .3s;

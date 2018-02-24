@@ -1,0 +1,131 @@
+//  ////  ////  --  --|    HERO
+
+
+.hero {
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	display: block;
+	z-index: $z-hero;
+
+	overflow: hidden;
+
+	@extend %clearfix;
+
+	p {
+		max-width: 67%;
+		position: relative;
+		float: right;
+
+		text-align: right;
+		font-weight: 700;
+		font-style: italic;
+	}
+
+	.hero-background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: $z-hero-bg;
+
+		overflow-x: hidden;
+
+		background-image: url( ../assets/heros/portfolio.jpg );
+		background-attachment: scroll; 
+		background-size: auto 100%;
+		background-position: 40% 0%;
+		background-repeat: no-repeat;
+		
+		opacity: 0.2;
+
+		@extend %a_hero;
+	}
+
+	.hero-content {
+		padding: 0 2rem;
+		position: relative;
+		top: 14rem;
+		z-index: $z-hero-content;
+	}
+
+	.gradient {
+		width: 100%;
+		height: 16rem;
+		position: absolute;
+		bottom: 0;
+		display: block;
+		z-index: $z-hero-grad;
+		
+		background: linear-gradient( to top, rgba( $mellow , 1 ) 0%,rgba( $mellow , 0 ) 100% );
+	}
+}
+
+.p-h1, .p-p {
+	width: calc( 100% - 4rem );
+	display: block;
+	position: fixed;
+	left: 50%;
+	transform: translateX( -50% );
+	z-index: $z-hero-text;
+
+	overflow-y: hidden;
+	overflow-x: visible; 
+}
+
+.p-h1 {
+	padding-bottom: 1.2rem;
+	border-bottom: 0.2rem solid $blue;
+
+	h1 {
+		position: relative;
+
+		@extend %a_heading;
+	}
+}
+
+.p-p {
+	padding-top: 1.2rem;
+
+	@extend %a_caption;
+
+	p {
+		margin: 0;
+	}
+}
+
+
+@include x( m ) {
+
+	.hero {
+
+		.hero-background {
+			background-attachment: scroll;
+			background-size: auto 100%;
+			background-position: 0% 0%;
+		}
+
+		p {
+			max-width: 33.3333333333%;
+
+			font-size: 2rem;
+		}
+
+	}
+
+}
+
+@include x( l ) {
+
+	.hero {
+
+		.hero-background {
+			background-attachment: scroll;
+			background-size: 100% auto;
+			background-position: 0% center;
+		}
+
+	}
+
+}

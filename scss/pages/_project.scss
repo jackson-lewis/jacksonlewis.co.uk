@@ -1,0 +1,177 @@
+//  ////  ////  --  --|    PROJECT
+
+
+
+.pro-hero {
+	margin: 0 2rem;
+	margin-bottom: 9.6rem;
+
+	overflow-y: hidden; 
+
+	h2 {
+		opacity: 0;
+		transform: translateX( 100px );
+	}
+
+	.image {
+		margin-bottom: 2.4rem;
+	}
+
+	ul {
+		list-style-type: none;
+
+		margin-bottom: 2.4rem;
+		padding: 0;
+		clear: right;
+
+		&:first-of-type {
+			float: right;
+			text-align: right;
+		}
+
+		li {
+			padding: 0.2rem 0;
+		}
+	}
+
+	.image, p, ul {
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	li:first-of-type {
+		padding-bottom: 0.6rem;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	div {
+		@extend %clearfix;
+	}
+
+	@include x( m ) {
+		
+		margin: 0;
+		margin-bottom: 9.6rem;
+
+		.image {
+			margin-left: 2rem;
+			margin-right: 2rem;
+		}
+
+		h2 {
+			margin-bottom: 1.2rem;
+		}
+
+		p, ul {
+			@include col( 1 );
+		}
+
+		ul {
+			clear: none;
+			text-align: right;
+
+			&:first-of-type {
+				float: left;
+			}
+		}
+	}
+}
+
+
+
+.case-switcher {
+	@extend %clearfix;
+
+	margin: 6rem 2rem 0 2rem;
+
+
+	h4 {
+		margin-top: 0;
+	}
+
+	div:first-of-type {
+		padding-bottom: 1.2rem;
+		border-bottom: 0.2rem solid $pink;
+	}
+
+	div:last-of-type {
+		@extend %clearfix;
+
+		padding-top: 1.2rem;
+
+		* {
+			float: right;
+			clear: right;
+			text-align: right;
+		}
+	}
+
+	@include x( m ) {
+		div {
+			@include col( 1 );
+
+			&:first-of-type {
+				margin-right: calc( 33.3333333% );
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+
+			&:last-of-type {
+				padding-top: 0;
+			}
+
+			h4 {
+				width: 100%;
+				padding-bottom: 0.6rem;
+				border-bottom: 0.2rem solid $pink;
+			}
+		}
+	}
+}
+
+.case-closer {
+	width: 20rem;
+	display: block;
+	position: relative;
+	margin-left: 2rem;
+	
+	a {
+		width: 100%;
+
+		color: $blue;
+		text-transform: uppercase;
+		text-align: right;
+		line-height: 1;
+
+		opacity: 0;
+		transform: translateY( 100px );
+
+		&:first-of-type {
+			margin-bottom: 1.2rem;
+			padding-bottom: 1.2rem;
+
+			border-bottom: 0.2rem solid $blue;
+		}
+
+		&::after {
+			border-bottom: none;
+		}
+
+		transition: .3s;
+
+		&:hover {
+			color: $pink;
+		}
+	}
+
+	@include x( l ) {
+		position: fixed;
+		top: 6rem;
+		right: 3rem;
+
+		a {
+			text-align: left;
+		}
+	}
+}

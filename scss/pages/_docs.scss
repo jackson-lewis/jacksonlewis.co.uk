@@ -1,0 +1,438 @@
+//  ////  ////  --  --|    DOCS
+
+
+
+.docs-hero {
+	width: calc( 100% - 4rem );
+	position: fixed;
+	top: 12rem;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@extend %clearfix;
+
+	h1 {
+		line-height: 1;
+		position: relative;
+	}
+
+	.image {
+		margin-bottom: 1.2rem;
+		position: relative;
+	}
+
+	p {
+		text-align: right;
+		position: relative;
+	}
+
+	@include x( m ) {
+		width: 100%;
+		max-width: 860px;
+		top: 12rem;
+
+		h1 {
+			@include col( 3 );
+			line-height: 1;
+		}
+
+		.image {
+			@include col( 3 );
+			margin-bottom: 1.2rem;
+		}
+
+		p {
+			@include col( 1, right );
+			text-align: right;
+		}
+	}
+
+	@include x( l ) {
+		top: 6rem;
+	}
+}
+
+.chapter-heading {
+	position: relative;
+	margin-top: 16.8rem;
+
+	@extend %clearfix;
+
+	h2 {
+		line-height: 1.3334;
+	}
+
+	@include x( m ) {
+		h2 {
+			@include col( 1 );
+		}
+		p {
+			@include col( 2 );
+		}
+	}
+}
+
+div[data-chapter="industry"] {
+	margin-top: 0;
+	padding-top: 67vh;
+
+	@include x( l ) {
+		padding-top: 700px;
+	}
+}
+
+@include x( m ) {
+
+	._respo {
+		h3 {
+			@include col( 1 );
+		}
+
+		p:first-of-type {
+			@include col( 1 );
+		}
+
+		.image, .code {
+			@include col( 1 );
+		}
+
+		p:last-of-type {
+			@include col( 1 );
+		}
+
+		ul {
+			@include col( 2, right );
+		}
+	}
+
+	._skill {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2 );
+		}
+
+		.image {
+			@include col( 3 );
+		}
+
+		h4 {
+			@include col( 2, right );
+			clear: left;
+		}
+
+		ul {
+			@include col( 2, right );
+		}
+
+		ul + p {
+			@include col( 1 );
+			clear: right;
+		}
+	}
+
+	._career {
+		h3 {
+			@include col( 1 );
+		}
+
+		.image {
+			@include col( 2, right );
+		}
+
+		.image + p {
+			@include col( 1 );
+			clear: left;
+		}
+
+		div:nth-of-type(-n+4) {
+			@include col( 1 );
+			margin-bottom: 4.8rem;
+			clear: right;
+
+			div:nth-of-type(1) {
+				width: 100% !important;
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			p {
+				min-height: 4.8rem;
+			}
+		}
+
+		div:nth-of-type(1) {
+			@include col( 2, right );
+			margin-bottom: 2.4rem;
+			clear: none;
+		}
+
+		div + p {
+			@include col( 2, right );
+		}
+
+		.image + h4 {
+			@include col( 2, right );
+		}
+
+		.image + h4 + p {
+			@include col( 2, right );
+		}
+	}
+
+	._samples {
+		h3 {
+			@include col( 2 );
+		}
+
+		.image {
+			@include col( 1 );
+			clear: both;
+		}
+
+		h4 {
+			@include col( 2 );
+			margin-top: 0;
+		}
+
+		p {
+			@include col( 2 );
+		}
+
+		.image:last-of-type {
+			margin-top: 4.8rem;
+		}
+
+		h4:last-of-type {
+			margin-top: 4.8rem;
+		}
+		
+	}
+
+	._feedback {
+		h3 {
+			@include col( 1, right );
+		}
+
+		.image {
+			@include col( 2 );
+		}
+
+		p {
+			@include col( 1, right );
+		}
+
+		blockquote {
+			@include col( 2, right );
+			clear: both;
+		}
+		
+	}
+
+	._apps {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		h4 {
+			@include col( 2, right );
+		}
+	}
+
+	._swot {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		.image {
+			@include col( 3 );
+		}
+
+		h4:nth-of-type(odd) {
+			@include col( 2 );
+		}
+
+		ul:nth-of-type(odd) {
+			@include col( 2 );
+		}
+
+		h4:nth-of-type(even) {
+			@include col( 2, right );
+		}
+
+		ul:nth-of-type(even) {
+			@include col( 2, right );
+		}
+	}
+
+	._cv {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		ul {
+			@include col( 2, right );
+		}
+
+		.image:nth-of-type(1) {
+			@include col( 3 );
+		}
+
+		.image:nth-of-type(2) {
+			@include col( 2 );
+		}
+
+		.image:nth-of-type(2) + p {
+			@include col( 1 );
+		}
+
+		.image:nth-of-type(2) + p + p {
+			@include col( 2 );
+		}
+
+		.image:nth-of-type(3) {
+			@include col( 2, right );
+		}
+
+		.image:nth-of-type(3) + p {
+			@include col( 1 );
+		}
+	}
+
+	._card_dev {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 1 );
+		}
+
+		.image:nth-of-type(1) {
+			@include col( 2, right );
+		}
+
+		p:nth-of-type(2) {
+			@include col( 1, right );
+			clear: right;
+		}
+
+		.image:nth-of-type(2) {
+			@include col( 2 );
+		}
+
+		p:nth-of-type(3) {
+			@include col( 1, right );
+			clear: both;
+		}
+
+		.image:nth-of-type(3) {
+			@include col( 2 );
+		}
+
+		p:nth-of-type(4) {
+			@include col( 2, right );
+			clear: both;
+		}
+
+		.image:nth-of-type(4) {
+			@include col( 3 );
+		}
+
+		p:nth-of-type(5) {
+			@include col( 2, right );
+		}
+
+		.image:nth-of-type(5) {
+			@include col( 3 );
+		}
+
+		p:nth-of-type(6) {
+			@include col( 2, right );
+		}
+
+		.image:nth-of-type(6) {
+			@include col( 3 );
+		}
+	}
+
+	._research {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		.image {
+			@include col( 3 );
+		}
+
+		h4 {
+			@include col( 2, right );
+		}
+
+		ul {
+			@include col( 2, right );
+		}
+	}
+
+	._design {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		.image:nth-of-type(-n+3) {
+			@include col( 2 );
+		}
+
+		.image:nth-of-type(n+4) {
+			@include col( 3 );
+		}
+	}
+
+	._dev {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		.image:first-of-type {
+			@include col( 3 ); 
+		}
+
+		h4 {
+			@include col( 2, right );
+		}
+
+		.code {
+			@include col( 2 ); 
+		}
+
+		.image:nth-of-type(n+2) {
+			@include col( 2 ); 
+		}
+	}
+}

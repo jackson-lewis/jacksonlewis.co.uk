@@ -1,0 +1,19 @@
+//  ////  ////  --  --|    FEATURES
+
+
+//  IMAGE HOVER EFFECT
+%img-pos {
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+.top { 
+	@extend %img-pos; 
+	z-index: 2;
+	transition: $duration * 2;
+
+	&:hover {
+		opacity: 0;
+	}
+}
+.bottom { @extend %img-pos; z-index: 1 }

@@ -1,0 +1,266 @@
+//  ////  ////  --  --|    ARTICLE TYPES
+
+
+
+
+
+body[ data-page='portfolio' ]  article {
+
+	h3 {
+		opacity: 0;
+		transform: translateX( 100px );
+	}
+
+	p {
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+
+	.image, .code {
+		opacity: 0;
+		transform: translateY( 100px );
+	}
+}
+
+@include x( m ) {
+	
+	._1 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2 );
+		}
+
+		.image, .code {
+			@include col( 3 );
+		}
+	}
+
+	._2 {
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		p {
+			@include col( 2, right );
+		}
+
+		.image, .code {
+			@include col( 3 );
+		}
+	}
+
+	._3 {
+		.image, .code {
+			@include col( 3 );
+		}
+
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 2 );
+		}
+	}
+
+	._4 {
+		.image, .code {
+			@include col( 3 );
+		}
+
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		p {
+			@include col( 2 );
+		}
+	}
+
+	._5 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 1 );
+			clear: left;
+		}
+
+		.image, .code {
+			@include col( 2, right );
+		}
+	}
+
+	._6 {
+		h3 {
+			@include col( 1, right );
+		}
+
+		p {
+			@include col( 1, right );
+			clear: right;
+		}
+
+		.image, .code {
+			@include col( 2 );
+		}
+	}
+
+	._7 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p:first-of-type {
+			@include col( 1 );
+		}
+
+		.image, .code {
+			@include col( 2, right );
+		}
+
+		p:last-of-type {
+			@include col( 2 );
+			clear: both;
+		}
+	}
+
+	._8 {
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		p:first-of-type {
+			@include col( 1, right );
+			clear: right;
+			text-align: right;
+		}
+
+		.image, .code {
+			@include col( 2 );
+		}
+
+		p:last-of-type {
+			@include col( 2 );
+			float: right;
+			clear: both;
+			text-align: right;
+		}
+	}
+
+	._9 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p:first-of-type {
+			@include col( 2 );
+		}
+
+		.image, .code {
+			@include col( 2 );
+			clear: both;
+		}
+
+		p:last-of-type {
+			@include col( 1 );
+		}
+	}
+
+	._10 {
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		p:first-of-type {
+			@include col( 2 );
+		}
+
+		.image, .code {
+			@include col( 2, right );
+		}
+
+		p:last-of-type {
+			@include col( 1 );
+		}
+	}
+
+	._11 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p:first-of-type {
+			@include col( 1 );
+		}
+
+		.image, .code {
+			@include col( 1 );
+		}
+	}
+
+	._12 {
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		p:first-of-type {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		.image, .code {
+			@include col( 1 );
+		}
+	}
+
+	._13 {
+		h3 {
+			@include col( 1 );
+		}
+
+		.image, .code {
+			@include col( 1 );
+		}
+
+		p:first-of-type {
+			@include col( 1 );
+		}
+	}
+
+	._14 {
+		h3 {
+			@include col( 1, right );
+			text-align: right;
+		}
+
+		.image, .code {
+			@include col( 1, right );
+		}
+
+		p:first-of-type {
+			@include col( 1 );
+			text-align: right;
+		}
+	}
+
+	._15 {
+		h3 {
+			@include col( 1 );
+		}
+
+		p {
+			@include col( 1 );
+		}
+	}
+
+}
