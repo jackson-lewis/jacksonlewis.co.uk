@@ -1,0 +1,49 @@
+
+@import '../settings/settings';
+
+
+.post-archive-header {
+    padding: 4rem 2rem;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.posts {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts__post {
+    width: 45%;
+    margin: 0 2.5% 2rem;
+    padding: 1rem 1rem 2rem;
+
+    border-radius: .4rem;
+    box-shadow: 0 0 2rem rgba( $black, .2 );
+
+    &:nth-child(even) {
+        margin-right: 0;
+    }
+
+    transition: 200ms;
+
+    &:hover {
+        transform: translateY( -.2rem );
+        box-shadow: 0 1rem 4rem rgba( $black, .2 );
+    }
+
+    a {
+        text-decoration: none;
+        color: $black;
+        font-weight: 600;
+    }
+}
+
+.post-thumbnail {
+    margin-bottom: 2rem;
+
+    border-radius: .4rem;
+}

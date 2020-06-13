@@ -1,0 +1,54 @@
+
+@import '../settings/settings';
+
+
+// Post Header
+
+header.post-header {
+    padding-bottom: 6rem;
+    position: relative;
+
+    h1 {
+        margin-bottom: 1rem;
+
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    span {
+        margin: 0 auto;
+        display: block;
+
+        font-size: 1.4rem;
+        color: $grey;   
+        text-align: center;
+    }
+
+    @include after {
+        width: 1rem;
+        height: 1rem;
+        left: calc( 50% - .5rem );
+        bottom: -.5rem;
+
+        background-color: $primary;
+        border-radius: 1rem;
+    }
+}
+
+.post-header-container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.post-featured-image {
+    margin-bottom: 2rem;
+}
+
+
+// Post Content
+
+div.post-content-wrapper {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 6rem 0;
+}
