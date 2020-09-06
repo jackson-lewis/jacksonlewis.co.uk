@@ -8,12 +8,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import SEO from "../components/SEO"
-import Page from "../components/Page"
-import StandardHero from "../components/StandardHero"
-import ProjectsLoop from "../components/ProjectsLoop"
-import ContentBlock from "../components/ContentBlock"
-import StyledLink from "../components/Link"
+import SEO from "@components/SEO"
+import Page from "@components/Page"
+import StandardHero from "@components/StandardHero"
+import ProjectsLoop from "@components/ProjectsLoop"
+import ContentBlock from "@components/ContentBlock"
+import StyledLink from "@components/Link"
 
 
 const Projects = ({ data }) => {

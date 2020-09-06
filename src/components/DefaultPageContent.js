@@ -38,19 +38,19 @@ const StyledSiteContainer = styled( SiteContainer )`
 `
 
 
-const DefaultPageContent = ({ body }) => {
+const DefaultPageContent = ({ mdxBody }) => {
 
     return (
         <StyledSiteSection>
             <StyledSiteContainer>
-                <MDXRenderer>{ body }</MDXRenderer>
+                <MDXRenderer>{ mdxBody }</MDXRenderer>
             </StyledSiteContainer>
         </StyledSiteSection>
     )
 }
 
 DefaultPageContent.propTypes = {
-    body: PropTypes.isRequired
+    mdxBody: PropTypes.string.isRequired
 }
 
 export default DefaultPageContent

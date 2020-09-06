@@ -3,9 +3,9 @@
  */
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import Page from "../components/Page"
-import SEO from "../components/SEO"
-import Error404 from "../components/Error404"
+import Page from "@components/Page"
+import SEO from "@components/SEO"
+import Error404 from "@components/Error404"
 
 
 const Page404Styles = createGlobalStyle`

@@ -3,10 +3,10 @@
  */
 import React from 'react'
 import { graphql } from 'gatsby'
-import Page from '../components/Page'
-import SEO from "../components/SEO";
-import StandardHero from "../components/StandardHero";
-import DefaultPageContent from '../components/DefaultPageContent';
+import Page from '@components/Page'
+import SEO from "@components/SEO"
+import StandardHero from "@components/StandardHero"
+import DefaultPageContent from '@components/DefaultPageContent'
 
 
 const ProjectTemplate = ({ data }) => {
