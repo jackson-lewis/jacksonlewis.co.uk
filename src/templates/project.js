@@ -20,7 +20,7 @@ const ProjectTemplate = ({ data }) => {
             <StandardHero>
             <h1>{ frontmatter.title }</h1>
             </StandardHero>
-            <DefaultPageContent body={ body } />
+            <DefaultPageContent mdxBody={ body } />
         </Page>
     )
 

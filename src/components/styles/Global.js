@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
         --black: ${ colors.black };
         --grey: ${ colors.grey };
 
-        --body-color: var( --grey );
+        --body-color: var( --black );
         --heading-color: var( --white );
         --link-color: var( --blue );
         --outline-color: #403838;
@@ -32,12 +32,30 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        margin: 0;
+        
         font-family: var( --serif-font );
-
         font-size: var( --base-font-size );
         font-weight: 400;
         font-style: normal;
-        color: var( --body-color );
+        color: var( --white );
+        background-color: var( --body-color );
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+        color: var( --link-color );
+
+        :hover {
+            text-decoration: none;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        color: var( --heading-color );
     }
 
     .sans-font {
