@@ -4,7 +4,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Page from '@components/Page'
-import SEO from "../components/Seo"
+import SEO from "@components/_SEO"
 import StandardHero from "@components/StandardHero"
 import DefaultPageContent from "@components/DefaultPageContent"
 

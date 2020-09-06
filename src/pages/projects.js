@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import SEO from "@components/Seo"
+import SEO from "@components/_SEO"
 import Page from "@components/Page"
 import StandardHero from "@components/StandardHero"
 import ProjectsLoop from "@components/ProjectsLoop"

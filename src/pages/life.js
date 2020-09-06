@@ -2,7 +2,7 @@
  * All about my life when I'm not working...
  */
 import React from "react"
-import SEO from "@components/Seo"
+import SEO from "@components/_SEO"
 import Page from "@components/Page"
 import StandardHero from "@components/StandardHero"
 import LifeFeature from "@components/LifeFeature"
