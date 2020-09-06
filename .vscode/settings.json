@@ -1,0 +1,6 @@
+{
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#252125"
+    },
+    "colorize.languages": ["javascript", "css", "scss"]
+}

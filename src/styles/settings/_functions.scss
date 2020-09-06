@@ -16,6 +16,6 @@
 
 
 // Get baseline as rem
-@function get_baseline( $size: 10 ) {
-    @return rem( $baseline / $size );
+@function get_baseline( $multiplier: 1 ) {
+    @return rem( $baseline * $multiplier );
 }

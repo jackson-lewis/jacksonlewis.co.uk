@@ -1,14 +1,28 @@
+/**
+ * The '404' page
+ */
 import React from "react"
+import { createGlobalStyle } from "styled-components"
+import Page from "../components/Page"
+import SEO from "../components/SEO"
+import Error404 from "../components/Error404"
 
-import Layout from "../components/base/layout"
-import SEO from "../components/seo"
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const Page404Styles = createGlobalStyle`
+    footer {
+        position: absolute;
+    }
+`
+
+const NotFoundPage = () => {
+    return (
+        <Page>
+            <Page404Styles />
+            <SEO title="404: Not found" />
+            <Error404 />
+        </Page>
+    )
+}
+
 
 export default NotFoundPage
