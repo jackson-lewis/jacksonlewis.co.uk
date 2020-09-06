@@ -14,7 +14,7 @@ const { baseFontSize, baseLineHeight } = typography
  * @return {string} A fraction of the baseline in the rem unit
  */
 const getBaseline = ( multiplier = 1 ) => {
-    return `${baseFontSize * baseLineHeight * multiplier}rem`
+    return `${ baseFontSize * baseLineHeight * multiplier }rem`
 }
 
 
