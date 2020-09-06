@@ -3,7 +3,7 @@
  */
 import React from "react"
 import Page from "@components/Page"
-import SEO from "@components/SEO"
+import SEO from "@components/Seo"
 import ContactContent from "@components/Contact"
 
 

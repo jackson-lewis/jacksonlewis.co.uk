@@ -4,7 +4,7 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
 import Page from "@components/Page"
-import SEO from "@components/SEO"
+import SEO from "@components/Seo"
 import Error404 from "@components/Error404"
 
 
