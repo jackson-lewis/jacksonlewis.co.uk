@@ -11,29 +11,25 @@ import { getBaseline } from './styles/Functions'
 
 const StyledHero = styled( BackgroundImage )`
     width: 100%;
-    min-height: calc( 300px + ${ getBaseline( 4 ) } + var( --header-height ) );
-    height: 90vh;
+    min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
+    height: 80vh;
     max-height: 1000px;
-    margin-bottom: 0rem;
-    padding-bottom: 0rem;
+    margin-bottom: 0;
+    padding: var( --header-height ) var( --site-margin ) 100px;
     position: relative;
     z-index: 20;
-`
-
-const StyledGrid = styled.div`
-    width: 100%;
-    height: 100%;
-    padding: var( --header-height ) calc( var( --site-margin ) * 2 );
     display: grid;
     align-items: flex-end;
 
     @media ${ minWidth.medium } {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 10vw;
         align-items: center;
     }
 `
 
 const StyledContent = styled.div`
-    max-width: 30rem;
+    max-width: 360px;
     
     color: var( --white );
 
@@ -43,20 +39,21 @@ const StyledContent = styled.div`
 
     span {
         font-family: var( --sans-font );
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 300;
         letter-spacing: 4px;
         text-transform: uppercase;
+        color: var( --pure-white );
     }
 
     h1 {
         margin-top: ${ getBaseline( .25 ) };
-        margin-bottom: ${ getBaseline( .5 ) };
 
-        font-size: clamp( 3.75rem, 6vw, 5.625rem );
+        font-size: clamp( 2rem, 5vw, 5.625rem );
+        line-height: 1.4;
 
-        & + p {
-            max-width: 75%;
+        + p {
+            font-size: 1.1rem;
         }
     }
 `
@@ -94,12 +91,11 @@ const MasterHero = ({ children }) => {
                 backgroundPosition: `left bottom, center, center, right 100%, center 2%`,
                 backgroundSize: `100% 80%, cover, cover, 67% 100%, cover`
             }}
+            className="layout--2_col"
         >
-            <StyledGrid className="layout--2_col">
-                <StyledContent>
-                    { children }
-                </StyledContent>
-            </StyledGrid>
+            <StyledContent>
+                { children }
+            </StyledContent>
         </StyledHero>
     )
 }

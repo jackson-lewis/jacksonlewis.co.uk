@@ -12,18 +12,10 @@ import { getBaseline, pseudoRequired } from "./styles/Functions"
 
 const StyledWrapper = styled.div`
     width: 100vw;
-    height: calc( 100vh - calc( var( --header-height ) + 2rem ) );
+    min-height: calc( 100vh - 151px );
     padding: calc( var( --header-height ) + 2rem ) var( --site-margin ) 0;
     display: grid;
     align-items: center;
-
-    background-image: radial-gradient( ellipse at top left, var( --secondary ), transparent ),
-                      radial-gradient( ellipse at bottom right, var( --primary ), transparent );
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var( --white );
 `
 
 const StyledSiteContainer = styled( SiteContainer )`

@@ -61,7 +61,6 @@ const MobileMenu = ({ isToggled }) => {
                 <ul role="menu">
                     <li role="menuitem"><StyledMenuLink to="/projects">Projects</StyledMenuLink></li>
                     <li role="menuitem"><StyledMenuLink to="/life">Life</StyledMenuLink></li>
-                    <li role="menuitem"><StyledMenuLink to="/journal">Journal</StyledMenuLink></li>
                     <li role="menuitem"><StyledMenuLink to="/contact">Contact</StyledMenuLink></li>
                 </ul>
             </StyledNav>

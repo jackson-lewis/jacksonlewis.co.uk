@@ -26,6 +26,25 @@ const StyledHeaderWrapper = styled.div`
         background-color: rgba( 30, 30, 30, .8 );
         backdrop-filter: blur( 4px ) saturate( 90% );
     ` : null }
+
+    &.pre-set-reveal {
+        display: none;
+        position: fixed;
+        top: 0;
+        transform: translateY( -100% );
+    }
+
+    &.set-reveal {
+        height: var( --header-height );
+        display: block;
+
+        background-color: rgba( 30, 30, 30, .8 );
+        backdrop-filter: blur( 4px ) saturate( 90% );
+    }
+
+    &.hey-hey {
+        transform: translateY( 0 );
+    }
 `
 
 const StyledHeader = styled.header`
@@ -59,6 +78,43 @@ const Header = () => {
 
 
     useEffect( () => {
+        /**
+         * Handle scroll watching of header display
+         */
+        const siteHeader = document.querySelector( 'header' )
+
+        let prevScroll = 0
+        const watchScroll = () => {
+            const scroll = window.scrollY
+
+            if ( scroll > 120 ) {
+                siteHeader.parentElement.classList.add( 'pre-set-reveal' )
+
+                setTimeout( () => {
+                    siteHeader.parentElement.classList.add( `set-reveal` )
+                }, 50 )
+
+                if ( scroll < prevScroll ) {
+                    
+                    if ( prevScroll > scroll + 60 ) {
+                        siteHeader.parentElement.classList.add( 'hey-hey' )
+                    } else {
+                        return
+                    }
+                } else {
+                    siteHeader.parentElement.classList.remove( 'hey-hey' )
+                }
+            } else if ( scroll > prevScroll || scroll <= 0 ) {
+                siteHeader.parentElement.classList.remove( 'pre-set-reveal', 'set-reveal', 'hey-hey' )
+            }
+
+            prevScroll = scroll
+        }
+        window.addEventListener( 'scroll', watchScroll )
+
+        /**
+         * Handle menu version to display
+         */
         const checkWindowWidth = () => {
             setMobileState( window.innerWidth < 500 )
         }
@@ -67,6 +123,7 @@ const Header = () => {
         window.addEventListener( 'resize', checkWindowWidth )
 
         return () => {
+            window.addEventListener( 'scroll', watchScroll )
             window.removeEventListener( 'resize', checkWindowWidth )
         }
     }, [] )

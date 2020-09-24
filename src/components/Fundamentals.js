@@ -27,9 +27,9 @@ const StyledSiteSection = styled( SiteSection )`
     }
 
     ::before {
-        width: 16rem;
+        width: 280px;
         height: 1px;
-        top: -5rem;
+        top: -50px;
         z-index: 5;
 
         background: linear-gradient( 90deg, var( --black ), var( --outline-color ), var( --black ) );
@@ -38,7 +38,7 @@ const StyledSiteSection = styled( SiteSection )`
     ::after {
         width: 9px;
         height: 9px;
-        top: calc( -5rem + -4.5px );
+        top: calc( -50px + -4.5px );
         z-index: 10;
 
         border-radius: 10px;
@@ -59,6 +59,10 @@ const StyledBlockBefore = styled.div`
 
     h2 {
         margin-bottom: ${ getBaseline( .5 ) };
+
+        + p {
+            font-size: 1.1rem;
+        }
     }
 
     @media ${ minWidth.medium } {
@@ -104,8 +108,9 @@ const StyledColumn = styled.div`
     }
 
     h3 {
-        margin-bottom: ${ getBaseline( .5 ) };
+        margin-bottom: 0;
 
+        font-size: clamp( 1.4rem, 2vw, 1.8rem );
         background: linear-gradient( 45deg, #0ae4d9, #54d30a );
         background-clip: text;
         -webkit-background-clip: text;
@@ -169,17 +174,14 @@ const Fundamentals = () => {
         <StyledSiteSection>
             <SiteContainer>
                 <StyledBlockBefore>
-                    <h2>What I care about</h2>
-                    <p>It’s what I live and breathe.</p>
+                    <h2>3 things I really, <i>really</i><br/> care about</h2>
+                    <p>At the core of everything I do, these take priority.</p>
                 </StyledBlockBefore>
                 <StyledColumns>
                     <Column heading="Experience" content="Nothing is more valuable than understanding what people want, but giving it to them is even better." />
                     <Column heading="Performance" content="People are impatient. Knowing performance is a thing on the page as well as load." />
                     <Column heading="Simplicity" content="Following principles like DRY and KISS, keeps a codebase tidy and free of crap which is key to a projects success." />
                 </StyledColumns>
-                <StyledBlockAfter>
-                    <StyledLink to="/core-values">My core values</StyledLink>
-                </StyledBlockAfter>
             </SiteContainer>
         </StyledSiteSection>
     )

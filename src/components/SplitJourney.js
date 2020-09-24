@@ -11,12 +11,12 @@ import StyledLink from "./Link"
 
 
 const StyledSiteSection = styled( SiteSection )`
-    padding-right: 2rem;
+    padding-right: calc( var( --site-margin ) * 2 );
     position: relative;
     z-index: 40;
 
     @media ${ minWidth.medium } {
-        padding-right: 0;
+        padding-right: var( --site-margin );
     }
 `
 
@@ -73,7 +73,7 @@ const SplitJourney = () => {
                     <StyledLink to="/projects" type="text">Projects</StyledLink>
                 </TextBlock>
                 <TextBlock>
-                    <p>Away from the screen there’s a good chance I’ll be cleaning my beloved car, or spending some downtime with my aquatic friends.</p>
+                    <p>Don't be alarmed, but I also love not working, weather I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far away from the screen.</p>
                     <StyledLink to="/life" type="text">Life</StyledLink>
                 </TextBlock>
             </StyledSiteContainer>

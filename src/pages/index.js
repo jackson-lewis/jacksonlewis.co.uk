@@ -26,8 +26,7 @@ const Index = ({ data }) => {
             />
             <MasterHero>
                 <span>Jackson Lewis</span>
-                <h1>Frontend Developer</h1>
-                <p>Advancing the web in the week, embracing the outdoors at the weekend.</p>
+                <h1>A frontend developer with a speciality in embracing the outdoors and an obsession with cars</h1>
             </MasterHero>
             <SplitJourney />
             <Fundamentals />
@@ -35,7 +34,6 @@ const Index = ({ data }) => {
             <ContentBlock align="center">
                 <h2>An itch for design</h2>
                 <p>I've loved design for as long as I first set eyes on a piece of code. It has only been in recent years I wanted to push my expertise in frontend development, all while keeping a firm grasp on implementing the best UI and UX.</p>
-                <StyledLink to="/design" color="primary">Design & me</StyledLink>
             </ContentBlock>
         </Page>
     )

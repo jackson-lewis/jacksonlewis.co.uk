@@ -9,25 +9,27 @@ import { SiteContainer } from "./SiteLayout"
 
 const StyledFooter = styled.footer`
     width: 100vw;
-    margin-top: 10rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 2rem;
+    margin-top: 100px;
+    padding-left: var( --site-margin );
+    padding-right: var( --site-margin );
+    padding-bottom: 20px;
     position: relative;    
+
+    color: var( --very-dark-white );
 
     ::before {
         content: '';
-        display: block;
+        display: none;
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 300%;
+        height: 200%;
         z-index: -1;
 
         background-image: linear-gradient( 180deg, var( --black ), transparent ),
-                        radial-gradient( ellipse at bottom left, rgba( var( --secondary ), .3 ), transparent ),
-                        radial-gradient( ellipse at bottom right, rgba( var( --primary ), .3 ), transparent );
+                        radial-gradient( ellipse at bottom left, var( --secondary ), transparent ),
+                        radial-gradient( ellipse at bottom right, var( --primary ), transparent );
     }
 
     a {

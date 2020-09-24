@@ -31,17 +31,14 @@ const StyledLinkRaw = css`
             right: .5rem;
             width: 1rem;
             height: 100%;
-
-            color: inherit;
-            fill: inherit;
+            transform: translateX( 0 );
 
             background-image: url( ${ arrowSVG } );
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% auto;
 
-            transition: 150ms;
-            transition-timing-function: ease-out;
+            transition: transform 150ms ease-out;
         }
 
         :hover {
