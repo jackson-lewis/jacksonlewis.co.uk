@@ -25,7 +25,6 @@ const Index = ({ data }) => {
                 title="Home"
             />
             <MasterHero>
-                <span>Jackson Lewis</span>
                 <h1>A frontend developer with a speciality in embracing the outdoors and an obsession with cars</h1>
             </MasterHero>
             <SplitJourney />

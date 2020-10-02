@@ -36,7 +36,7 @@ const StyledFooter = styled.footer`
         color: inherit;
     }
 
-    @media ${ minWidth.medium } {
+    @media ${ minWidth.as( 667 ) } {
         & > div {
             display: flex;
             justify-content: space-between;

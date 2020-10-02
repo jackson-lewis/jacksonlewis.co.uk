@@ -18,7 +18,12 @@ const StyledSiteSection = styled( SiteSection )`
     padding: 0;
     display: grid;
     grid-gap: 30px 0;
-    grid-template-columns: var( --site-margin ) 1fr 1fr var( --site-margin );
+    grid-template-columns: var( --site-margin ) 1fr calc( var( --site-margin ) * 3 );
+    
+    @media ${ minWidth.as( 667 ) } {
+        grid-template-columns: 1fr 4vw 4vw 1fr;
+        grid-template-rows: auto auto auto;
+    }
 `
 
 const StyledBlockBefore = styled.div`
@@ -26,31 +31,36 @@ const StyledBlockBefore = styled.div`
     grid-row: 1;
 
     h2 {
-        margin-bottom: ${ getBaseline( .5 ) };
+        margin-bottom: ${ getBaseline( .25 ) };
     }
 
-    @media ${ minWidth.medium } {
-        margin-right: 60px;
-        grid-column: 2 / 3;
+    @media ${ minWidth.as( 667 ) } {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: 0;
+        grid-column: 1 / 2;
+        justify-self: flex-end;
 
         h2 {
             font-size: 2.4rem;
         }
+
+        * {
+            margin-left: auto;
+            margin-right: 0;
+        }
     }
 `
 const StyledBlockAfter = styled.div`
-    margin-right: 60px;
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
     grid-row: 4;
-    justify-self: flex-end;
 
     h2 {
         margin-bottom: ${ getBaseline( .5 ) };
     }
 
-    @media ${ minWidth.medium } {
-        padding-bottom: 60px;
-        grid-column: 3 / 4;
+    @media ${ minWidth.as( 667 ) } {
+        grid-column: 3 / 5;
         grid-row: 3;
         justify-self: flex-start;
     }
@@ -75,27 +85,22 @@ const StyledProject = styled( BackgroundImage )`
         background-position: bottom right;
     }
 
-    @media ${ minWidth.medium } {
-        padding-top: 0;
-    }
-
     :nth-child(2) {
-        grid-column: 2 / 5;
-        grid-row: 2;
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
 
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-right: none;
 
-        @include x( m ) {
+        @media ${ minWidth.as( 667 ) } {
             grid-column: 3 / 5;
-            grid-row: 1 / 3;
+            align-self: flex-start;
         }
     }
 
     :nth-child(3) {
-        margin-right: 60px;
-        grid-column: 1 / 4;
+        grid-column: 1 / 3;
         grid-row: 3;
 
         border-top-left-radius: 0;
@@ -106,8 +111,8 @@ const StyledProject = styled( BackgroundImage )`
         background-image: radial-gradient( ellipse at top right, #078a74, transparent ),
                           radial-gradient( ellipse at bottom left, #834907, transparent );
         
-        @media ${ minWidth.medium } {
-            grid-column: 1 / 3;
+        @media ${ minWidth.as( 667 ) } {
+            grid-column: 1 / 2;
             grid-row: 2 / 4;
         }
     }

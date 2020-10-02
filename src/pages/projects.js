@@ -164,7 +164,7 @@ const Projects = () => {
                                 <span>wordpress</span>
                                 <span>woocommerce</span>
                             </div>
-                            <p className="desc">Unique homeware brand Motta Living sell all your homeware needs from lighting to garden.</p>
+                            <p className="desc">Unique homeware brand Motta Living sell all your homeware needs from lighting to garden, with a highly bespoke ecommerce store to match.</p>
                             <StyledLink to="https://mottaliving.co.uk" type="text" color="primary" ext>
                                 View site
                             </StyledLink>

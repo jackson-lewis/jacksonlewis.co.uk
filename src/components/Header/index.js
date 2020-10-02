@@ -2,7 +2,7 @@
  * Site header
  */
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { SiteContainer } from '@components/SiteLayout'
 import { minWidth } from '@styles/MediaQueries'
 import StyledLogo from './Logo'
@@ -21,11 +21,6 @@ const StyledHeaderWrapper = styled.div`
     z-index: 100;
 
     transition: 300ms;
-
-    ${ ({ isToggled }) => isToggled ? css`
-        background-color: rgba( 30, 30, 30, .8 );
-        backdrop-filter: blur( 4px ) saturate( 90% );
-    ` : null }
 
     &.pre-set-reveal {
         display: none;
@@ -75,7 +70,6 @@ const StyledSiteContainer = styled( SiteContainer )`
 const Header = () => {
     const [ isToggled, updateToggleState ] = useState( false )
     const [ isMobile, setMobileState ] = useState( true )
-
 
     useEffect( () => {
         /**

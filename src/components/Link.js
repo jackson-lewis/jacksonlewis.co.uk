@@ -6,11 +6,13 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import { pseudoRequired } from './styles/Functions'
-import arrowSVG from "./icons/link-arrow.svg"
+import { colors } from './styles/Variables'
 
+
+const arrow = color => encodeURIComponent( `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path d='M9.31 6.71a.996.996 0 000 1.41L13.19 12l-3.88 3.88a.996.996 0 101.41 1.41l4.59-4.59a.996.996 0 000-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z' fill='${ color }'/></svg>` )
 
 const StyledLinkRaw = css`
-    padding: 0.65rem 1.05rem 0.7rem;
+    padding: 6.5px 10px 7px;
     ${ props => props.$noArrow ? null : `padding-right: 2rem;` }
 
     text-decoration: none;
@@ -28,12 +30,12 @@ const StyledLinkRaw = css`
         ::after {
             ${ pseudoRequired() }
             top: 0;
-            right: .5rem;
+            right: 5px;
             width: 1rem;
             height: 100%;
             transform: translateX( 0 );
 
-            background-image: url( ${ arrowSVG } );
+            background-image: url( "data:image/svg+xml,${ arrow( colors.white ) }" );
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% auto;
@@ -131,7 +133,7 @@ StyledLink.propTypes = {
 StyledLink.defaultProps = {
     ext: false,
     type: 'filled',
-    color: 'white',
+    color: 'primary',
     noArrow: false,
     target: '',
     rel: '',

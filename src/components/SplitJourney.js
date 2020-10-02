@@ -6,6 +6,7 @@
 import React from "react"
 import styled from "styled-components"
 import { minWidth } from "./styles/MediaQueries"
+import { getBaseline } from "./styles/Functions"
 import { SiteSection, SiteContainer } from "./SiteLayout"
 import StyledLink from "./Link"
 
@@ -15,13 +16,13 @@ const StyledSiteSection = styled( SiteSection )`
     position: relative;
     z-index: 40;
 
-    @media ${ minWidth.medium } {
+    @media ${ minWidth.as( 667 ) } {
         padding-right: var( --site-margin );
     }
 `
 
 const StyledSiteContainer = styled( SiteContainer )`
-    @media ${ minWidth.medium } {
+    @media ${ minWidth.as( 667 ) } {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 0 10vw;
@@ -39,7 +40,7 @@ const TextBlock = styled.div`
     :first-child {
         margin-bottom: 2rem;
         
-        @media ${ minWidth.medium } {
+        @media ${ minWidth.as( 667 ) } {
             margin-bottom: 0;
             justify-self: flex-end;
             position: relative;
@@ -60,6 +61,10 @@ const TextBlock = styled.div`
             }
         }
     }
+
+    p:last-of-type {
+        margin-bottom: calc( ${ getBaseline() } - 6.5px );
+    }
 `
 
 
@@ -70,11 +75,11 @@ const SplitJourney = () => {
             <StyledSiteContainer>
                 <TextBlock>
                     <p>An ever-growing developer, dabbling at both an agency and as a freelancer. Striving to make the web a faster and more enjoyable space.</p>
-                    <StyledLink to="/projects" type="text">Projects</StyledLink>
+                    <StyledLink to="/projects" type="text" color="primary">Projects</StyledLink>
                 </TextBlock>
                 <TextBlock>
-                    <p>Don't be alarmed, but I also love not working, weather I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far away from the screen.</p>
-                    <StyledLink to="/life" type="text">Life</StyledLink>
+                    <p>Don't be alarmed, but I also love not working, weather I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far from the screen.</p>
+                    <StyledLink to="/life" type="text" color="primary">Life</StyledLink>
                 </TextBlock>
             </StyledSiteContainer>
         </StyledSiteSection>

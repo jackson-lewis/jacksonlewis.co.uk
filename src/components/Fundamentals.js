@@ -38,7 +38,7 @@ const StyledSiteSection = styled( SiteSection )`
     ::after {
         width: 9px;
         height: 9px;
-        top: calc( -50px + -4.5px );
+        top: calc( -55px );
         z-index: 10;
 
         border-radius: 10px;

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Link } from 'gatsby'
 import { minWidth } from '@styles/MediaQueries'
 
@@ -41,15 +41,38 @@ const StyledNav = styled.nav`
 /**
  * Styling applied when the mobile menu is active
  */
+const mobileMenuAppear = keyframes`
+    from {
+        opacity: 0;
+        transform: scale( 0.5 ) translateY( -16px );
+    }
+
+    to {
+        opacity: 1;
+        transform: scale( 1 ) translateY( 0 );
+    }
+`
+
 const mobileMenuActive = css`
     display: block;
+    transform-origin: 100% 0%;
+    animation-name: ${ mobileMenuAppear };
 `
 
 const StyledMobileMenuWrapper = styled.div`
-    width: 100%;
+    margin: var( --site-gutter ) var( --site-gutter ) 0;
     padding: 30px var( --site-margin );
     display: none;
     z-index: 20;
+
+    background-color: rgba( 0, 0, 0, .95 );
+    backdrop-filter: blur( 2px ) saturate( 180% );
+    border: 1px solid var( --outline-color );
+    border-radius: var( --border-radius );
+
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.24, 0.71, 0.51, 0.99);
 
     ${ ({ isToggled }) => isToggled ? mobileMenuActive : null }
 `

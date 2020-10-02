@@ -20,21 +20,17 @@ const StyledHero = styled( BackgroundImage )`
     z-index: 20;
     display: grid;
     align-items: flex-end;
-
-    @media ${ minWidth.medium } {
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 0 10vw;
-        align-items: center;
-    }
 `
 
 const StyledContent = styled.div`
-    max-width: 360px;
+    max-width: 800px;
     
     color: var( --white );
 
     @media ${ minWidth.medium } {
-        grid-column: 2;
+        margin: 0 auto;
+
+        text-align: center;
     }
 
     span {
@@ -49,7 +45,7 @@ const StyledContent = styled.div`
     h1 {
         margin-top: ${ getBaseline( .25 ) };
 
-        font-size: clamp( 2rem, 5vw, 5.625rem );
+        font-size: clamp( 2rem, 5vw, 3rem );
         line-height: 1.4;
 
         + p {
@@ -89,7 +85,8 @@ const MasterHero = ({ children }) => {
             fluid={ backgroundStack }
             style={{
                 backgroundPosition: `left bottom, center, center, right 100%, center 2%`,
-                backgroundSize: `100% 80%, cover, cover, 67% 100%, cover`
+                backgroundSize: `100% 80%, cover, cover, 67% 100%, cover`,
+                backgroundAttachment: 'scroll, scroll, scroll, scroll, fixed'
             }}
             className="layout--2_col"
         >
