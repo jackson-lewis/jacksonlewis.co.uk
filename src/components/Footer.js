@@ -14,13 +14,15 @@ const StyledSiteContainer = styled( SiteContainer )`
 
 const StyledFooter = styled.footer`
     width: 100vw;
-    margin-top: 100px;
+    padding-top: 100px;
     padding-left: var( --site-margin );
     padding-right: var( --site-margin );
     padding-bottom: 30px;
     position: relative;    
+    z-index: 50;
 
     color: var( --very-dark-white );
+    background-color: var( --body-color );
 
     ::before {
         content: '';

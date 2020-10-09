@@ -6,6 +6,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
+import styled from 'styled-components'
 import SEO from "@components/_SEO"
 import Page from "@components/Page"
 import MasterHero from "@components/MasterHero"
@@ -16,6 +17,28 @@ import ContentBlock from "@components/ContentBlock"
 import StyledLink from "@components/Link"
 
 
+const StyledPageContentsWrapper = styled.div`
+    width: 100%;
+    position: relative;
+    z-index: 50;
+
+    background: var( --body-color );
+
+    ::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 100%;
+        height: 30vh;
+        min-height: 100px;
+        transform: translateY( -100% );
+
+        background: linear-gradient( 0deg, rgba(17, 2, 7, 1), rgba(17, 2, 7, 0) ) no-repeat center;
+    }
+`
+
 const Index = ({ data }) => {
     const projects = data.allMdx.edges
 
@@ -25,15 +48,17 @@ const Index = ({ data }) => {
                 title="Home"
             />
             <MasterHero>
-                <h1>A frontend developer with a speciality in web performance and embracing the outdoors.</h1>
+                <h1>A frontend developer specialising in web performance & embracing the outdoors.</h1>
             </MasterHero>
-            <SplitJourney />
-            <Fundamentals />
-            <FlagshipProjects projects={ projects } />
-            <ContentBlock align="center">
-                <h2>An itch for design</h2>
-                <p>I've loved design for as long as I first set eyes on a piece of code. It has only been in recent years I wanted to push my expertise in frontend development, all while keeping a firm grasp on implementing the best UI and UX.</p>
-            </ContentBlock>
+            <StyledPageContentsWrapper>
+                <SplitJourney />
+                <Fundamentals />
+                <FlagshipProjects projects={ projects } />
+                <ContentBlock align="center">
+                    <h2>An itch for design</h2>
+                    <p>I've loved design for as long as I first set eyes on a piece of code. It has only been in recent years I wanted to push my expertise in frontend development, all while keeping a firm grasp on implementing the best UI and UX.</p>
+                </ContentBlock>
+            </StyledPageContentsWrapper>
         </Page>
     )
 }

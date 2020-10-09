@@ -27,7 +27,7 @@ const StyledSiteSection = styled( SiteSection )`
         position: absolute;
         top: 0;
         left: 50%;
-        width: calc( 100% + 8px );
+        width: calc( 100% + 12px );
         max-width: 72.5em;
         height: 100%;
         transform: translateX( -50% );
@@ -104,7 +104,9 @@ const StyledProject = styled( BackgroundImage )`
     }
 
     :hover {
-        background-position: bottom right;
+        ::before {
+            background-position: bottom right;
+        }
     }
 
     :nth-child(2) {

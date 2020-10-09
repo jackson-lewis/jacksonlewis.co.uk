@@ -3,24 +3,51 @@
  */
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
+import styled, { keyframes } from 'styled-components'
+import Img from 'gatsby-image'
 import { SiteContainer } from '@components/SiteLayout'
 import { minWidth } from './styles/MediaQueries'
 import { getBaseline } from './styles/Functions'
 
 
-const StyledHero = styled( BackgroundImage )`
+const StyledHeroHolder = styled.div`
+    width: 100%;
+    min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
+    height: 80vh;
+    max-height: 700px;
+    position: relative;
+`
+
+const StyledHero = styled.div`
     width: 100%;
     min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
     height: 80vh;
     max-height: 1000px;
     margin-bottom: 0;
-    padding: var( --header-height ) var( --site-margin ) 100px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 20;
+`
+
+const StyledImg = styled( Img )`
+    width: 100%;
+    height: 100%;
+`
+
+const StyledHeroEffects = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: var( --header-height ) var( --site-margin ) 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
     display: grid;
     align-items: flex-end;
+
+    background-image: radial-gradient( ellipse at top right, rgba( 222, 13, 244, .95 ), transparent ), radial-gradient( ellipse at bottom left, rgba( 244, 28, 81, .85 ), transparent );
+    background-size: 200% 200%;
+    background-position: 25% 25%, 75% 75%;
 `
 
 const StyledSiteContainer = styled( SiteContainer )`
@@ -69,9 +96,9 @@ const MasterHero = ({ children }) => {
     const query = useStaticQuery(
         graphql`
           query {
-            file(relativePath: { eq: "JACKSON.jpg" }) {
+            file(relativePath: { eq: "mam-tor.jpeg" }) {
               childImageSharp {
-                fluid(quality: 90, maxWidth: 1920) {
+                fluid(quality: 90, maxWidth: 1920, grayscale: true) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -80,31 +107,21 @@ const MasterHero = ({ children }) => {
         `
     )
 
-    const backgroundStack = [
-        `linear-gradient( 0deg, rgba(17, 2, 7, 1), rgba(17, 2, 7, 0) )`,
-        `radial-gradient( ellipse at top left, #DE0DF4, transparent )`,
-        `radial-gradient( ellipse at bottom right, #f41c51, transparent )`,
-        `linear-gradient( 90deg, rgba(17, 2, 7, 0), rgba(17, 2, 7, 1) )`,
-        query.file.childImageSharp.fluid
-    ]
-
     return (
-        <StyledHero
-            Tag="div"
-            fluid={ backgroundStack }
-            style={{
-                backgroundPosition: `left bottom, center, center, right 100%, center 2%`,
-                backgroundSize: `100% 80%, cover, cover, 67% 100%, cover`,
-                backgroundAttachment: 'scroll, scroll, scroll, scroll, fixed'
-            }}
-            className="layout--2_col"
-        >
-            <StyledSiteContainer>
-                <StyledContent>
-                    { children }
-                </StyledContent>
-            </StyledSiteContainer>
-        </StyledHero>
+        <StyledHeroHolder>
+            <StyledHero>
+                <StyledImg
+                    fluid={ query.file.childImageSharp.fluid }
+                />
+                <StyledHeroEffects>
+                    <StyledSiteContainer>
+                        <StyledContent>
+                            { children }
+                        </StyledContent>
+                    </StyledSiteContainer>
+                </StyledHeroEffects>
+            </StyledHero>
+        </StyledHeroHolder>
     )
 }
 
