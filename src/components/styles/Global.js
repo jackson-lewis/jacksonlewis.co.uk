@@ -5,7 +5,6 @@ import { colors, typography } from "./Variables"
 
 
 const GlobalStyles = createGlobalStyle`
-
     /* source-sans-pro-300 - latin */
     @font-face {
     font-family: 'Source Sans Pro';
