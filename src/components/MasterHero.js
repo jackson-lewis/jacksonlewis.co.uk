@@ -5,6 +5,7 @@ import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
+import { SiteContainer } from '@components/SiteLayout'
 import { minWidth } from './styles/MediaQueries'
 import { getBaseline } from './styles/Functions'
 
@@ -22,15 +23,22 @@ const StyledHero = styled( BackgroundImage )`
     align-items: flex-end;
 `
 
+const StyledSiteContainer = styled( SiteContainer )`
+    margin-bottom: 0;
+`
+
 const StyledContent = styled.div`
     max-width: 800px;
     
     color: var( --white );
+    text-align: right;
 
     @media ${ minWidth.medium } {
-        margin: 0 auto;
+        max-width: 50%;
+        margin-left: auto;
+        margin-bottom: 0;
 
-        text-align: center;
+        text-align: left;
     }
 
     span {
@@ -45,7 +53,8 @@ const StyledContent = styled.div`
     h1 {
         margin-top: ${ getBaseline( .25 ) };
 
-        font-size: clamp( 2rem, 5vw, 3rem );
+        color: rgba( 235, 235, 235, .8 );
+        font-size: clamp( 1.6rem, 5vw, 3rem );
         line-height: 1.4;
 
         + p {
@@ -90,9 +99,11 @@ const MasterHero = ({ children }) => {
             }}
             className="layout--2_col"
         >
-            <StyledContent>
-                { children }
-            </StyledContent>
+            <StyledSiteContainer>
+                <StyledContent>
+                    { children }
+                </StyledContent>
+            </StyledSiteContainer>
         </StyledHero>
     )
 }

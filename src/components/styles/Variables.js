@@ -7,7 +7,7 @@ const colors = {
 
     white: `#FFFBFB`,
     pureWhite: '#FFFFFF',
-    darkWhite: `#e6e1e1`,
+    darkWhite: `#BAADB0`,
     veryDarkWhite: `#bbb7b7`,
     black: `#130207`,
     pureBlack: '#000000',

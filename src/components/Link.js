@@ -16,7 +16,7 @@ const StyledLinkRaw = css`
     ${ props => props.$noArrow ? null : `padding-right: 2rem;` }
 
     text-decoration: none;
-    font-size: .8rem;
+    font-size: .9rem;
     font-family: var( --sans-font );
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -35,7 +35,7 @@ const StyledLinkRaw = css`
             height: 100%;
             transform: translateX( 0 );
 
-            background-image: url( "data:image/svg+xml,${ arrow( colors.white ) }" );
+            background-image: url( "data:image/svg+xml,${ arrow( colors.darkWhite ) }" );
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% auto;

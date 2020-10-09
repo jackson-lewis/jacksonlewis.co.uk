@@ -12,11 +12,17 @@ import { SiteSection, SiteContainer } from "./SiteLayout"
 
 const StyledSiteSection = styled( SiteSection )`
     h2 {
-        margin-bottom: ${ getBaseline() };
+        margin-bottom: ${ getBaseline( .5 ) };
     }
 
     h3 {
-        margin-bottom: ${ getBaseline( .5 ) };
+        margin-bottom: ${ getBaseline( .25 ) };
+    }
+
+    p {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var( --dark-white );
     }
 `
 

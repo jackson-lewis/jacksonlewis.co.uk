@@ -7,12 +7,17 @@ import { minWidth } from "./styles/MediaQueries"
 import { SiteContainer } from "./SiteLayout"
 
 
+const StyledSiteContainer = styled( SiteContainer )`
+    padding-top: 30px;
+    border-top: 1px solid var( --outline-color );
+`
+
 const StyledFooter = styled.footer`
     width: 100vw;
     margin-top: 100px;
     padding-left: var( --site-margin );
     padding-right: var( --site-margin );
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     position: relative;    
 
     color: var( --very-dark-white );
@@ -48,19 +53,26 @@ const StyledFooter = styled.footer`
     }
 `
 
+const StyledSocials = styled.p`
+    a {
+        text-decoration: none;
+
+        :hover {
+            text-decoration: underline;
+        }
+    }
+`
+
 const Footer = () => (
     <StyledFooter>
-        <SiteContainer>
-            <p>
+        <StyledSiteContainer>
+            <StyledSocials>
                 <a href="https://github.com/jackson-lewis">GitHub</a>
-                { ' ' }
-&mdash;
+                &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
                 <a href="https://twitter.com/jacksonrlewis">Twitter</a>
-                { ' ' }
-&mdash;
-                { ' ' }
+                &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
                 <a href="https://www.linkedin.com/in/jacksonrlewis/">LinkedIn</a>
-            </p>
+            </StyledSocials>
             <p>
 Built with
                 { ' ' }
@@ -68,9 +80,8 @@ Built with
 , hosted on
                 { ' ' }
                 <a href="https://www.netlify.com/">Netlify</a>
-.
             </p>
-        </SiteContainer>
+        </StyledSiteContainer>
     </StyledFooter>
 )
 

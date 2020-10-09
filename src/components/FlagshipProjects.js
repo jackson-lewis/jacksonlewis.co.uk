@@ -15,12 +15,30 @@ import { getBaseline } from "./styles/Functions"
 
 
 const StyledSiteSection = styled( SiteSection )`
-    padding: 0;
+    padding: 50px 0;
+    position: relative;
     display: grid;
     grid-gap: 30px 0;
     grid-template-columns: var( --site-margin ) 1fr calc( var( --site-margin ) * 3 );
+
+    ::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: calc( 100% + 8px );
+        max-width: 72.5em;
+        height: 100%;
+        transform: translateX( -50% );
+
+        background-color: rgba( 218, 32, 63, .01 );
+        border: 1px solid rgba( 218, 32, 63, .5 );
+        border-radius: 8px;
+    }
     
     @media ${ minWidth.as( 667 ) } {
+        padding: 100px 0;
         grid-template-columns: 1fr 4vw 4vw 1fr;
         grid-template-rows: auto auto auto;
     }
@@ -32,10 +50,19 @@ const StyledBlockBefore = styled.div`
 
     h2 {
         margin-bottom: ${ getBaseline( .25 ) };
+
+        color: var( --primary );
+    }
+
+    p {
+        max-width: 80%;
+
+        font-weight: 700;
+        color: var( --dark-white );
     }
 
     @media ${ minWidth.as( 667 ) } {
-        max-width: 300px;
+        max-width: 340px;
         margin-left: auto;
         margin-right: 0;
         grid-column: 1 / 2;
@@ -45,19 +72,14 @@ const StyledBlockBefore = styled.div`
             font-size: 2.4rem;
         }
 
-        * {
-            margin-left: auto;
-            margin-right: 0;
-        }
+        
     }
 `
 const StyledBlockAfter = styled.div`
     grid-column: 2 / 3;
     grid-row: 4;
 
-    h2 {
-        margin-bottom: ${ getBaseline( .5 ) };
-    }
+    text-align: right;
 
     @media ${ minWidth.as( 667 ) } {
         grid-column: 3 / 5;
@@ -87,7 +109,7 @@ const StyledProject = styled( BackgroundImage )`
 
     :nth-child(2) {
         grid-column: 2 / 4;
-        grid-row: 1 / 3;
+        grid-row: 2 / 3;
 
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
@@ -95,6 +117,7 @@ const StyledProject = styled( BackgroundImage )`
 
         @media ${ minWidth.as( 667 ) } {
             grid-column: 3 / 5;
+            grid-row: 1 / 3;
             align-self: flex-start;
         }
     }
@@ -115,6 +138,12 @@ const StyledProject = styled( BackgroundImage )`
             grid-column: 1 / 2;
             grid-row: 2 / 4;
         }
+    }
+
+    h3 {
+        margin-bottom: 0;
+        
+        color: var( --white );
     }
 `
 

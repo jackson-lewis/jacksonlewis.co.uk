@@ -35,7 +35,7 @@ const StyledGrid = styled( SiteContainer )`
 `
 
 const StyledPageHeading = styled.header`
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 
     h1 {
         margin: 0 0 8px;
@@ -45,7 +45,8 @@ const StyledPageHeading = styled.header`
 
     p {
         color: var( --dark-white );
-        font-size: clamp( 1.2rem, 2vw, 1.5rem );
+        font-size: clamp( 1.1rem, 2vw, 1.3rem );
+        font-weight: 700;
     }
 
     > *:last-child {
@@ -83,8 +84,8 @@ const StyledProjects = styled.ul`
 const StyledProject = styled.li`
     
     :not(:last-child) {
-        margin-bottom: 30px;
-        padding-bottom:30px;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
 
         border-bottom: 1px solid #575757;
     }
@@ -96,7 +97,7 @@ const StyledProject = styled.li`
     }
 
     .project-tags {
-        margin-bottom: 18px;
+        margin: 6px 0 18px;
         display: flex;
 
         span {
@@ -117,6 +118,10 @@ const StyledProject = styled.li`
 
     p {
         margin-bottom: ${ getBaseline( .5 ) };
+    }
+
+    @media ${ minWidth.large } {
+        padding-right: 40px;
     }
 `
 

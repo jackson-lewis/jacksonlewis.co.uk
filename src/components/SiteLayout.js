@@ -3,6 +3,7 @@
  * used site-wide.
  */
 import styled from "styled-components"
+import { minWidth } from "./styles/MediaQueries"
 
 
 /**
@@ -15,6 +16,10 @@ const SiteSection = styled.section`
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @media ${ minWidth.medium } {
+        margin-bottom: 150px;
     }
 `
 

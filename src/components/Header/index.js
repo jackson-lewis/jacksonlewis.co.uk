@@ -35,6 +35,10 @@ const StyledHeaderWrapper = styled.div`
 
         background-color: rgba( 30, 30, 30, .8 );
         backdrop-filter: blur( 4px ) saturate( 90% );
+
+        a[aria-label="Home"] {
+            color: var( --primary ) !important;
+        }
     }
 
     &.hey-hey {

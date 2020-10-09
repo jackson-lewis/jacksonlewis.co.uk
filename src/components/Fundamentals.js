@@ -9,7 +9,6 @@ import styled from "styled-components"
 import { SiteSection, SiteContainer } from "./SiteLayout"
 import { minWidth } from "./styles/MediaQueries"
 import { getBaseline } from "./styles/Functions"
-import StyledLink from "./Link"
 
 
 const StyledSiteSection = styled( SiteSection )`
@@ -29,7 +28,7 @@ const StyledSiteSection = styled( SiteSection )`
     ::before {
         width: 280px;
         height: 1px;
-        top: -50px;
+        top: -100px;
         z-index: 5;
 
         background: linear-gradient( 90deg, var( --black ), var( --outline-color ), var( --black ) );
@@ -38,7 +37,7 @@ const StyledSiteSection = styled( SiteSection )`
     ::after {
         width: 9px;
         height: 9px;
-        top: calc( -55px );
+        top: calc( -105px );
         z-index: 10;
 
         border-radius: 10px;
@@ -55,38 +54,11 @@ const StyledSiteSection = styled( SiteSection )`
 `
 
 const StyledBlockBefore = styled.div`
-    margin-bottom: ${ getBaseline( 2 ) };
+    margin-bottom: 50px;
 
     h2 {
         margin-bottom: ${ getBaseline( .5 ) };
-
-        + p {
-            font-size: 1.1rem;
-        }
     }
-
-    @media ${ minWidth.medium } {
-        margin-bottom: ${ getBaseline( 4 ) };
-        position: relative;
-
-        ::after {
-            content: '';
-            display: block;
-            position: absolute;
-
-            width: 1px;
-            height: ${ getBaseline( 2 ) };
-            bottom: -${ getBaseline() };
-            left: calc( 50% - 0.5px );
-            transform: translateY( 100% );
-
-            background: var( --line-color );
-        }
-    }
-`
-
-const StyledBlockAfter = styled.div`
-    margin-top: ${ getBaseline( 2 ) };
 `
 
 const StyledColumns = styled.div`
@@ -111,7 +83,7 @@ const StyledColumn = styled.div`
         margin-bottom: 0;
 
         font-size: clamp( 1.4rem, 2vw, 1.8rem );
-        background: linear-gradient( 45deg, #0ae4d9, #54d30a );
+        background-image: linear-gradient( 45deg, #f12f0d, #e6d00d );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -122,9 +94,15 @@ const StyledColumn = styled.div`
         }
     }
 
+    p {
+        font-weight: 700;
+        color: var( --dark-white );
+    }
+
     :nth-child(2) {
         h3 {
-            background-image: linear-gradient( 45deg, #f12f0d, #e6d00d );
+            background: linear-gradient( 45deg, #0ae4d9, #54d30a );
+            
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -174,12 +152,11 @@ const Fundamentals = () => {
         <StyledSiteSection>
             <SiteContainer>
                 <StyledBlockBefore>
-                    <h2>3 things I really, <i>really</i><br/> care about</h2>
-                    <p>At the core of everything I do, these take priority.</p>
+                    <h2>Most valuable <i>not-so-secret</i> weapons</h2>
                 </StyledBlockBefore>
                 <StyledColumns>
-                    <Column heading="Experience" content="Nothing is more valuable than understanding what people want, but giving it to them is even better." />
                     <Column heading="Performance" content="People are impatient. Knowing performance is a thing on the page as well as load." />
+                    <Column heading="Experience" content="Nothing is more valuable than understanding what people want, but giving it to them is even better." />
                     <Column heading="Simplicity" content="Following principles like DRY and KISS, keeps a codebase tidy and free of crap which is key to a projects success." />
                 </StyledColumns>
             </SiteContainer>

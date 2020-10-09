@@ -20,6 +20,8 @@ const StyledNav = styled.nav`
         display: flex;
 
         li {
+            text-transform: uppercase;
+            letter-spacing: .1rem;
 
             :not(:last-child) {
                 margin-right: 24px;

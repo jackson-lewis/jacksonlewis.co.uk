@@ -12,6 +12,7 @@ import StyledLink from "./Link"
 
 
 const StyledSiteSection = styled( SiteSection )`
+    margin-bottom: 200px;
     padding-right: calc( var( --site-margin ) * 2 );
     position: relative;
     z-index: 40;
@@ -36,6 +37,11 @@ const TextBlock = styled.div`
     max-width: 27.5rem;
     
     font-size: 1.1rem;
+
+    p {
+        font-weight: 700;
+        color: var( --dark-white );
+    }
 
     :first-child {
         margin-bottom: 2rem;
@@ -78,7 +84,7 @@ const SplitJourney = () => {
                     <StyledLink to="/projects" type="text" color="primary">Projects</StyledLink>
                 </TextBlock>
                 <TextBlock>
-                    <p>Don't be alarmed, but I also love not working, weather I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far from the screen.</p>
+                    <p>Don't be alarmed, but I also love not working, whether I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far from the screen.</p>
                     <StyledLink to="/life" type="text" color="primary">Life</StyledLink>
                 </TextBlock>
             </StyledSiteContainer>

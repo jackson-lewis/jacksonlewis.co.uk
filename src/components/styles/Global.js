@@ -20,12 +20,13 @@ const GlobalStyles = createGlobalStyle`
         --grey: ${ colors.grey };
 
         --body-color: var( --black );
-        --heading-color: var( --white );
+        --heading-color: #86797C;
         --link-color: var( --blue );
         --outline-color: #403838;
 
-        --serif-font: 'Source Serif Pro', serif;
+        --serif-font: 'Vollkorn', serif;
         --sans-font: 'Source Sans Pro', sans-serif;
+        --heading-font: 'Rubik', sans-serif;
 
         --base-font-size: ${ typography.baseFontSize }rem;
         --base-line-height: ${ typography.baseLineHeight };
@@ -52,12 +53,12 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         
-        font-family: var( --serif-font );
+        font-family: var( --sans-font );
         font-size: var( --base-font-size );
         font-weight: 400;
         font-style: normal;
         line-height: var( --base-line-height );
-        color: var( --dark-white );
+        color: var( --white );
         background-color: var( --body-color );
 
         -webkit-font-smoothing: antialiased;
@@ -85,7 +86,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-weight: 400;
+        font-weight: 700;
+        font-family: var( --heading-font );
         color: var( --heading-color );
         line-height: 1.5;
     }
@@ -97,9 +99,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h2 {
-        margin: 0 0 ${ getBaseline( 1 ) };
+        margin: 0 0 ${ getBaseline( .5 ) };
 
-        font-size: clamp( 1.8rem, 3vw, 2.8rem );
+        font-size: clamp( 1.8rem, 3vw, 2.4rem );
     }
 
     h3 {
