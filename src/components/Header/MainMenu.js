@@ -34,7 +34,7 @@ const StyledNav = styled.nav`
             
             ${ StyledMenuLink } {
                 :hover {
-                    background-color: rgba( 250, 250, 250, .2 );
+                    background-color: rgba( 250, 250, 250, .1 );
                     backdrop-filter: blur( 2px ) saturate( 90% );
                 }
             }

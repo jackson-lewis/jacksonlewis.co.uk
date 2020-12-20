@@ -1,9 +1,9 @@
 /**
  * Master Hero
  */
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { SiteContainer } from '@components/SiteLayout'
 import { minWidth } from './styles/MediaQueries'
@@ -14,7 +14,7 @@ const StyledHeroHolder = styled.div`
     width: 100%;
     min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
     height: 80vh;
-    max-height: 700px;
+    max-height: 1000px;
     position: relative;
 `
 
@@ -45,9 +45,15 @@ const StyledHeroEffects = styled.div`
     display: grid;
     align-items: flex-end;
 
-    background-image: radial-gradient( ellipse at top right, rgba( 222, 13, 244, .95 ), transparent ), radial-gradient( ellipse at bottom left, rgba( 244, 28, 81, .85 ), transparent );
-    background-size: 200% 200%;
-    background-position: 25% 25%, 75% 75%;
+    background-image:   radial-gradient( ellipse at bottom right, rgba( 244, 28, 81, 1 ), rgba( 244, 28, 81, 0 ) ),
+                        radial-gradient( ellipse at top left, rgba( 44, 133, 255, .9 ), rgba( 44, 133, 255, 0 ) ),
+                        linear-gradient( 270deg, rgba( 15, 0, 0, .75 ), rgba( 15, 0, 0, 0 ) );
+    background-size: 200% 200%, 200% 200%, 100% 100%;
+    background-position: 75% 75%, 25% 25%, center;
+
+    @media ${ minWidth.medium } {
+        padding-bottom: 140px;
+    }
 `
 
 const StyledSiteContainer = styled( SiteContainer )`
@@ -59,6 +65,8 @@ const StyledContent = styled.div`
     
     color: var( --white );
     text-align: right;
+
+    transition: 50ms;
 
     @media ${ minWidth.medium } {
         max-width: 50%;
@@ -93,10 +101,28 @@ const StyledContent = styled.div`
 
 const MasterHero = ({ children }) => {
 
+    const heroContentRef = useRef()
+
+    useEffect( () => {
+        const parallaxHero = () => {
+
+            const heroContent = heroContentRef.current
+
+            const position = window.scrollY * -0.5
+            const opacity = 1 - ( window.scrollY / 400 )
+
+            heroContent.style.transform = `translateY(${ position }px)`
+            heroContent.style.opacity = opacity
+        }
+        window.addEventListener( 'scroll', parallaxHero )
+
+        return () => window.removeEventListener( 'scroll', parallaxHero )
+    }, [] )
+
     const query = useStaticQuery(
         graphql`
           query {
-            file(relativePath: { eq: "mam-tor.jpeg" }) {
+            file(relativePath: { eq: "mam_tor-walking.jpeg" }) {
               childImageSharp {
                 fluid(quality: 90, maxWidth: 1920, grayscale: true) {
                   ...GatsbyImageSharpFluid_withWebp
@@ -115,7 +141,7 @@ const MasterHero = ({ children }) => {
                 />
                 <StyledHeroEffects>
                     <StyledSiteContainer>
-                        <StyledContent>
+                        <StyledContent ref={ heroContentRef }>
                             { children }
                         </StyledContent>
                     </StyledSiteContainer>

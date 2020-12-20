@@ -6,58 +6,6 @@ import { colors, typography } from "./Variables"
 
 const GlobalStyles = createGlobalStyle`
 
-    /* source-sans-pro-300 - latin */
-    @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
-        url('/fonts/body/source-sans-pro-v14-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/fonts/body/source-sans-pro-v14-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-    /* source-sans-pro-regular - latin */
-    @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-        url('/fonts/body/source-sans-pro-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/fonts/body/source-sans-pro-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-    /* source-sans-pro-700 - latin */
-    @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
-        url('/fonts/body/source-sans-pro-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/fonts/body/source-sans-pro-v14-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-
-    /* rubik-700 - latin */
-    @font-face {
-    font-family: 'Rubik';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local(''),
-        url('/fonts/heading/rubik-v11-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/fonts/heading/rubik-v11-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-    /* rubik-700italic - latin */
-    @font-face {
-    font-family: 'Rubik';
-    font-style: italic;
-    font-weight: 700;
-    font-display: swap;
-    src: local(''),
-        url('/fonts/heading/rubik-v11-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('/fonts/heading/rubik-v11-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-    }
-
     :root {
         --primary: ${ colors.primary };
         --secondary: ${ colors.secondary };
@@ -70,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
         --very-dark-white: ${ colors.veryDarkWhite };
         --black: ${ colors.black };
         --pure-black: ${ colors.pureBlack };
+        --dark-grey: ${ colors.darkGrey };
         --grey: ${ colors.grey };
 
         --body-color: var( --black );

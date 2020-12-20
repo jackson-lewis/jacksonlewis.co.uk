@@ -15,13 +15,18 @@ const Page404Styles = createGlobalStyle`
         min-height: 100vh;
         height: 100%;
         
-        background-image: radial-gradient( ellipse at top left, var( --secondary ), transparent ),
-                      radial-gradient( ellipse at bottom right, var( --primary ), transparent );
-    
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-image: radial-gradient( ellipse at bottom right, rgba( 244, 28, 81, 1 ), rgba( 244, 28, 81, 0 ) ), radial-gradient( ellipse at top left, rgba( 44, 133, 255, 1 ), rgba( 44, 133, 255, 0 ) );
+        background-size: 200% 200%;
+        background-position: 75% 75%, 25% 25%;
         color: var( --white );
+    }
+
+    footer {
+        background-color: transparent !important;
+
+        > div {
+            border-top: 1px solid var( --white ) !important;
+        }
     }
 
     *::selection {
@@ -34,7 +39,7 @@ const NotFoundPage = () => {
     return (
         <Page>
             <Page404Styles />
-            <SEO title="404: Not found" />
+            <SEO title="404: Page not found" />
             <Error404 />
         </Page>
     )

@@ -121,7 +121,7 @@ const Header = () => {
         window.addEventListener( 'resize', checkWindowWidth )
 
         return () => {
-            window.addEventListener( 'scroll', watchScroll )
+            window.removeEventListener( 'scroll', watchScroll )
             window.removeEventListener( 'resize', checkWindowWidth )
         }
     }, [] )

@@ -13,44 +13,6 @@ import { getBaseline } from "./styles/Functions"
 
 const StyledSiteSection = styled( SiteSection )`
     position: relative;
-    
-    text-align: center;
-
-    ::before,
-    ::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 50%;
-        transform: translateX( -50% );
-    }
-
-    ::before {
-        width: 280px;
-        height: 1px;
-        top: -100px;
-        z-index: 5;
-
-        background: linear-gradient( 90deg, var( --black ), var( --outline-color ), var( --black ) );
-    }
-
-    ::after {
-        width: 9px;
-        height: 9px;
-        top: calc( -105px );
-        z-index: 10;
-
-        border-radius: 10px;
-        border: 1px solid var( --primary );
-        background-color: var( --black );
-    }
-
-    @media ${ minWidth.medium } {
-        ::before,
-        ::after {
-            display: none;
-        }
-    }
 `
 
 const StyledBlockBefore = styled.div`
@@ -62,7 +24,7 @@ const StyledBlockBefore = styled.div`
 `
 
 const StyledColumns = styled.div`
-    padding: 0 2rem;
+    padding-right: 2rem;
 
     @media ${ minWidth.medium } {
         display: grid;
@@ -73,14 +35,13 @@ const StyledColumns = styled.div`
 
 const StyledColumn = styled.div`
     max-width: 18.125rem;
-    margin: auto;
 
     :nth-child(-n+2) {
         margin-bottom: ${ getBaseline( 1.5 ) };
     }
 
     h3 {
-        margin-bottom: 0;
+        margin-bottom: ${ getBaseline( .25 ) };
 
         font-size: clamp( 1.4rem, 2vw, 1.8rem );
         background-image: linear-gradient( 45deg, #f12f0d, #e6d00d );
@@ -152,12 +113,12 @@ const Fundamentals = () => {
         <StyledSiteSection>
             <SiteContainer>
                 <StyledBlockBefore>
-                    <h2>Most valuable <i>not-so-secret</i> weapons</h2>
+                    <h2>What matters most</h2>
                 </StyledBlockBefore>
                 <StyledColumns>
-                    <Column heading="Performance" content="People are impatient. Knowing performance is a thing on the page as well as load." />
-                    <Column heading="Experience" content="Nothing is more valuable than understanding what people want, but giving it to them is even better." />
-                    <Column heading="Simplicity" content="Following principles like DRY and KISS, keeps a codebase tidy and free of crap which is key to a projects success." />
+                    <Column heading="Performance" content="My bread and butter, finding solutions to even the toughest performance bottlenecks." />
+                    <Column heading="Experience" content="Design and User Experience have always mattered to me, and truly rewarding when perfected." />
+                    <Column heading="Simple" content="Being an OCD freak has its perks as a dev, one being keeping on top of clean code practises religiously." />
                 </StyledColumns>
             </SiteContainer>
         </StyledSiteSection>

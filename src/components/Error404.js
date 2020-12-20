@@ -8,15 +8,9 @@ import { getBaseline } from "./styles/Functions"
 
 const Error404Wrapper = styled.div`
     width: 100vw;
-    height: 100vh;
+    min-height: calc( 100vh - 192px );
     display: grid;
     align-items: center;
-
-    background-image: radial-gradient( ellipse at top left, var( --secondary ), transparent ),
-                    radial-gradient( ellipse at bottom right, var( --primary ), transparent );
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 `
 
 const Error404Content = styled.div`
@@ -27,6 +21,7 @@ const Error404Content = styled.div`
 
     h1 {
         margin-bottom: ${ getBaseline( .5 ) };
+        color: var( --white );
 
         font-size: clamp( 3.75rem, 6vw, 5.625rem );
     }

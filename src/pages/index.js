@@ -15,6 +15,7 @@ import Fundamentals from "@components/Fundamentals"
 import FlagshipProjects from "@components/FlagshipProjects"
 import ContentBlock from "@components/ContentBlock"
 import StyledLink from "@components/Link"
+import { minWidth } from "@components/styles/MediaQueries"
 
 
 const StyledPageContentsWrapper = styled.div`
@@ -31,11 +32,10 @@ const StyledPageContentsWrapper = styled.div`
         top: 1px;
         left: 0;
         width: 100%;
-        height: 30vh;
-        min-height: 100px;
-        transform: translateY( -100% );
+        height: 110px;
+        transform: translateY( -55px ) skew( 0deg, -4deg );
 
-        background: linear-gradient( 0deg, rgba(17, 2, 7, 1), rgba(17, 2, 7, 0) ) no-repeat center;
+        background-color: var( --dark-grey );
     }
 `
 
@@ -48,7 +48,7 @@ const Index = ({ data }) => {
                 title="Home"
             />
             <MasterHero>
-                <h1>A frontend developer specialising in web performance & embracing the outdoors.</h1>
+                <h1>A frontend developer with a love for web performance and embracing the outdoors.</h1>
             </MasterHero>
             <StyledPageContentsWrapper>
                 <SplitJourney />

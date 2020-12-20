@@ -1,5 +1,6 @@
 module.exports = {
     siteMetadata: {
+        siteUrl: 'https://preview.jacksonlewis.co.uk',
         title: `Jackson Lewis`,
         description: `Frontend developer`,
         author: `@jacksonrlewis`,
@@ -62,6 +63,24 @@ module.exports = {
                     }
                 ]
             }
-        }
+        },
+        {
+            resolve: "gatsby-omni-font-loader",
+            options: {
+                enableListener: true,
+                preconnect: [ "https://fonts.gstatic.com" ],
+                web: [
+                    {
+                        name: "Source Sans Pro",
+                        file: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700"
+                    },
+                    {
+                        name: "Rubik",
+                        file: "https://fonts.googleapis.com/css2?family=Rubik:wght@700"
+                    }
+                ]
+            }
+        },
+        'gatsby-plugin-robots-txt'
     ],
 }

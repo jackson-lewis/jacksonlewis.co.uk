@@ -11,7 +11,8 @@ const colors = {
     veryDarkWhite: `#bbb7b7`,
     black: `#130207`,
     pureBlack: '#000000',
-    grey: `#D8CCCC`
+    grey: `#D8CCCC`,
+    darkGrey: '#191113'
 }
 
 const typography = {
