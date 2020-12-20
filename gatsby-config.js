@@ -72,11 +72,11 @@ module.exports = {
                 web: [
                     {
                         name: "Source Sans Pro",
-                        file: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700"
+                        file: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;700&display=swap"
                     },
                     {
                         name: "Rubik",
-                        file: "https://fonts.googleapis.com/css2?family=Rubik:wght@700"
+                        file: "https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap"
                     }
                 ]
             }
