@@ -1,28 +1,34 @@
 /**
  * Master Hero
  */
-import React, { useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
-import { SiteContainer } from '@components/SiteLayout'
-import { minWidth } from './styles/MediaQueries'
-import { getBaseline } from './styles/Functions'
+import { SiteContainer } from '@components/Global/SiteLayout'
+import { minWidth } from '../styles/MediaQueries'
+import { getBaseline } from '../styles/Functions'
 
+
+const heroHeight = css`
+    min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
+    height: 80vh;
+    max-height: 600px;
+
+    @media ${ minWidth.large } {
+        max-height: 660px;
+    }
+`
 
 const StyledHeroHolder = styled.div`
     width: 100%;
-    min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
-    height: 80vh;
-    max-height: 1000px;
+    ${ heroHeight }
     position: relative;
 `
 
 const StyledHero = styled.div`
     width: 100%;
-    min-height: calc( 300px + ${ getBaseline( 2 ) } + var( --header-height ) );
-    height: 80vh;
-    max-height: 1000px;
+    ${ heroHeight }
     margin-bottom: 0;
     position: fixed;
     top: 0;
@@ -45,11 +51,11 @@ const StyledHeroEffects = styled.div`
     display: grid;
     align-items: flex-end;
 
-    background-image:   radial-gradient( ellipse at bottom right, rgba( 244, 28, 81, 1 ), rgba( 244, 28, 81, 0 ) ),
-                        radial-gradient( ellipse at top left, rgba( 44, 133, 255, .9 ), rgba( 44, 133, 255, 0 ) ),
+    background-image:   radial-gradient( ellipse at bottom right, rgba( 244, 28, 81, .8 ), rgba( 244, 28, 81, 0 ) ),
+                        radial-gradient( ellipse at top left, rgba( 44, 133, 255, .8 ), rgba( 44, 133, 255, 0 ) ),
                         linear-gradient( 270deg, rgba( 15, 0, 0, .75 ), rgba( 15, 0, 0, 0 ) );
-    background-size: 200% 200%, 200% 200%, 100% 100%;
-    background-position: 75% 75%, 25% 25%, center;
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    background-position:  0% 0%, 100% 100%, center;
 
     @media ${ minWidth.medium } {
         padding-bottom: 140px;
@@ -64,16 +70,18 @@ const StyledContent = styled.div`
     max-width: 800px;
     
     color: var( --white );
-    text-align: right;
 
+    will-change: transform;
     transition: 50ms;
+
+    @media ${ minWidth.as( 667 ) } {
+        max-width: 55%;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
 
     @media ${ minWidth.medium } {
         max-width: 50%;
-        margin-left: auto;
-        margin-bottom: 0;
-
-        text-align: left;
     }
 
     span {
@@ -89,7 +97,7 @@ const StyledContent = styled.div`
         margin-top: ${ getBaseline( .25 ) };
 
         color: rgba( 235, 235, 235, .8 );
-        font-size: clamp( 1.6rem, 5vw, 3rem );
+        font-size: clamp( 1.875rem, 4vw, 3rem );
         line-height: 1.4;
 
         + p {
@@ -100,6 +108,7 @@ const StyledContent = styled.div`
 
 
 const MasterHero = ({ children }) => {
+    const [ isMobile, setIsMobile ] = useState( true )
 
     const heroContentRef = useRef()
 
@@ -111,7 +120,7 @@ const MasterHero = ({ children }) => {
             const position = window.scrollY * -0.5
             const opacity = 1 - ( window.scrollY / 400 )
 
-            heroContent.style.transform = `translateY(${ position }px)`
+            heroContent.style.transform = `tramottnslateY(${ position }px)`
             heroContent.style.opacity = opacity
         }
         window.addEventListener( 'scroll', parallaxHero )
@@ -119,12 +128,32 @@ const MasterHero = ({ children }) => {
         return () => window.removeEventListener( 'scroll', parallaxHero )
     }, [] )
 
+
+    useEffect( () => {
+
+        const watchResize = () => {
+            setIsMobile( window.innerWidth < 667 )
+        }
+        window.addEventListener( 'resize', watchResize )
+        window.addEventListener( 'orientationchange', watchResize )
+        watchResize()
+
+        return () => window.removeEventListener( 'resize', watchResize )
+    }, [] )
+
     const query = useStaticQuery(
         graphql`
           query {
-            file(relativePath: { eq: "mam_tor-walking.jpeg" }) {
+            mobile: file(relativePath: { eq: "mam_tor-walking-mobile.jpeg" }) {
               childImageSharp {
-                fluid(quality: 90, maxWidth: 1920, grayscale: true) {
+                fluid(maxWidth: 414, quality: 90, grayscale: true) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            large: file(relativePath: { eq: "mam_tor-walking.jpeg" }) {
+              childImageSharp {
+                fluid(maxWidth: 2880, quality: 90, grayscale: true) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -136,9 +165,19 @@ const MasterHero = ({ children }) => {
     return (
         <StyledHeroHolder>
             <StyledHero>
-                <StyledImg
-                    fluid={ query.file.childImageSharp.fluid }
-                />
+                { isMobile ? (
+                    <StyledImg
+                        fluid={ query.mobile.childImageSharp.fluid }
+                        loading="eager"
+                        className="mobile-variant"
+                    />
+                ) : (
+                    <StyledImg
+                        fluid={ query.large.childImageSharp.fluid }
+                        loading="eager"
+                        className="large-variant"
+                    />
+                ) }
                 <StyledHeroEffects>
                     <StyledSiteContainer>
                         <StyledContent ref={ heroContentRef }>

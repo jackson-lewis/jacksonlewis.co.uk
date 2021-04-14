@@ -6,9 +6,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { SiteSection, SiteContainer } from "./SiteLayout"
-import { minWidth } from "./styles/MediaQueries"
-import { getBaseline } from "./styles/Functions"
+import { SiteSection, SiteContainer } from "../Global/SiteLayout"
+import { minWidth } from "../styles/MediaQueries"
+import { getBaseline } from "../styles/Functions"
 
 
 const StyledSiteSection = styled( SiteSection )`
@@ -26,7 +26,7 @@ const StyledBlockBefore = styled.div`
 const StyledColumns = styled.div`
     padding-right: 2rem;
 
-    @media ${ minWidth.medium } {
+    @media ${ minWidth.as( 667 ) } {
         display: grid;
         grid-template-columns: repeat( 3, 1fr );
         grid-gap: 5vw;
@@ -62,7 +62,7 @@ const StyledColumn = styled.div`
 
     :nth-child(2) {
         h3 {
-            background: linear-gradient( 45deg, #0ae4d9, #54d30a );
+            background: linear-gradient( 45deg, #54d30a, #0ae4d9 );
             
             background-clip: text;
             -webkit-background-clip: text;
@@ -83,7 +83,7 @@ const StyledColumn = styled.div`
         justify-self: flex-end;
     }
 
-    @media ${ minWidth.medium } {
+    @media ${ minWidth.as( 667 ) } {
         margin: 0;
         
         :nth-child(-n+2) {

@@ -4,10 +4,11 @@
 import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import { Helmet } from 'react-helmet'
 import styled from "styled-components"
 import SEO from "@components/_SEO"
-import Page from "@components/Page"
-import { SiteSection, SiteContainer } from "@components/SiteLayout"
+import Page from "@components/Global/Page"
+import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
 import LifeHero from "@components/life/Hero"
 import { minWidth } from "@components/styles/MediaQueries"
 
@@ -157,6 +158,10 @@ const StyledParallexCarText = styled.div`
         color: var( --white );
     }
 
+    p {
+        color: var( --white );
+    }
+
     @media ${ minWidth.medium } {
         width: 60%;
         padding: 50px 30px;
@@ -221,7 +226,7 @@ const Life = () => {
     const ParallexCarSection = ({ innerRef, children, image }) => {
         
         return (
-            <StyledParallexCarSection ref={ innerRef }>
+            <StyledParallexCarSection id="car-yobbo" ref={ innerRef }>
                 <StyledParallexCarImage
                     fluid={ image }
                     style={{ position: 'absolute' }}
@@ -252,8 +257,6 @@ const Life = () => {
         function getScrollPosition( e ) {
             carSectionPos = carRef.current.getBoundingClientRect()
 
-            console.log( carSectionPos )
-
             if ( carSectionPos.top <= 0 ) {
                 carRef.current.classList.add( 'fixed' )
             } else {
@@ -274,6 +277,9 @@ const Life = () => {
     return (
         <Page>
             <SEO title="Life" />
+            <Helmet>
+                <body className="page-life" />
+            </Helmet>
             <LifeHero images={ images }>
                 <h1>Life</h1>
                 <p>As much as I love what I do, you can’t beat disconnecting by getting outside, from giving it the beans down country roads to exploring woodlands, riversides and hills on those Sunday walks…</p>
@@ -300,8 +306,6 @@ const Life = () => {
                 <h2>Car <strike>yobbo</strike> enthusiast </h2>
                 <p>Currently the proud keeper of a 2016 A3 Saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
                 <p>It was with the second car, my 206, that I developed the obsession with taking things apart and putting them back together again, a very therapeutic - and useful - process.</p>
-                <h3>Something else carsy</h3>
-                <p>Currently the proud keeper of a 2016 A3 Saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
             </ParallexCarSection>
         </Page>
     )

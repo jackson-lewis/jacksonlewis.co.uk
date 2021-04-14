@@ -6,7 +6,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { getBaseline } from "./styles/Functions"
+import { getBaseline } from "../styles/Functions"
 import { SiteSection, SiteContainer } from "./SiteLayout"
 
 
@@ -21,7 +21,7 @@ const StyledSiteSection = styled( SiteSection )`
 
     p {
         font-size: 1.1rem;
-        font-weight: 700;
+        font-weight: 600;
         color: var( --dark-white );
     }
 `

@@ -16,7 +16,8 @@ const StyledLinkRaw = css`
     ${ props => props.$noArrow ? null : `padding-right: 2rem;` }
 
     text-decoration: none;
-    font-size: .9rem;
+    font-size: .9375rem;
+    font-weight: 700;
     font-family: var( --sans-font );
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -31,7 +32,7 @@ const StyledLinkRaw = css`
             ${ pseudoRequired() }
             top: 0;
             right: 5px;
-            width: 1rem;
+            width: 16px;
             height: 100%;
             transform: translateX( 0 );
 
@@ -40,7 +41,7 @@ const StyledLinkRaw = css`
             background-position: center;
             background-size: 100% auto;
 
-            transition: transform 150ms ease-out;
+            transition: transform 150ms;
         }
 
         :hover {

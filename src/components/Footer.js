@@ -4,7 +4,7 @@
 import React from "react"
 import styled from "styled-components"
 import { minWidth } from "./styles/MediaQueries"
-import { SiteContainer } from "./SiteLayout"
+import { SiteContainer } from "./Global/SiteLayout"
 
 
 const StyledSiteContainer = styled( SiteContainer )`
@@ -23,21 +23,6 @@ const StyledFooter = styled.footer`
 
     color: var( --very-dark-white );
     background-color: var( --body-color );
-
-    ::before {
-        content: '';
-        display: none;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 200%;
-        z-index: -1;
-
-        background-image: linear-gradient( 180deg, var( --black ), transparent ),
-                        radial-gradient( ellipse at bottom left, var( --secondary ), transparent ),
-                        radial-gradient( ellipse at bottom right, var( --primary ), transparent );
-    }
 
     a {
         color: inherit;

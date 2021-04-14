@@ -7,7 +7,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { SiteSection, SiteContainer } from "./SiteLayout"
+import { SiteSection, SiteContainer } from "./Global/SiteLayout"
 import { minWidth } from "./styles/MediaQueries"
 import { getBaseline } from "./styles/Functions"
 

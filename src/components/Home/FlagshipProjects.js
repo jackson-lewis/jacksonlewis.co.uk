@@ -8,17 +8,17 @@ import PropTypes from "prop-types"
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
-import { SiteSection } from "./SiteLayout"
-import StyledLink from "./Link"
-import { minWidth } from "./styles/MediaQueries"
-import { getBaseline } from "./styles/Functions"
+import { SiteSection } from "../Global/SiteLayout"
+import StyledLink from "../Link"
+import { minWidth } from "../styles/MediaQueries"
+import { getBaseline } from "../styles/Functions"
 
 
 const StyledSiteSection = styled( SiteSection )`
     padding: 50px 0;
     position: relative;
     display: grid;
-    grid-gap: 30px 0;
+    grid-gap: var( --site-margin ) 0;
     grid-template-columns: var( --site-margin ) 1fr calc( var( --site-margin ) * 3 );
 
     ::before {
@@ -26,21 +26,22 @@ const StyledSiteSection = styled( SiteSection )`
         display: block;
         position: absolute;
         top: 0;
-        left: 50%;
-        width: calc( 100% + 12px );
-        max-width: 72.5em;
+        left: 0;
+        width: 100%;
         height: 100%;
-        transform: translateX( -50% );
+        z-index: -1;
 
-        background-color: rgba( 218, 32, 63, .01 );
-        border: 1px solid rgba( 218, 32, 63, .5 );
-        border-radius: 8px;
+        background-color: var( --dark-grey );
     }
     
     @media ${ minWidth.as( 667 ) } {
         padding: 100px 0;
         grid-template-columns: 1fr 4vw 4vw 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto min-content auto;
+    }
+
+    @media ${ minWidth.large } {
+        grid-gap: 60px 0;
     }
 `
 
@@ -68,11 +69,16 @@ const StyledBlockBefore = styled.div`
         grid-column: 1 / 2;
         justify-self: flex-end;
 
+        text-align: right;
+
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.1rem;
         }
 
-        
+        p {
+            margin-left: auto;
+            margin-right: 0;
+        }
     }
 `
 const StyledBlockAfter = styled.div`
@@ -89,6 +95,7 @@ const StyledBlockAfter = styled.div`
 `
 
 const StyledProject = styled( BackgroundImage )`
+    width: 100%;
     padding-top: 56%;
     position: relative;
 

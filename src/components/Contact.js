@@ -4,7 +4,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { SiteContainer } from "./SiteLayout"
+import { SiteContainer } from "./Global/SiteLayout"
 import StyledLink from "./Link"
 import { minWidth } from "./styles/MediaQueries"
 import { getBaseline } from "./styles/Functions"

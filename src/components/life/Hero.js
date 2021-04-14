@@ -7,8 +7,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { keyframes } from "styled-components"
 import SEO from "@components/_SEO"
-import Page from "@components/Page"
-import { SiteSection, SiteContainer } from "@components/SiteLayout"
+import Page from "@components/Global/Page"
+import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
 import { minWidth } from "@components/styles/MediaQueries"
 
 
@@ -39,14 +39,16 @@ const StyledHeroContent = styled.div`
     z-index: 20;
 
     text-align: center;
+    color: var( --white );
 
     h1 {
-        color: var( --white );
+        color: inherit;
     }
 
     p {
         font-weight: 700;
         font-size: 1.1rem;
+        color: inherit;
     }
 
     @media ${ minWidth.large } {

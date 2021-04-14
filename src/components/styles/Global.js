@@ -22,9 +22,10 @@ const GlobalStyles = createGlobalStyle`
         --grey: ${ colors.grey };
 
         --body-color: var( --black );
-        --heading-color: #86797C;
+        --heading-color: #D9D4D5;
         --link-color: var( --blue );
         --outline-color: #403838;
+        --text-primary-color: var( --dark-white );
 
         --serif-font: 'Vollkorn', serif;
         --sans-font: 'Source Sans Pro', sans-serif;
@@ -52,6 +53,10 @@ const GlobalStyles = createGlobalStyle`
         text-shadow: none;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
         
@@ -69,6 +74,9 @@ const GlobalStyles = createGlobalStyle`
 
     p {
         margin: 0 0 ${ getBaseline() };
+
+        font-weight: 600;
+        color: var( --text-primary-color );
 
         :last-child {
             margin-bottom: 0;
@@ -92,6 +100,10 @@ const GlobalStyles = createGlobalStyle`
         font-family: var( --heading-font );
         color: var( --heading-color );
         line-height: 1.5;
+
+        strike {
+            opacity: .5;
+        }
     }
 
     h1 {

@@ -65,8 +65,7 @@ const StyledMobileMenuWrapper = styled.div`
     display: none;
     z-index: 20;
 
-    background-color: rgba( 0, 0, 0, .95 );
-    backdrop-filter: blur( 2px ) saturate( 180% );
+    background-color: var( --black );
     border: 1px solid var( --outline-color );
     border-radius: var( --border-radius );
 

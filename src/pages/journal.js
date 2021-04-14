@@ -5,10 +5,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import SEO from "@components/_SEO"
-import Page from "@components/Page"
+import Page from "@components/Global/Page"
 import StandardHero from "@components/StandardHero"
 import PostsLoop from "@components/PostsLoop"
-import ContentBlock from "@components/ContentBlock"
+import ContentBlock from "@components/Global/ContentBlock"
 
 
 const Journal = ({ data }) => {

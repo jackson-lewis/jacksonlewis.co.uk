@@ -5,7 +5,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import Image from "gatsby-image"
-import { SiteSection, SiteContainer } from "@components/SiteLayout"
+import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
 import StyledLink from "@components/Link"
 import { minWidth } from "@styles/MediaQueries"
 

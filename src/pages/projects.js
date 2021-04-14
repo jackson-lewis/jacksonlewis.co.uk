@@ -8,14 +8,14 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import SEO from "@components/_SEO"
-import Page from "@components/Page"
+import Page from "@components/Global/Page"
 import StandardHero from "@components/StandardHero"
 import ProjectsLoop from "@components/ProjectsLoop"
-import ContentBlock from "@components/ContentBlock"
+import ContentBlock from "@components/Global/ContentBlock"
 import StyledLink from "@components/Link"
 import { minWidth, widthBreakpoints } from "@styles/MediaQueries"
 import { getBaseline } from "@styles/Functions"
-import { SiteSection, SiteContainer } from "@components/SiteLayout"
+import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
 import { useEffect } from "react"
 
 
@@ -46,7 +46,7 @@ const StyledPageHeading = styled.header`
     p {
         color: var( --dark-white );
         font-size: clamp( 1.1rem, 2vw, 1.3rem );
-        font-weight: 700;
+        font-weight: 600;
     }
 
     > *:last-child {
@@ -82,12 +82,14 @@ const StyledProjects = styled.ul`
 `
 
 const StyledProject = styled.li`
+    padding: 20px;
+
+    background-color: var( --dark-grey );
+    border: 1px solid var( --outline-color );
+    border-radius: var( --border-radius );
     
     :not(:last-child) {
-        margin-bottom: 50px;
-        padding-bottom: 50px;
-
-        border-bottom: 1px solid #575757;
+        margin-bottom: 30px;
     }
 
     h2 {
@@ -102,12 +104,13 @@ const StyledProject = styled.li`
 
         span {
             margin: 0 6px;
-            padding: 2px 8px;
+            padding: 1px 6px;
             display: block;
 
-            font-size: .8rem;
+            font-size: .75rem;
+            font-weight: 600;
             background-color: #1D1D1D;
-            color: #D3C8C8;
+            color: var( --very-dark-white );
             border-radius: 4px;
 
             :first-child {
@@ -121,9 +124,45 @@ const StyledProject = styled.li`
     }
 
     @media ${ minWidth.large } {
+        padding: 30px;
         padding-right: 40px;
     }
 `
+
+const PROJECTS = [
+    {
+        name: 'Motta Living',
+        tags: [
+            'wordpress',
+            'woocommerce'
+        ],
+        description: 'Unique homeware brand Motta Living sell high-end products for all corners of your home, with a high-end ecommerce store to match.',
+        link: 'https://mottaliving.co.uk',
+        type: 'client'
+    },
+    {
+        name: 'Shape Shiftr - WordPress blank theme',
+        tags: [
+            'wordpress',
+            'gulp',
+            'webpack'
+        ],
+        description: 'Created from scratch whilst in university, and sick of bulky frameworks, my own theme was born.',
+        link: 'https://github.com/jackson-lewis/shiftr',
+        type: 'personal'
+    },
+    {
+        name: 'WordPress Enhanced Workflow',
+        tags: [
+            'wordpress',
+            'wordpress cli',
+            'bash'
+        ],
+        description: 'A workflow filled with commands designed to automate common everyday tasks, saving DAYS worth of man hours every year.',
+        link: 'https://github.com/jackson-lewis/wordpress-enhanced-workflow',
+        type: 'personal'
+    }
+]
 
 
 const Projects = () => {
@@ -159,45 +198,30 @@ const Projects = () => {
                 <StyledGrid>
                     <StyledPageHeading>
                         <h1>Projects</h1>
-                        <p>Browse the finest collection of my latest work, ranging from agency work to those evening personal projects…</p>
+                        <p>From bespoke client projects to productivity-boosting personal creations, these projects showcase a range of skills.</p>
                     </StyledPageHeading>
 
                     <StyledProjects>
-                        <StyledProject>
-                            <h2>Motta Living</h2>
-                            <div className="project-tags sans-font">
-                                <span>wordpress</span>
-                                <span>woocommerce</span>
-                            </div>
-                            <p className="desc">Unique homeware brand Motta Living sell all your homeware needs from lighting to garden, with a highly bespoke ecommerce store to match.</p>
-                            <StyledLink to="https://mottaliving.co.uk" type="text" color="primary" ext>
-                                View site
-                            </StyledLink>
-                        </StyledProject>
-                        <StyledProject>
-                            <h2>Shape Shiftr - WordPress blank theme</h2>
-                            <div className="project-tags sans-font">
-                                <span>wordpress</span>
-                                <span>gulp</span>
-                                <span>webpack</span>
-                            </div>
-                            <p className="desc">Created from scratch whilst in university, and sick of bulky frameworks, my own theme was born.</p>
-                            <StyledLink to="https://mottaliving.co.uk" type="text" color="primary" ext>
-                                View repo
-                            </StyledLink>
-                        </StyledProject>
-                        <StyledProject>
-                            <h2>Kayospruce</h2>
-                            <div className="project-tags sans-font">
-                                <span>magento 2</span>
-                                <span>next.js</span>
-                                <span>apollo</span>
-                            </div>
-                            <p className="desc">Ecommerce sailing provider Kayospruce get a truely modern take on the ecommerce world with a React powered Magento 2 store.</p>
-                            <StyledLink to="https://mottaliving.co.uk" type="text" color="primary" ext>
-                                View site
-                            </StyledLink>
-                        </StyledProject>
+                        {
+                            PROJECTS.map( project => (
+                                <StyledProject>
+                                    <h2>{ project.name }</h2>
+                                    <div className="project-tags sans-font">
+                                        { project.tags.map( tag => <span>{ tag }</span> ) }
+                                    </div>
+                                    <p className="desc">{ project.description }</p>
+                                    <StyledLink
+                                        to={ project.link }
+                                        target="_blank"
+                                        rel="noopener"
+                                        type="text"
+                                        color="primary"
+                                        ext>
+                                        { project.type === 'client' ? 'Visit site' : 'View repo' }
+                                    </StyledLink>
+                                </StyledProject>
+                            ))
+                        }
                     </StyledProjects>
                 </StyledGrid>
             </SiteSection>

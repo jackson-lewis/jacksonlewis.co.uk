@@ -9,9 +9,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { GlobalStyles } from "./styles/Global"
-import Header from "./Header"
-import Footer from "./Footer"
+import { GlobalStyles } from "../styles/Global"
+import Header from "../Header"
+import Footer from "../Footer"
 
 
 const Main = styled.main``

@@ -1,11 +1,11 @@
 /**
  * Site header
  */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { SiteContainer } from '@components/SiteLayout'
+import { SiteContainer } from '@components/Global/SiteLayout'
 import { minWidth } from '@styles/MediaQueries'
-import StyledLogo from './Logo'
+import StyledLogo, { LogoGlobalStyle } from './Logo'
 import MobileMenuToggle from './MobileMenuToggle'
 import MobileMenu from './MobileMenu'
 import MainMenu from './MainMenu'
@@ -75,35 +75,43 @@ const Header = () => {
     const [ isToggled, updateToggleState ] = useState( false )
     const [ isMobile, setMobileState ] = useState( true )
 
+    const headerRef = useRef()
+
     useEffect( () => {
         /**
          * Handle scroll watching of header display
          */
-        const siteHeader = document.querySelector( 'header' )
+        const siteHeaderWrapper = headerRef.current.parentElement
+
+        let minScroll = 120
+        // Increase the min scroll value for homepage
+        if ( window.location.pathname === '/' ) {
+            minScroll = window.innerHeight / 1.5
+        }
 
         let prevScroll = 0
         const watchScroll = () => {
             const scroll = window.scrollY
 
-            if ( scroll > 120 ) {
-                siteHeader.parentElement.classList.add( 'pre-set-reveal' )
+            if ( scroll > minScroll ) {
+                siteHeaderWrapper.classList.add( 'pre-set-reveal' )
 
                 setTimeout( () => {
-                    siteHeader.parentElement.classList.add( `set-reveal` )
+                    siteHeaderWrapper.classList.add( `set-reveal` )
                 }, 50 )
 
                 if ( scroll < prevScroll ) {
                     
                     if ( prevScroll > scroll + 60 ) {
-                        siteHeader.parentElement.classList.add( 'hey-hey' )
+                        siteHeaderWrapper.classList.add( 'hey-hey' )
                     } else {
                         return
                     }
                 } else {
-                    siteHeader.parentElement.classList.remove( 'hey-hey' )
+                    siteHeaderWrapper.classList.remove( 'hey-hey' )
                 }
             } else if ( scroll > prevScroll || scroll <= 0 ) {
-                siteHeader.parentElement.classList.remove( 'pre-set-reveal', 'set-reveal', 'hey-hey' )
+                siteHeaderWrapper.classList.remove( 'pre-set-reveal', 'set-reveal', 'hey-hey' )
             }
 
             prevScroll = scroll
@@ -128,7 +136,8 @@ const Header = () => {
 
     return (
         <StyledHeaderWrapper isToggled={ isToggled }>
-            <StyledHeader>
+            <LogoGlobalStyle />
+            <StyledHeader className="site-header" ref={ headerRef }>
                 <StyledSiteContainer>
                     <StyledLogo to="/" aria-label="Home">
                         Jackson

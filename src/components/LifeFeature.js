@@ -3,7 +3,7 @@
  */
 import React from "react"
 import styled from "styled-components"
-import { SiteSection, SiteContainer } from "./SiteLayout"
+import { SiteSection, SiteContainer } from "./Global/SiteLayout"
 import LifeFeatureItem from "./LifeFeatureItem"
 
 

@@ -3,7 +3,7 @@
  * used site-wide.
  */
 import styled from "styled-components"
-import { minWidth } from "./styles/MediaQueries"
+import { minWidth } from "../styles/MediaQueries"
 
 
 /**
