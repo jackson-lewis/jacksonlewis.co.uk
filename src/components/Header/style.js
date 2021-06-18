@@ -9,18 +9,18 @@ export const Wrapper = styled.div`
     top: 0;
     z-index: 100;
 
-    transition: 300ms;
+    transition: 400ms;
 
     &.pre-set-reveal {
         display: none;
         position: fixed;
         top: 0;
-        transform: translateY( -100% );
     }
 
     &.set-reveal {
         height: var( --header-height );
         display: block;
+        opacity: 0;
 
         background-color: rgba( 30, 30, 30, .8 );
         backdrop-filter: blur( 4px ) saturate( 90% );
@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
     }
 
     &.hey-hey {
-        transform: translateY( 0 );
+        opacity: 1;
     }
 `
 

@@ -16,8 +16,7 @@ import { minWidth } from "@components/styles/MediaQueries"
 const StyledLifeHero = styled.div`
     width: 100%;
     min-height: 80vh;
-    //min-height: -webkit-fill-available;
-    padding: var( --header-height ) 20px 40px;
+    padding: var( --header-height ) 20px 70px;
     display: grid;
     align-items: flex-end;
     position: relative;
@@ -27,8 +26,6 @@ const StyledLifeHero = styled.div`
     background-color: var( --dark-grey );
 
     @media ${ minWidth.large } {
-        min-height: 100vh;
-        //min-height: -webkit-fill-available;
         padding-bottom: 80px;
     }
 `
@@ -45,12 +42,14 @@ const StyledHeroContent = styled.div`
 
     h1 {
         color: inherit;
+        text-shadow: 0 0 12px rgba( 0, 0, 0, .2 );
     }
 
     p {
         font-weight: 700;
         font-size: 1.1rem;
         color: inherit;
+        text-shadow: 0 0 12px rgba( 0, 0, 0, .2 );
     }
 
     transition: 400ms 100ms cubic-bezier(0.36, 0.92, 0.43, 1.01);
@@ -79,7 +78,7 @@ const StyledHeroContent = styled.div`
 
 const StyledAnimatedSlides = styled.div`
     width: 100%;
-    height: 100%;
+    height: calc( 80vh + 8.74887vw );
     position: fixed;
     top: 0;
     left: 0;
@@ -111,7 +110,7 @@ const slideAnimation = keyframes`
 `
 
 const StyledSlideImage = styled( Img )`
-    min-width: 150%;
+    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
@@ -128,14 +127,17 @@ const StyledAnimatedSlide = styled.div`
     z-index: 10;
 `
 
-const StyledLocationTag = styled.span`
+const LocationTag = styled.a`
     padding: 2px 10px;
     padding-left: 28px;
     display: block;
     position: absolute;
-    bottom: 20px;
-    left: var( --site-gutter );
+    bottom: 40px;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%);
 
+    text-decoration: none;
     text-transform: uppercase;
     font-size: .875rem;
     font-weight: 300;
@@ -145,6 +147,19 @@ const StyledLocationTag = styled.span`
     background-color: rgba( 255, 239, 239, .5 );
     backdrop-filter: blur( 4px );
     box-shadow: 0 0 8px rgba( 30, 30, 30, .2 );
+
+    @media ${ minWidth.medium } {
+        left: unset;
+        right: var( --site-gutter );
+        transform: none;
+        bottom: calc( 8.74887vw + 20px );
+    }
+
+    :hover {
+        ::before {
+            transform: translateY( 2px );
+        }
+    }
 
     ::before {
         content: '';
@@ -156,18 +171,20 @@ const StyledLocationTag = styled.span`
         left: 8px;
 
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M8.566,2A3.75,3.75,0,0,0,5,5.915c0,2.332,2.252,5.549,3.179,6.774a.478.478,0,0,0,.779,0c.922-1.225,3.174-4.441,3.174-6.774A3.75,3.75,0,0,0,8.566,2Zm0,5.314a1.341,1.341,0,0,1-1.273-1.4,1.341,1.341,0,0,1,1.273-1.4,1.341,1.341,0,0,1,1.273,1.4A1.341,1.341,0,0,1,8.566,7.314Z' transform='translate(-1.564 -0.626)' fill='%23130207'/%3E%3C/svg%3E");
-    }
 
+        transition: 300ms ease-in;
+    }
 `
 
-function AnimatedSlide({ image, locationTag }) {
+function AnimatedSlide({ imageData }) {
+    const { image, tag, mapsLink } = imageData
 
     return (
         <StyledAnimatedSlide>
             <StyledSlideImage fluid={ image } style={{ position: 'absolute' }} />
-            <StyledLocationTag>
-                { locationTag }
-            </StyledLocationTag>
+            <LocationTag href={ mapsLink } target="_blank" rel="noopener">
+                { tag }
+            </LocationTag>
         </StyledAnimatedSlide>
     )
 }
@@ -175,18 +192,24 @@ function AnimatedSlide({ image, locationTag }) {
 
 export default function LifeHero({ children, images }) {
     const [ contentClass, setContentClass ] = useState( '' )
+    const [ selectedHeroImage, chooseHeroImage ] = useState( 0 )
 
     const heroContentRef = useRef()
-    useParallax( heroContentRef, 0.25 )
+    useParallax( heroContentRef, 0.3 )
 
     useEffect( () => {
         setContentClass( 'fade-in' )
     }, [] )
 
+
+    useEffect( () => {
+        chooseHeroImage( images[ Math.floor( Math.random() * images.length ) ] )
+    }, [] )
+
     return (
         <StyledLifeHero>
             <AnimatedSlides>
-                { images.map( ( image, i ) => <AnimatedSlide key={ `slide-${ i }` } image={ image.img } locationTag={ image.tag } /> ) }
+                <AnimatedSlide imageData={ selectedHeroImage } />
             </AnimatedSlides>
             <StyledHeroContent className={ contentClass } ref={ heroContentRef }>
                 { children }

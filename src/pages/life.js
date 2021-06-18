@@ -62,7 +62,7 @@ const StyledImageTextBlock = styled( SiteContainer )`
 const AlternatingSection = styled( SiteSection )`
     width: 100%;
     margin: 8.74887vw 0 0;
-    padding-top: 8.74887vw;
+    padding-top: 60px;
     padding-bottom: 60px;
     position: relative;
     z-index: 50;
@@ -106,8 +106,8 @@ const AlternatingSection = styled( SiteSection )`
     }
 
     @media ${ minWidth.large } {
-        padding-top: 120px;
-        padding-bottom: 120px;
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
 
     ${ StyledImageTextBlock } {
@@ -116,7 +116,7 @@ const AlternatingSection = styled( SiteSection )`
             margin-bottom: 60px;
         }
 
-        @media ${ minWidth.medium } {
+        @media ${ minWidth.as( 640 ) } {
             display: grid;
             grid-gap: 16px;
             grid-template-rows: auto;
@@ -127,6 +127,7 @@ const AlternatingSection = styled( SiteSection )`
                 margin-bottom: 90px;
 
                 ${ StyledImageTextBlockImage } {
+                    margin-top: 71px;
                     margin-right: 2vw;
                     grid-column: 1 / 6;
                     grid-row: 1;
@@ -146,14 +147,11 @@ const AlternatingSection = styled( SiteSection )`
                 }
 
                 ${ StyledImageTextBlockText } {
+                    margin-top: 50px;
                     margin-right: 2vw;
                     grid-column: 2 / 7;
                     grid-row: 1;
                 }
-            }
-
-            ${ StyledImageTextBlockImage } {
-                top: calc( var( --header-height ) + 20px );
             }
         }
     }
@@ -168,7 +166,21 @@ export default function Life() {
     const query = useStaticQuery(
         graphql`
           query {
-            hero: file(relativePath: { eq: "mam-tor-pana.jpeg" }) {
+            heroBrownwick: file(relativePath: { eq: "brownwick.jpeg" }) {
+              childImageSharp {
+                fluid( quality: 90 ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            },
+            heroBridport: file(relativePath: { eq: "bridport.jpeg" }) {
+              childImageSharp {
+                fluid( quality: 90 ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            },
+            heroNewForestRoad: file(relativePath: { eq: "new-forest-road.jpg" }) {
               childImageSharp {
                 fluid( quality: 90 ) {
                   ...GatsbyImageSharpFluid_withWebp
@@ -205,7 +217,7 @@ export default function Life() {
     
         return (
             <StyledImageTextBlock>
-                <StyledImageTextBlockImage fluid={ image } style={{ position: 'sticky' }} />
+                <StyledImageTextBlockImage fluid={ image } style={{ position: 'relative' }} />
                 <StyledImageTextBlockText>
                     { children }
                 </StyledImageTextBlockText>
@@ -232,8 +244,19 @@ export default function Life() {
 
     const images = [
         {
-            img: query.hero.childImageSharp.fluid,
-            tag: 'Mam Tor, Peak District'
+            image: query.heroBrownwick.childImageSharp.fluid,
+            tag: 'Titchfield, Fareham',
+            mapsLink: 'https://goo.gl/maps/HDDzbDCiXJZY86Sg6'
+        },
+        {
+            image: query.heroBridport.childImageSharp.fluid,
+            tag: 'Bridport, Dorset',
+            mapsLink: 'https://goo.gl/maps/aTSaHM1XhJwPZiUL6'
+        },
+        {
+            image: query.heroNewForestRoad.childImageSharp.fluid,
+            tag: 'Fritham, New Forest',
+            mapsLink: 'https://goo.gl/maps/49pwj7EfPtixQyWF6'
         }
     ]
 
@@ -247,7 +270,7 @@ export default function Life() {
             <LifeGlobalStyle />
             <LifeHero images={ images }>
                 <h1>Life</h1>
-                <p>As much as I love what I do, you can’t beat disconnecting by getting outside, from giving it the beans down country roads to exploring woodlands, riversides and hills on those Sunday walks…</p>
+                <p>As much as I love what I do, you can’t beat disconnecting by getting outside, whether it's on long walks, out on the water or cruising through the countryside.</p>
             </LifeHero>
 
             <AlternatingSection>
@@ -255,13 +278,9 @@ export default function Life() {
                     <h2>Outdoorsy</h2>
                     <p>With so much time during the week spent at the screen, it’s super valuable to me to get far away from it all and disconnect at the weekend, and what better way than getting out in the open!</p>
                     <p>I try to visit as many new places as possible.</p>
-                    <p>With so much time during the week spent at the screen, it’s super valuable to me to get far away from it all and disconnect at the weekend, and what better way than getting out in the open!</p>
-                    <p>I try to visit as many new places as possible.</p>
                 </ImageTextBlock>
                 <ImageTextBlock image={ query.active.childImageSharp.fluid }>
                     <h2>Keeping active</h2>
-                    <p>With so much time during the week spent at the screen, it’s super valuable to me to get far away from it all and disconnect at the weekend, and what better way than getting out in the open!</p>
-                    <p>I try to visit as many new places as possible.</p>
                     <p>With so much time during the week spent at the screen, it’s super valuable to me to get far away from it all and disconnect at the weekend, and what better way than getting out in the open!</p>
                     <p>I try to visit as many new places as possible.</p>
                 </ImageTextBlock>
@@ -269,8 +288,9 @@ export default function Life() {
 
             <Car image={ query.car.childImageSharp.fluid }>
                 <h2>Car <del>yobbo</del> enthusiast</h2>
-                <p>Currently the proud keeper of a 2016 A3 Saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
+                <p>Currently the proud keeper of a 2016 A3 saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
                 <p>It was with the second car, my 206, that I developed the obsession with taking things apart and putting them back together again, a very therapeutic - and useful - process.</p>
+                <small style={{ fontStyle: 'italic' }}>And yes, I did take this picture specifically to fit this section.</small>
             </Car>
         </Page>
     )

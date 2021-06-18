@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
 
 
-const StyledLogo = styled( Link )`
+const SiteLogo = styled( Link )`
     font-family: var( --sans-font );
     font-weight: 200;
     font-size: 1.5rem;
@@ -12,7 +12,7 @@ const StyledLogo = styled( Link )`
 
 export const LogoGlobalStyle = createGlobalStyle`
     body:not(.home):not(.page-life) {
-        ${ StyledLogo } {
+        ${ SiteLogo } {
             transition: color 150ms;
 
             :hover {
@@ -22,4 +22,4 @@ export const LogoGlobalStyle = createGlobalStyle`
     }
 `
 
-export default StyledLogo
+export default SiteLogo

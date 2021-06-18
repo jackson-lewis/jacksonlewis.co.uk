@@ -1,11 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { css, keyframes } from 'styled-components'
 import { Link } from 'gatsby'
+import styled, { css, keyframes } from 'styled-components'
 import { minWidth } from '@styles/MediaQueries'
 
 
-const StyledMenuLink = styled( Link )`
+export const MenuLink = styled( Link )`
     padding: 6px 0;
     display: inline-block;
 
@@ -13,7 +11,7 @@ const StyledMenuLink = styled( Link )`
     color: inherit;
 `
 
-const StyledNav = styled.nav`
+export const Nav = styled.nav`
     ul {
         list-style: none;
         margin: 0;
@@ -29,7 +27,7 @@ const StyledNav = styled.nav`
                 margin-bottom: 8px;
             }
             
-            ${ StyledMenuLink } {
+            a {
                 :hover {
                     text-decoration: underline;
                 }
@@ -39,8 +37,8 @@ const StyledNav = styled.nav`
 `
 
 /**
- * Styling applied when the mobile menu is active
- */
+* Styling applied when the mobile menu is active
+*/
 const mobileMenuAppear = keyframes`
     from {
         opacity: 0;
@@ -59,7 +57,7 @@ const mobileMenuActive = css`
     animation-name: ${ mobileMenuAppear };
 `
 
-const StyledMobileMenuWrapper = styled.div`
+export const Wrapper = styled.div`
     margin: var( --site-gutter ) var( --site-gutter ) 0;
     padding: 30px var( --site-margin );
     display: none;
@@ -75,21 +73,3 @@ const StyledMobileMenuWrapper = styled.div`
 
     ${ ({ isToggled }) => isToggled ? mobileMenuActive : null }
 `
-
-export default function MobileMenu({ isToggled }) {
-    return (
-        <StyledMobileMenuWrapper isToggled={ isToggled }>
-            <StyledNav>
-                <ul role="menu">
-                    <li role="menuitem"><StyledMenuLink to="/projects">Projects</StyledMenuLink></li>
-                    <li role="menuitem"><StyledMenuLink to="/life">Life</StyledMenuLink></li>
-                    <li role="menuitem"><StyledMenuLink to="/contact">Contact</StyledMenuLink></li>
-                </ul>
-            </StyledNav>
-        </StyledMobileMenuWrapper>
-    )
-}
-
-MobileMenu.propTypes = {
-    isToggled: PropTypes.bool.isRequired
-}

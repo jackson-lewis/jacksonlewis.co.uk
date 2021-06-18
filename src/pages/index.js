@@ -64,8 +64,8 @@ export default function Index({ data }) {
                 <Fundamentals />
                 <FlagshipProjects projects={ projects } />
                 <ContentBlock align="center">
-                    <h2>More coming soon...</h2>
-                    <p>This site is currently under a soft launch, so a few features are yet to be added, including project case studies and a blog.</p>
+                    <h2>There's more...</h2>
+                    <p>Over on <a href="https://dev.to/jacksonlewis">dev.to</a>, I have a range of blog posts from tutorials such as <a href="https://dev.to/jacksonlewis/how-to-preload-images-in-wordpress-48di">preloading images in WordPress</a> to insights on up and coming tech like <a href="https://dev.to/jacksonlewis/what-is-headless-wordpress-an-in-depth-comparison-1c4m">headless Wordpress</a>.</p>
                 </ContentBlock>
             </StyledPageContentsWrapper>
         </Page>

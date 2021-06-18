@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import StyledLogo, { LogoGlobalStyle } from './Logo'
+import SiteLogo, { LogoGlobalStyle } from './SiteLogo'
 import MobileMenuToggle from './MobileMenuToggle'
 import MobileMenu from './MobileMenu'
-import MainMenu from './MainMenu'
+import Menu from './Menu'
 import { Wrapper, StyledHeader, Container } from './style'
 
 
@@ -15,6 +15,9 @@ export default function Header() {
 
     const headerRef = useRef()
 
+    /**
+     * Controls header visibility state
+     */
     useEffect( () => {
         /**
          * Handle scroll watching of header display
@@ -28,7 +31,7 @@ export default function Header() {
         }
 
         let prevScroll = 0
-        const watchScroll = () => {
+        function watchScroll() {
             const scroll = window.scrollY
 
             if ( scroll > minScroll ) {
@@ -59,7 +62,7 @@ export default function Header() {
         /**
          * Handle menu version to display
          */
-        const checkWindowWidth = () => {
+        function checkWindowWidth() {
             setMobileState( window.innerWidth < 500 )
         }
 
@@ -72,17 +75,52 @@ export default function Header() {
         }
     }, [] )
 
+    /**
+     * Controls mobile menu auto close on scroll
+     */
+    useEffect( () => {
+        let startY = 0
+
+        function reset() {
+            window.removeEventListener( 'scroll', watchScroll )
+            startY = 0
+        }
+
+        function watchScroll() {
+            const scroll = window.scrollY
+
+            if ( startY === 0 ) {
+                startY = scroll
+                return
+            }
+
+            if ( scroll > startY + 30 || scroll < startY - 30 ) {
+                updateToggleState( false )
+            }
+        }
+
+        if ( isToggled ) {
+            window.addEventListener( 'scroll', watchScroll )
+        } else {
+            reset()
+        }
+
+        return () => {
+            reset()
+        }
+    }, [ isToggled ] )
+
     return (
         <Wrapper isToggled={ isToggled }>
             <LogoGlobalStyle />
             <StyledHeader className="site-header" ref={ headerRef }>
                 <Container>
-                    <StyledLogo to="/" aria-label="Home">
+                    <SiteLogo to="/" aria-label="Home">
                         Jackson
-                    </StyledLogo>
+                    </SiteLogo>
                     { isMobile
                         ? <MobileMenuToggle isToggled={ isToggled } updateToggleState={ updateToggleState } />
-                        : <MainMenu />
+                        : <Menu />
                     }
                 </Container>
             </StyledHeader>

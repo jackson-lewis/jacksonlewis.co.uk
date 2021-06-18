@@ -1,6 +1,3 @@
-/**
- * Footer
- */
 import React from "react"
 import { StyledFooter, Container, Socials } from './styles'
 

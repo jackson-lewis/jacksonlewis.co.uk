@@ -11,17 +11,13 @@ export default function Car({ children, image }) {
         const carSection = ref.current,
             content = contentRef.current
 
-        let defaultPosition = 1
-
         function parallax() {
-            let position = ( window.scrollY + content.getBoundingClientRect().top ) * 1
-
-            console.log( position )
+            const position = ( window.scrollY + content.getBoundingClientRect().top ) * 1
 
             content.style.transform = `translateY(${ position }px)`
         }
 
-        function callback( entries, observer ) {
+        function callback( entries ) {
             entries.forEach( entry => {
                 // eslint-disable-next-line
                 entry.target.style.zIndex = entry.isIntersecting ? 40 : 10

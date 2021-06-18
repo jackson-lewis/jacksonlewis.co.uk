@@ -1,9 +1,8 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 
-const StyledMenuLink = styled( Link )`
+export const MenuLink = styled( Link )`
     padding: 6px;
     display: inline-block;
 
@@ -15,7 +14,7 @@ const StyledMenuLink = styled( Link )`
     transition: 150ms;
 `
 
-const StyledNav = styled.nav`
+export const Nav = styled.nav`
     ul {
         list-style: none;
         margin: 0;
@@ -30,7 +29,7 @@ const StyledNav = styled.nav`
                 margin-right: 18px;
             }
             
-            ${ StyledMenuLink } {
+            a {
                 :hover {
                     background-color: rgba( 250, 250, 250, .1 );
                     backdrop-filter: blur( 2px ) saturate( 90% );
@@ -39,15 +38,3 @@ const StyledNav = styled.nav`
         }
     }
 `
-
-export default function MainMenu() {
-    return (
-        <StyledNav>
-            <ul role="menu">
-                <li role="none"><StyledMenuLink to="/projects" role="menuitem">Projects</StyledMenuLink></li>
-                <li role="none"><StyledMenuLink to="/life" role="menuitem">Life</StyledMenuLink></li>
-                <li role="none"><StyledMenuLink to="/contact" role="menuitem">Contact</StyledMenuLink></li>
-            </ul>
-        </StyledNav>
-    )
-}

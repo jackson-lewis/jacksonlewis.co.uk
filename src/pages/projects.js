@@ -143,7 +143,7 @@ const PROJECTS = [
     },
     {
         id: 'pp-ss',
-        name: 'Shape Shiftr - WordPress blank theme',
+        name: 'Shape Shiftr - WordPress starter theme',
         tags: [
             'wordpress',
             'gulp',
@@ -174,11 +174,8 @@ export default function Projects() {
         const pageHeader = document.querySelector( 'main header' )
         let opacityValue = 100
 
-        const watchScroll = () => {
+        function watchScroll() {
             opacityValue = 100 - ( window.scrollY / 2 )
-
-            /** Don't let the value go below 33 as we want heading to always be there.. */
-            opacityValue = opacityValue >= 20 ? opacityValue : 20
 
             pageHeader.style.opacity = opacityValue / 100
         }

@@ -22,6 +22,9 @@ export const Content = styled.div`
     border-radius: 8px;
     background-color: rgba( 0, 0, 0, .6 );
     backdrop-filter: blur( 6px );
+    box-shadow: 0 0 12px rgba( 0, 0, 0, .3 ),
+                0 0 24px rgba( 0, 0, 0, .2 ),
+                0 0 36px rgba( 0, 0, 0, .1 );
     position: relative;
     z-index: 20;
 
@@ -48,6 +51,8 @@ export const Section = styled.section`
     position: relative;
     z-index: 20;
     overflow: hidden;
+    display: grid;
+    align-items: center;
 
     @media ${ minWidth.large } {
         display: grid;

@@ -117,12 +117,12 @@ export default function Fundamentals() {
         <StyledSiteSection>
             <SiteContainer>
                 <StyledBlockBefore>
-                    <h2>What matters most</h2>
+                    <h2>A developer of many tales</h2>
                 </StyledBlockBefore>
                 <StyledColumns>
-                    <Column heading="Performance" content="My bread and butter, finding solutions to even the toughest performance bottlenecks." />
-                    <Column heading="Experience" content="Design and User Experience have always mattered to me, and truly rewarding when perfected." />
-                    <Column heading="Simple" content="Being an OCD freak has its perks as a dev, one being keeping on top of clean code practises religiously." />
+                    <Column heading="Performance" content="My bread and butter, creating solutions to every possible performance issue, includes leading the rollout of company-wide standards." />
+                    <Column heading="Experience" content="User Experience has always been at the forefront of many decisions, and now I'm starting to think about Developer Experience too." />
+                    <Column heading="Design" content="From a young age, I've had an eye for things that look nice, so I like to think I know what I'm doing when it comes to the aesthetics." />
                 </StyledColumns>
             </SiteContainer>
         </StyledSiteSection>
