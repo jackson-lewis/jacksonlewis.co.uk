@@ -109,7 +109,7 @@ const StyledLink = styled( Link )`
 `
 
 
-const SplitJourney = () => {
+export default function SplitJourney() {
 
     return (
         <StyledSiteSection>
@@ -126,5 +126,3 @@ const SplitJourney = () => {
         </StyledSiteSection>
     )
 }
-
-export default SplitJourney

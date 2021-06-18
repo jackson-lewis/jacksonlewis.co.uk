@@ -113,20 +113,23 @@ const StyledColumnCaption = styled.p`
 `
 
 
-const ContactContent = () => {
-
-    /**
-     * A page column
-     */
-    const PageColumn = ({ children }) => (
+/**
+ * A page column
+ */
+function PageColumn({ children }) {
+    return (
         <StyledPageColumn>
             { children }
         </StyledPageColumn>
     )
+}
 
-    PageColumn.propTypes = {
-        children: PropTypes.node.isRequired
-    }
+PageColumn.propTypes = {
+    children: PropTypes.node.isRequired
+}
+
+
+export default function ContactContent() {
 
     return (
         <StyledWrapper>
@@ -153,5 +156,3 @@ const ContactContent = () => {
         </StyledWrapper>
     )
 }
-
-export default ContactContent

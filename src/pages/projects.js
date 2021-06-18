@@ -131,6 +131,7 @@ const StyledProject = styled.li`
 
 const PROJECTS = [
     {
+        id: 'pc-ml',
         name: 'Motta Living',
         tags: [
             'wordpress',
@@ -141,6 +142,7 @@ const PROJECTS = [
         type: 'client'
     },
     {
+        id: 'pp-ss',
         name: 'Shape Shiftr - WordPress blank theme',
         tags: [
             'wordpress',
@@ -152,6 +154,7 @@ const PROJECTS = [
         type: 'personal'
     },
     {
+        id: 'pp-wew',
         name: 'WordPress Enhanced Workflow',
         tags: [
             'wordpress',
@@ -165,7 +168,7 @@ const PROJECTS = [
 ]
 
 
-const Projects = () => {
+export default function Projects() {
 
     useEffect( () => {
         const pageHeader = document.querySelector( 'main header' )
@@ -187,9 +190,8 @@ const Projects = () => {
         return () => {
             window.removeEventListener( 'scroll', watchScroll )
         }
-
     }, [] )
-    
+
     return (
         <Page>
             <PageStyle />
@@ -204,7 +206,7 @@ const Projects = () => {
                     <StyledProjects>
                         {
                             PROJECTS.map( project => (
-                                <StyledProject>
+                                <StyledProject key={ `project-${ project.id }` }>
                                     <h2>{ project.name }</h2>
                                     <div className="project-tags sans-font">
                                         { project.tags.map( tag => <span>{ tag }</span> ) }
@@ -228,5 +230,3 @@ const Projects = () => {
         </Page>
     )
 }
-
-export default Projects

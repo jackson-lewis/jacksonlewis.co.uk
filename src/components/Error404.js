@@ -28,7 +28,7 @@ const Error404Content = styled.div`
 `
 
 
-const Error404 = () => {
+export default function Error404() {
     return (
         <Error404Wrapper>
             <Error404Content>
@@ -38,5 +38,3 @@ const Error404 = () => {
         </Error404Wrapper>
     )
 }
-
-export default Error404

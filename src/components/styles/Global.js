@@ -4,7 +4,8 @@ import { minWidth } from "./MediaQueries"
 import { colors, typography } from "./Variables"
 
 
-const GlobalStyles = createGlobalStyle`
+// eslint-disable-next-line import/prefer-default-export
+export const GlobalStyles = createGlobalStyle`
 
     :root {
         --primary: ${ colors.primary };
@@ -101,8 +102,8 @@ const GlobalStyles = createGlobalStyle`
         color: var( --heading-color );
         line-height: 1.5;
 
-        strike {
-            opacity: .5;
+        del {
+            opacity: .35;
         }
     }
 
@@ -128,7 +129,8 @@ const GlobalStyles = createGlobalStyle`
         letter-spacing: 1px;
         text-transform: uppercase;
     }
+
+    small {
+        font-size: 1rem;
+    }
 `
-
-
-export { GlobalStyles } 

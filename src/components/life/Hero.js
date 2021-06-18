@@ -1,7 +1,7 @@
 /**
  * All about my life when I'm not working...
  */
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
@@ -9,6 +9,7 @@ import styled, { keyframes } from "styled-components"
 import SEO from "@components/_SEO"
 import Page from "@components/Global/Page"
 import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
+import { useParallax } from "../../effects/parallax"
 import { minWidth } from "@components/styles/MediaQueries"
 
 
@@ -20,6 +21,7 @@ const StyledLifeHero = styled.div`
     display: grid;
     align-items: flex-end;
     position: relative;
+    z-index: 40;
     overflow: hidden;
 
     background-color: var( --dark-grey );
@@ -49,6 +51,19 @@ const StyledHeroContent = styled.div`
         font-weight: 700;
         font-size: 1.1rem;
         color: inherit;
+    }
+
+    transition: 400ms 100ms cubic-bezier(0.36, 0.92, 0.43, 1.01);
+
+    transform: translateY( 40px );
+    opacity: 0;
+
+    &.fade-in {
+        transform: translateY( 0 );
+        opacity: 1;
+
+        will-change: transform;
+        transition: 50ms;
     }
 
     @media ${ minWidth.large } {
@@ -145,7 +160,7 @@ const StyledLocationTag = styled.span`
 
 `
 
-const AnimatedSlide = ({ image, locationTag }) => {
+function AnimatedSlide({ image, locationTag }) {
 
     return (
         <StyledAnimatedSlide>
@@ -158,14 +173,22 @@ const AnimatedSlide = ({ image, locationTag }) => {
 }
 
 
-const LifeHero = ({ children, images }) => { 
+export default function LifeHero({ children, images }) {
+    const [ contentClass, setContentClass ] = useState( '' )
+
+    const heroContentRef = useRef()
+    useParallax( heroContentRef, 0.25 )
+
+    useEffect( () => {
+        setContentClass( 'fade-in' )
+    }, [] )
 
     return (
         <StyledLifeHero>
             <AnimatedSlides>
                 { images.map( ( image, i ) => <AnimatedSlide key={ `slide-${ i }` } image={ image.img } locationTag={ image.tag } /> ) }
             </AnimatedSlides>
-            <StyledHeroContent>
+            <StyledHeroContent className={ contentClass } ref={ heroContentRef }>
                 { children }
             </StyledHeroContent>
         </StyledLifeHero>
@@ -175,5 +198,3 @@ const LifeHero = ({ children, images }) => {
 LifeHero.defaultProps = {
     images: PropTypes.arrayOf( PropTypes.object )
 }
-
-export default LifeHero

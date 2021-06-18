@@ -7,13 +7,11 @@ import SEO from "@components/_SEO"
 import ContactContent from "@components/Contact"
 
 
-
-const Contact = () => (
-    <Page>
-        <SEO title="Contact" />
-        <ContactContent />
-    </Page>
-)
-
-
-export default Contact
+export default function Contact() {
+    return (
+       <Page>
+            <SEO title="Contact" />
+            <ContactContent />
+        </Page> 
+    )
+}

@@ -76,7 +76,7 @@ const StyledMobileMenuWrapper = styled.div`
     ${ ({ isToggled }) => isToggled ? mobileMenuActive : null }
 `
 
-const MobileMenu = ({ isToggled }) => {
+export default function MobileMenu({ isToggled }) {
     return (
         <StyledMobileMenuWrapper isToggled={ isToggled }>
             <StyledNav>
@@ -93,6 +93,3 @@ const MobileMenu = ({ isToggled }) => {
 MobileMenu.propTypes = {
     isToggled: PropTypes.bool.isRequired
 }
-
-
-export default MobileMenu

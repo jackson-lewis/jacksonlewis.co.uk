@@ -90,7 +90,17 @@ const RawA = styled.a`
 `
 
 
-const StyledLink = ({ to, children, ext, type, color, noArrow, target, rel, id }) => {
+export default function StyledLink({
+    to,
+    children,
+    ext,
+    type,
+    color,
+    noArrow,
+    target,
+    rel,
+    id
+}) {
 
     const styleProps = {
         $type: type,
@@ -140,6 +150,3 @@ StyledLink.defaultProps = {
     rel: '',
     id: ''
 }
-
-
-export default StyledLink

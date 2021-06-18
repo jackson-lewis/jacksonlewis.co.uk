@@ -1,11 +1,13 @@
 /**
  * Master Hero
  */
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import { SiteContainer } from '@components/Global/SiteLayout'
+import useViewportWidth from "../../utils/useViewportWidth"
+import { useParallax } from "../../effects/parallax"
 import { minWidth } from '../styles/MediaQueries'
 import { getBaseline } from '../styles/Functions'
 
@@ -107,39 +109,11 @@ const StyledContent = styled.div`
 `
 
 
-const MasterHero = ({ children }) => {
-    const [ isMobile, setIsMobile ] = useState( true )
+export default function MasterHero({ children }) {
+    const { isMobile } = useViewportWidth()
 
     const heroContentRef = useRef()
-
-    useEffect( () => {
-        const parallaxHero = () => {
-
-            const heroContent = heroContentRef.current
-
-            const position = window.scrollY * -0.5
-            const opacity = 1 - ( window.scrollY / 400 )
-
-            heroContent.style.transform = `tramottnslateY(${ position }px)`
-            heroContent.style.opacity = opacity
-        }
-        window.addEventListener( 'scroll', parallaxHero )
-
-        return () => window.removeEventListener( 'scroll', parallaxHero )
-    }, [] )
-
-
-    useEffect( () => {
-
-        const watchResize = () => {
-            setIsMobile( window.innerWidth < 667 )
-        }
-        window.addEventListener( 'resize', watchResize )
-        window.addEventListener( 'orientationchange', watchResize )
-        watchResize()
-
-        return () => window.removeEventListener( 'resize', watchResize )
-    }, [] )
+    useParallax( heroContentRef, -0.5 )
 
     const query = useStaticQuery(
         graphql`
@@ -189,5 +163,3 @@ const MasterHero = ({ children }) => {
         </StyledHeroHolder>
     )
 }
-
-export default MasterHero

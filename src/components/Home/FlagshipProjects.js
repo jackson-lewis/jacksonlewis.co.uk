@@ -189,40 +189,40 @@ const StyledProjectTag = styled.span`
     letter-spacing: 1px;
 `
 
+function Project({ data }) {
+    const { frontmatter } = data
 
-const FlagshipProjects = ({ projects }) => {
+    const backgroundStack = [
+        `radial-gradient( ellipse at top left, #DE0DF4, transparent )`,
+        `radial-gradient( ellipse at bottom right, #f41c51, transparent )`,
+        frontmatter.featuredImage.childImageSharp.fluid
+    ]
 
-    const Project = ({ data }) => {
-        const { frontmatter } = data
+    return (
+        <StyledProject
+            fluid={ backgroundStack }
+            style={{
+                backgroundSize: `200%, 200%, cover`
+            }}
+        >
+            <Link to={ frontmatter.slug }>
+                <StyledProjectContainer>
+                    <h3>{ frontmatter.title }</h3>
+                    <StyledProjectTags>
+                        { frontmatter.tags.split( `, ` ).map( tag => <StyledProjectTag key={ tag }>{ tag }</StyledProjectTag> ) }
+                    </StyledProjectTags>
+                </StyledProjectContainer>
+            </Link>
+        </StyledProject>
+    )
+}
 
-        const backgroundStack = [
-            `radial-gradient( ellipse at top left, #DE0DF4, transparent )`,
-            `radial-gradient( ellipse at bottom right, #f41c51, transparent )`,
-            frontmatter.featuredImage.childImageSharp.fluid
-        ]
+Project.propTypes = {
+    data: PropTypes.objectOf( PropTypes.object ).isRequired
+}
 
-        return (
-            <StyledProject
-                fluid={ backgroundStack }
-                style={{
-                    backgroundSize: `200%, 200%, cover`
-                }}
-            >
-                <Link to={ frontmatter.slug }>
-                    <StyledProjectContainer>
-                        <h3>{ frontmatter.title }</h3>
-                        <StyledProjectTags>
-                            { frontmatter.tags.split( `, ` ).map( tag => <StyledProjectTag key={ tag }>{ tag }</StyledProjectTag> ) }
-                        </StyledProjectTags>
-                    </StyledProjectContainer>
-                </Link>
-            </StyledProject>
-        )
-    }
 
-    Project.propTypes = {
-        data: PropTypes.objectOf( PropTypes.object ).isRequired
-    }
+export default function FlagshipProjects({ projects }) {
 
     return (
         <StyledSiteSection>
@@ -242,6 +242,3 @@ const FlagshipProjects = ({ projects }) => {
 FlagshipProjects.propTypes = {
     projects: PropTypes.arrayOf( PropTypes.object ).isRequired
 }
-
-
-export default FlagshipProjects

@@ -40,11 +40,10 @@ const StyledPageContentsWrapper = styled.div`
 
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 25'%3E%3Cpolygon points='0,25 100,25 100,0' fill='%23191113' /%3E%3C/svg%3E") no-repeat center;
         background-size: 100% 100%;
-        -webkit-background-size: 100% 100%;
     }
 `
 
-const Index = ({ data }) => {
+export default function Index({ data }) {
     const projects = data.allMdx.edges
 
     return (
@@ -76,8 +75,6 @@ const Index = ({ data }) => {
 Index.propTypes = {
     data: PropTypes.objectOf( PropTypes.object ).isRequired
 }
-
-export default Index
 
 
 export const query = graphql`

@@ -101,32 +101,33 @@ const StyledPostActions = styled.div`
 `
 
 
-const PostsLoop = ({ posts }) => {
+/**
+ * Component of a single project in the loop
+ */
+function Post({ postData }) {
+    const { frontmatter } = postData
 
-    /**
-     * Component of a single project in the loop
-     */
-    const Post = ({ postData }) => {
-        const { frontmatter } = postData
+    return (
+        <StyledPost>
+            <StyledPostThumbnail
+                fluid={ frontmatter.featuredImage.childImageSharp.fluid }
+            />
+            <StyledPostDetails>
+                <h3>{ frontmatter.title }</h3>
+                <StyledPostActions>
+                    <StyledLink to={ frontmatter.slug } color="primary">Read post</StyledLink>
+                </StyledPostActions>
+            </StyledPostDetails>
+        </StyledPost>
+    )
+}
 
-        return (
-            <StyledPost>
-                <StyledPostThumbnail
-                    fluid={ frontmatter.featuredImage.childImageSharp.fluid }
-                />
-                <StyledPostDetails>
-                    <h3>{ frontmatter.title }</h3>
-                    <StyledPostActions>
-                        <StyledLink to={ frontmatter.slug } color="primary">Read post</StyledLink>
-                    </StyledPostActions>
-                </StyledPostDetails>
-            </StyledPost>
-        )
-    }
+Post.propTypes = {
+    postData: PropTypes.object.isRequired
+}
 
-    Post.propTypes = {
-        postData: PropTypes.object.isRequired
-    }
+
+export default function PostsLoop({ posts }) {
 
     return (
         <StyledSiteSection>
@@ -140,5 +141,3 @@ const PostsLoop = ({ posts }) => {
 PostsLoop.propTypes = {
     posts: PropTypes.arrayOf( PropTypes.object ).isRequired
 }
-
-export default PostsLoop

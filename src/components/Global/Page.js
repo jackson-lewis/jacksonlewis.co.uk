@@ -4,35 +4,27 @@
  * The layout component is at the core of bringing
  * together the overall layout of the page.
  */
-
-// Core
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
 import { GlobalStyles } from "../styles/Global"
 import Header from "../Header"
 import Footer from "../Footer"
 
 
-const Main = styled.main``
-
-
-const Page = ({ children }) => {
+export default function Page({ children }) {
 
     return (
         <>
             <Header />
             <GlobalStyles />
-            <Main>
+            <main>
                 { children }
-            </Main>
+            </main>
             <Footer />
         </>
     )
 }
 
 Page.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
 }
-
-export default Page

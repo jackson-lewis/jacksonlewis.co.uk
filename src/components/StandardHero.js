@@ -44,7 +44,8 @@ const StyledContent = styled.div`
     margin: auto;
 `
 
-const StandardHero = ({ children }) => {
+
+export default function StandardHero({ children }) {
 
     return (
         <StyledStandardHero>
@@ -58,5 +59,3 @@ const StandardHero = ({ children }) => {
 StandardHero.propTypes = {
     children: PropTypes.node.isRequired
 }
-
-export default StandardHero

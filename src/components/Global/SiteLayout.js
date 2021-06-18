@@ -9,7 +9,7 @@ import { minWidth } from "../styles/MediaQueries"
 /**
  * The to-go wrapper for all (well, 99%) of site section components
  */
-const SiteSection = styled.section`
+export const SiteSection = styled.section`
     margin-bottom: 100px;
     padding-left: var( --site-margin );
     padding-right: var( --site-margin );
@@ -26,10 +26,7 @@ const SiteSection = styled.section`
 /**
  * The site container, commonly the only direct child to SiteSection
  */
-const SiteContainer = styled.div`
+export const SiteContainer = styled.div`
     max-width: 72.5em;
     margin: auto;
 `
-
-
-export { SiteSection, SiteContainer }

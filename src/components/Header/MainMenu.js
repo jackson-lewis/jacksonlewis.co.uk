@@ -1,8 +1,6 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import { minWidth } from '@styles/MediaQueries'
-import { colors } from '@components/styles/Variables'
+import styled from 'styled-components'
 
 
 const StyledMenuLink = styled( Link )`
@@ -14,7 +12,7 @@ const StyledMenuLink = styled( Link )`
     color: inherit;
     border-radius: 4px;
 
-    transition: 300ms;
+    transition: 150ms;
 `
 
 const StyledNav = styled.nav`
@@ -42,16 +40,14 @@ const StyledNav = styled.nav`
     }
 `
 
-const MainMenu = () => {
+export default function MainMenu() {
     return (
         <StyledNav>
             <ul role="menu">
-                <li role="menuitem"><StyledMenuLink to="/projects">Projects</StyledMenuLink></li>
-                <li role="menuitem"><StyledMenuLink to="/life">Life</StyledMenuLink></li>
-                <li role="menuitem"><StyledMenuLink to="/contact">Contact</StyledMenuLink></li>
+                <li role="none"><StyledMenuLink to="/projects" role="menuitem">Projects</StyledMenuLink></li>
+                <li role="none"><StyledMenuLink to="/life" role="menuitem">Life</StyledMenuLink></li>
+                <li role="none"><StyledMenuLink to="/contact" role="menuitem">Contact</StyledMenuLink></li>
             </ul>
         </StyledNav>
     )
 }
-
-export default MainMenu

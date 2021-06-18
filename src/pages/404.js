@@ -35,7 +35,7 @@ const Page404Styles = createGlobalStyle`
     }
 `
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
     return (
         <Page>
             <Page404Styles />
@@ -44,6 +44,3 @@ const NotFoundPage = () => {
         </Page>
     )
 }
-
-
-export default NotFoundPage

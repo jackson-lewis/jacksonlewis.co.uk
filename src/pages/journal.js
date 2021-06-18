@@ -11,7 +11,7 @@ import PostsLoop from "@components/PostsLoop"
 import ContentBlock from "@components/Global/ContentBlock"
 
 
-const Journal = ({ data }) => {
+export default function Journal({ data }) {
     const posts = data.allMdx.edges
     
     return (
@@ -33,9 +33,6 @@ const Journal = ({ data }) => {
 Journal.propTypes = {
     data: PropTypes.objectOf( PropTypes.object ).isRequired
 }
-
-
-export default Journal
 
 export const query = graphql`
     query {

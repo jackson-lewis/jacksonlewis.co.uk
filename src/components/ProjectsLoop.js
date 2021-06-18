@@ -119,33 +119,34 @@ const StyledProjectTag = styled.span`
 `
 
 
-const ProjectsLoop = ({ projects }) => { 
+/**
+ * Component of a single project in the loop
+ */
+function Project({ projectData }) {
+    const { frontmatter } = projectData
 
-    /**
-     * Component of a single project in the loop
-     */
-    const Project = ({ projectData }) => {
-        const { frontmatter } = projectData
+    return (
+        <StyledProject>
+            <StyledProjectThumbnail
+                fluid={ frontmatter.featuredImage.childImageSharp.fluid }
+            />
+            <StyledProjectDetails>
+                <h3>{ frontmatter.title }</h3>
+                <StyledProjectTags>
+                    { frontmatter.tags.split( `, ` ).map( ( tag, index ) => <StyledProjectTag key={ index }>{ tag }</StyledProjectTag> ) }
+                </StyledProjectTags>
+                <div>{ frontmatter.desc }</div>
+                <StyledProjectActions>
+                    <StyledLink to={ frontmatter.slug } color="primary" noArrow>Case study</StyledLink>
+                    <StyledLink to={ frontmatter.url } type="text" ext>{ frontmatter.type === `site` ? `Visit site` : `View on github` }</StyledLink>
+                </StyledProjectActions>
+            </StyledProjectDetails>
+        </StyledProject>
+    )
+}
 
-        return (
-            <StyledProject>
-                <StyledProjectThumbnail
-                    fluid={ frontmatter.featuredImage.childImageSharp.fluid }
-                />
-                <StyledProjectDetails>
-                    <h3>{ frontmatter.title }</h3>
-                    <StyledProjectTags>
-                        { frontmatter.tags.split( `, ` ).map( ( tag, index ) => <StyledProjectTag key={ index }>{ tag }</StyledProjectTag> ) }
-                    </StyledProjectTags>
-                    <div>{ frontmatter.desc }</div>
-                    <StyledProjectActions>
-                        <StyledLink to={ frontmatter.slug } color="primary" noArrow>Case study</StyledLink>
-                        <StyledLink to={ frontmatter.url } type="text" ext>{ frontmatter.type === `site` ? `Visit site` : `View on github` }</StyledLink>
-                    </StyledProjectActions>
-                </StyledProjectDetails>
-            </StyledProject>
-        )
-    }
+
+export default function ProjectsLoop({ projects }) { 
 
     return (
         <StyledSiteSection>
@@ -155,5 +156,3 @@ const ProjectsLoop = ({ projects }) => {
         </StyledSiteSection>
     )
 }
-
-export default ProjectsLoop

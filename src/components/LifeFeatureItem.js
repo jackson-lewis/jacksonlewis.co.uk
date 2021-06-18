@@ -41,7 +41,7 @@ const StyledImage = styled( Image )`
 `
 
 
-const LifeFeatureItem = ({ children }) => {
+export default function LifeFeatureItem({ children }) {
 
     const query = useStaticQuery(
         graphql`
@@ -73,5 +73,3 @@ const LifeFeatureItem = ({ children }) => {
 LifeFeatureItem.propTypes = {
     children: PropTypes.node.isRequired
 }
-
-export default LifeFeatureItem

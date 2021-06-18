@@ -41,12 +41,12 @@ const StyledSiteSection = styled( SiteSection )`
 `
 
 
-const LifeFeature = () => {
+export default function LifeFeature() {
     return (
         <StyledSiteSection>
             <SiteContainer>
                 <LifeFeatureItem image="audi-a3.jpg">
-                    <h2>Car <strike aria-hidden="true">yobbo</strike> enthusiast</h2>
+                    <h2>Car <del>yobbo</del> enthusiast</h2>
                     <p>Currently the proud keeper of a 2016 A3 Saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
                     <p>It was with the second car, my 206, that I developed the obsession with taking things apart and putting them back together again, a very therapeutic - and useful - process.</p>
                 </LifeFeatureItem>
@@ -59,5 +59,3 @@ const LifeFeature = () => {
         </StyledSiteSection>
     )
 }
-
-export default LifeFeature

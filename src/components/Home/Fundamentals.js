@@ -92,22 +92,26 @@ const StyledColumn = styled.div`
     }
 `
 
-const Fundamentals = () => {
+/**
+ * Displays the content of the component
+ */
+function Column({ heading, content }) {
 
-    /**
-     * Displays the content of the component
-     */
-    const Column = ({ heading, content }) => (
+    return (
         <StyledColumn>
             <h3>{ heading }</h3>
             <p>{ content }</p>
         </StyledColumn>
     )
+}
 
-    Column.propTypes = {
-        heading: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired
-    }
+Column.propTypes = {
+    heading: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
+}
+
+
+export default function Fundamentals() {
 
     return (
         <StyledSiteSection>
@@ -124,5 +128,3 @@ const Fundamentals = () => {
         </StyledSiteSection>
     )
 }
-
-export default Fundamentals

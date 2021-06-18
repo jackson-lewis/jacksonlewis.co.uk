@@ -5,13 +5,29 @@ import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import SEO from "@components/_SEO"
 import Page from "@components/Global/Page"
 import { SiteSection, SiteContainer } from "@components/Global/SiteLayout"
 import LifeHero from "@components/life/Hero"
 import { minWidth } from "@components/styles/MediaQueries"
+import Car from "@components/life/Car"
+import { Container, StyledFooter } from "@components/Footer/styles"
 
+
+
+const LifeGlobalStyle = createGlobalStyle`
+    ${ StyledFooter } {
+        padding-top: 0;
+
+        background-color: rgba( 10, 10, 10, .90 );
+        backdrop-filter: blur( 6px ) saturate( 90% );
+
+        ${ Container } {
+            border-top: none;
+        }
+    }
+`
 
 /**
  * 
@@ -45,13 +61,45 @@ const StyledImageTextBlock = styled( SiteContainer )`
 
 const AlternatingSection = styled( SiteSection )`
     width: 100%;
-    margin: 0;
-    padding-top: 60px;
+    margin: 8.74887vw 0 0;
+    padding-top: 8.74887vw;
     padding-bottom: 60px;
     position: relative;
     z-index: 50;
 
     background-color: var( --body-color );
+
+    ::before {
+        --height: 8.74887vw; // 5deg
+
+        content: '';
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 100%;
+        height: var( --height );
+        transform: translateY( calc( var( --height ) * -1 ) );
+
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 25'%3E%3Cpolygon points='0,25 100,25 100,0' fill='%23130207' /%3E%3C/svg%3E") no-repeat center;
+        background-size: 100% 100%;
+    }
+
+    ::after {
+        --height: 8.74887vw; // 5deg
+
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        width: 100%;
+        height: var( --height );
+        transform: rotate(180deg) translateY( calc( var( --height ) * -1 ) );
+
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 25'%3E%3Cpolygon points='0,25 100,25 100,0' fill='%23130207' /%3E%3C/svg%3E") no-repeat center;
+        background-size: 100% 100%;
+    }
 
     @media ${ minWidth.medium } {
         margin-bottom: 0;
@@ -112,67 +160,10 @@ const AlternatingSection = styled( SiteSection )`
 `
 
 
-
-
-/**
- * 
- * Parallax section
- * 
- */
-const StyledParallexCarSection = styled.section`
-    width: 100%;
-    min-height: 100vh;
-    //min-height: -webkit-fill-available;
-    padding: 60px var( --site-margin );
-    position: relative;
-    z-index: 20;
-
-    @media ${ minWidth.large } {
-        display: grid;
-        align-items: center;
-    }
-`
-
-
-const StyledParallexCarImage = styled( Img )`
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-`
-
-
-const StyledParallexCarText = styled.div`
-    max-width: 580px;
-    margin-left: auto;
-    padding: 30px 15px;
-
-    border-radius: 8px;
-    background-color: rgba( 0, 0, 0, .6 );
-    backdrop-filter: blur( 6px );
-    position: relative;
-    z-index: 20;
-
-    h2, h3 {
-        color: var( --white );
-    }
-
-    p {
-        color: var( --white );
-    }
-
-    @media ${ minWidth.medium } {
-        width: 60%;
-        padding: 50px 30px;
-    }
-`
-
-
 /**
  * Page
  */
-const Life = () => {
+export default function Life() {
 
     const query = useStaticQuery(
         graphql`
@@ -247,39 +238,13 @@ const Life = () => {
     ]
 
 
-    const carRef = useRef()
-
-    
-    function ParallaxCar() {
-
-        let carSectionPos = carRef.current.getBoundingClientRect()
-
-        function getScrollPosition( e ) {
-            carSectionPos = carRef.current.getBoundingClientRect()
-
-            if ( carSectionPos.top <= 0 ) {
-                carRef.current.classList.add( 'fixed' )
-            } else {
-                carRef.current.classList.remove( 'fixed' )
-            }
-        }
-
-        window.addEventListener( 'scroll', getScrollPosition )
-        
-        return () => {
-            window.removeEventListener( 'scroll', getScrollPosition )
-        }
-    }
-
-    useEffect( ParallaxCar, [] )
-
-
     return (
         <Page>
             <SEO title="Life" />
             <Helmet>
                 <body className="page-life" />
             </Helmet>
+            <LifeGlobalStyle />
             <LifeHero images={ images }>
                 <h1>Life</h1>
                 <p>As much as I love what I do, you can’t beat disconnecting by getting outside, from giving it the beans down country roads to exploring woodlands, riversides and hills on those Sunday walks…</p>
@@ -302,13 +267,11 @@ const Life = () => {
                 </ImageTextBlock>
             </AlternatingSection>
 
-            <ParallexCarSection innerRef={ carRef } image={ query.car.childImageSharp.fluid }>
-                <h2>Car <strike>yobbo</strike> enthusiast </h2>
+            <Car image={ query.car.childImageSharp.fluid }>
+                <h2>Car <del>yobbo</del> enthusiast</h2>
                 <p>Currently the proud keeper of a 2016 A3 Saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
                 <p>It was with the second car, my 206, that I developed the obsession with taking things apart and putting them back together again, a very therapeutic - and useful - process.</p>
-            </ParallexCarSection>
+            </Car>
         </Page>
     )
 }
-
-export default Life
