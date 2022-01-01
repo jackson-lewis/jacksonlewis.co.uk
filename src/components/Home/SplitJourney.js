@@ -64,7 +64,10 @@ const TextBlock = styled.div`
     }
 `
 
-const arrow = color => encodeURIComponent( `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path d='M9.31 6.71a.996.996 0 000 1.41L13.19 12l-3.88 3.88a.996.996 0 101.41 1.41l4.59-4.59a.996.996 0 000-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z' fill='${ color }'/></svg>` )
+function arrow( color ) {
+    return encodeURIComponent( `<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path d='M9.31 6.71a.996.996 0 000 1.41L13.19 12l-3.88 3.88a.996.996 0 101.41 1.41l4.59-4.59a.996.996 0 000-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01z' fill='${ color }'/></svg>` )
+}
+
 
 const StyledLink = styled( Link )`
     padding: 8px 0;
@@ -115,11 +118,11 @@ export default function SplitJourney() {
         <StyledSiteSection>
             <StyledSiteContainer>
                 <TextBlock>
-                    <p>An ever-growing developer, dabbling at both an agency and as a freelancer. Striving to make the web a faster and more enjoyable place.</p>
+                    <p>A lead developer carving the way for the very best experiences on the web, pushing the limits on performance.</p>
                     <StyledLink to="/projects" color="secondary">Projects</StyledLink>
                 </TextBlock>
                 <TextBlock>
-                    <p>Don't be alarmed, but I also love not working, whether I'm cleaning my beloved car or exploring the outdoors. Either way, I'll be far from the screen.</p>
+                    <p>The outdoors-y type, be that out on a walk or mountain biking. Also a bit of a car nutter.</p>
                     <StyledLink to="/life" color="primary">Life</StyledLink>
                 </TextBlock>
             </StyledSiteContainer>
