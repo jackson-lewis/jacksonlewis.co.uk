@@ -131,14 +131,35 @@ const StyledProject = styled.li`
 
 const PROJECTS = [
     {
-        id: 'pc-ml',
-        name: 'Motta Living',
+        id: 'agency-boxchillic',
+        name: 'boxChilli',
+        tags: [
+            'wordpress',
+            'nextjs'
+        ],
+        description: 'Bringing our own website into the modern era of web technologies, paired with WordPress as the CMS.',
+        link: 'https://www.boxchilli.com',
+        type: 'client'
+    },
+    {
+        id: 'agency-hanex',
+        name: 'Hanex Solid Surface',
         tags: [
             'wordpress',
             'woocommerce'
         ],
-        description: 'Unique homeware brand Motta Living sell high-end products for all corners of your home, with a high-end ecommerce store to match.',
-        link: 'https://mottaliving.co.uk',
+        description: 'An agency based project featuring bespoke Google geocoding, WooCommerce layered navigation along with cutting-edge best practices.',
+        link: 'https://hanexsolidsurface.co.uk',
+        type: 'client'
+    },
+    {
+        id: 'agency-tvc',
+        name: 'The Venues Collection',
+        tags: [
+            'wordpress'
+        ],
+        description: 'A collection of 7 websites, all sharing the same codebase, linked together by a bespoke Continuous Deployment via GitHub Actions.',
+        link: 'https://www.swindonalexandrahouse.co.uk',
         type: 'client'
     },
     {
@@ -168,7 +189,7 @@ const PROJECTS = [
 ]
 
 
-export default function Projects() {
+export default function Work() {
 
     useEffect( () => {
         const pageHeader = document.querySelector( 'main header' )
@@ -192,12 +213,13 @@ export default function Projects() {
     return (
         <Page>
             <PageStyle />
-            <SEO title="Projects" />
+            <SEO title="Work | Jackson Lewis" />
             <SiteSection>
                 <StyledGrid>
                     <StyledPageHeading>
-                        <h1>Projects</h1>
-                        <p>From bespoke client projects to productivity-boosting personal creations, these projects showcase a range of skills.</p>
+                        <h1>Work</h1>
+                        <p>Since 2018, I've worked on a variety of projects at boxChilli, from complex WooCommerce solutions to leading the agency into the React eco-system.</p>
+                        <p>I've also led the development of two seperate projects that required custom Continuous Deployment strategies, with the largest deploying a single codebase to up to 30+ websites, seamlessly.</p>
                     </StyledPageHeading>
 
                     <StyledProjects>
@@ -208,16 +230,20 @@ export default function Projects() {
                                     <div className="project-tags sans-font">
                                         { project.tags.map( tag => <span>{ tag }</span> ) }
                                     </div>
-                                    <p className="desc">{ project.description }</p>
-                                    <StyledLink
-                                        to={ project.link }
-                                        target="_blank"
-                                        rel="noopener"
-                                        type="text"
-                                        color="primary"
-                                        ext>
-                                        { project.type === 'client' ? 'Visit site' : 'View repo' }
-                                    </StyledLink>
+                                    { project.description && (
+                                        <p className="desc">{ project.description }</p>
+                                    )}
+                                    { project.link && (
+                                        <StyledLink
+                                            to={ project.link }
+                                            target="_blank"
+                                            rel="noopener"
+                                            type="text"
+                                            color="primary"
+                                            ext>
+                                            { project.type === 'client' ? 'Visit site' : 'View repo' }
+                                        </StyledLink>
+                                    )}
                                 </StyledProject>
                             ))
                         }

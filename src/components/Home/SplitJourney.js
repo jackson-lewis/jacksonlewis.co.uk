@@ -119,7 +119,7 @@ export default function SplitJourney() {
             <StyledSiteContainer>
                 <TextBlock>
                     <p>A lead developer carving the way for the very best experiences on the web, pushing the limits on performance.</p>
-                    <StyledLink to="/projects" color="secondary">Projects</StyledLink>
+                    <StyledLink to="/work" color="secondary">Work</StyledLink>
                 </TextBlock>
                 <TextBlock>
                     <p>The outdoors-y type, be that out on a walk or mountain biking. Also a bit of a car nutter.</p>

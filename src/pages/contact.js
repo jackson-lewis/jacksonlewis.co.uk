@@ -10,7 +10,7 @@ import ContactContent from "@components/Contact"
 export default function Contact() {
     return (
        <Page>
-            <SEO title="Contact" />
+            <SEO title="Contact | Jackson Lewis" />
             <ContactContent />
         </Page> 
     )

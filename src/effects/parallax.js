@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 /**
  * 
  */
-export function useParallax( elRef, speed = 0 ) {
+export function useParallax( elRef, speed = 0, setOpacity = false ) {
     useEffect( () => {
         function parallax() {
             const el = elRef.current
@@ -12,7 +12,10 @@ export function useParallax( elRef, speed = 0 ) {
             const opacity = 1 - ( window.scrollY / 400 )
 
             el.style.transform = `translateY(${ position }px)`
-            el.style.opacity = opacity
+
+            if ( setOpacity ) {
+                el.style.opacity = opacity
+            }
         }
         window.addEventListener( 'scroll', parallax )
 

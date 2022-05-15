@@ -263,7 +263,7 @@ export default function Life() {
 
     return (
         <Page>
-            <SEO title="Life" />
+            <SEO title="Life | Jackson Lewis" />
             <Helmet>
                 <body className="page-life" />
             </Helmet>
@@ -290,7 +290,6 @@ export default function Life() {
                 <h2>Car <del>yobbo</del> enthusiast</h2>
                 <p>Currently the proud keeper of a 2016 A3 saloon. I’ve always been intrigued by these machines with 4 wheels, from creating my own Disney PIXAR Cars museum as a youngster, to getting behind the wheel at 17.</p>
                 <p>It was with the second car, my 206, that I developed the obsession with taking things apart and putting them back together again, a very therapeutic - and useful - process.</p>
-                <small style={{ fontStyle: 'italic' }}>And yes, I did take this picture specifically to fit this section.</small>
             </Car>
         </Page>
     )

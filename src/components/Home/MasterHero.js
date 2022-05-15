@@ -3,7 +3,7 @@
  */
 import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import Img from 'gatsby-image'
 import { SiteContainer } from '@components/Global/SiteLayout'
 import useViewportWidth from "../../utils/useViewportWidth"
@@ -43,6 +43,25 @@ const StyledImg = styled( Img )`
     height: 100%;
 `
 
+
+const motion = keyframes`
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    20% {
+        transform: translateY(-50%) rotate(160deg);
+    }
+
+    80% {
+        transform: translateY(-50%) rotate(200deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+`
+
 const StyledHeroEffects = styled.div`
     width: 100%;
     height: 100%;
@@ -53,11 +72,31 @@ const StyledHeroEffects = styled.div`
     display: grid;
     align-items: flex-end;
 
-    background-image:   radial-gradient( ellipse at bottom right, rgba( 244, 28, 81, .8 ), rgba( 244, 28, 81, 0 ) ),
-                        radial-gradient( ellipse at top left, rgba( 44, 133, 255, .8 ), rgba( 44, 133, 255, 0 ) ),
-                        linear-gradient( 270deg, rgba( 15, 0, 0, .75 ), rgba( 15, 0, 0, 0 ) );
-    background-size: 100% 100%, 100% 100%, 100% 100%;
-    background-position:  0% 0%, 100% 100%, center;
+    background-image: linear-gradient( 270deg, rgba( 15, 0, 0, .75 ), rgba( 15, 0, 0, 0 ) );
+    background-size: 100% 100%;
+    background-position: center;
+    
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -12.5%;
+        width: 125%;
+        padding-top: 125%;
+
+        background-image:   radial-gradient( ellipse at center right, rgba( 244, 28, 81, .8 ), rgba( 244, 28, 81, 0 ) ),
+                            radial-gradient( ellipse at center left, rgba( 44, 133, 255, .8 ), rgba( 44, 133, 255, 0 ) );
+        background-size: 100% 100%, 100% 100%;
+        background-position:  0% 0%, 100% 100%;
+
+        transform: translateY(-50%) rotate(0deg);
+
+        animation: 20s ${ motion } linear;
+        animation-iteration-count: infinite;
+        animation-delay: 3s;
+    }
 
     @media ${ minWidth.medium } {
         padding-bottom: 140px;
@@ -113,7 +152,10 @@ export default function MasterHero({ children }) {
     const { isMobile } = useViewportWidth()
 
     const heroContentRef = useRef()
-    useParallax( heroContentRef, -0.5 )
+    const heroImageRef = useRef()
+
+    useParallax( heroContentRef, -0.5, true )
+    useParallax( heroImageRef, -0.25 )
 
     const query = useStaticQuery(
         graphql`
@@ -139,19 +181,21 @@ export default function MasterHero({ children }) {
     return (
         <StyledHeroHolder>
             <StyledHero>
-                { isMobile ? (
-                    <StyledImg
-                        fluid={ query.mobile.childImageSharp.fluid }
-                        loading="eager"
-                        className="mobile-variant"
-                    />
-                ) : (
-                    <StyledImg
-                        fluid={ query.large.childImageSharp.fluid }
-                        loading="eager"
-                        className="large-variant"
-                    />
-                ) }
+                <div ref={ heroImageRef }>
+                    { isMobile ? (
+                        <StyledImg
+                            fluid={ query.mobile.childImageSharp.fluid }
+                            loading="eager"
+                            className="mobile-variant"
+                        />
+                    ) : (
+                        <StyledImg
+                            fluid={ query.large.childImageSharp.fluid }
+                            loading="eager"
+                            className="large-variant"
+                        />
+                    ) }
+                </div>
                 <StyledHeroEffects>
                     <StyledSiteContainer>
                         <StyledContent ref={ heroContentRef }>

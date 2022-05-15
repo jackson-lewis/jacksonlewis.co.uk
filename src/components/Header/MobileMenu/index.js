@@ -9,7 +9,7 @@ export default function MobileMenu({ isToggled }) {
             <Nav>
                 <ul role="menu">
                     <li role="menuitem">
-                        <MenuLink to="/projects">Projects</MenuLink>
+                        <MenuLink to="/work">Work</MenuLink>
                     </li>
                     <li role="menuitem">
                         <MenuLink to="/life">Life</MenuLink>

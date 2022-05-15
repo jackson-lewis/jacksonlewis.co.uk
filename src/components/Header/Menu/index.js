@@ -7,7 +7,7 @@ export default function Menu() {
         <Nav>
             <ul role="menu">
                 <li role="none">
-                    <MenuLink to="/projects" role="menuitem">Projects</MenuLink>
+                    <MenuLink to="/work" role="menuitem">Work</MenuLink>
                 </li>
                 <li role="none">
                     <MenuLink to="/life" role="menuitem">Life</MenuLink>
