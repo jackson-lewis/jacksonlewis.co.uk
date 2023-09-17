@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 50;
+
+    background: var( --body-color );
+
+    &::before {
+        --height: 8.74887vw; // 5deg
+    
+        content: '';
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 100%;
+        height: var( --height );
+        transform: translateY( calc( var( --height ) * -1 ) );
+    
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 25'%3E%3Cpolygon points='0,25 100,25 100,0' fill='%23191113' /%3E%3C/svg%3E") no-repeat center;
+        background-size: 100% 100%;
+    }
+}

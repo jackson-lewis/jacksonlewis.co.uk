@@ -1,0 +1,47 @@
+.footer {
+    width: 100vw;
+    padding-top: 100px;
+    padding-left: var( --site-margin );
+    padding-right: var( --site-margin );
+    padding-bottom: 30px;
+    position: relative;    
+    z-index: 50;
+
+    color: var( --very-dark-white );
+    background-color: var( --body-color );
+
+    a {
+        color: inherit;
+    }
+}
+
+.container {
+    padding-top: 30px;
+    border-top: 1px solid var( --outline-color );
+}
+
+.socials {
+    margin-bottom: 0.5rem;
+
+    font-size: 1rem;
+
+    a {
+        text-decoration: none;
+
+        &:hover  {
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (min-width: 667px) {
+    .footer > div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer p,
+    .socials {
+        margin-bottom: 0;
+    }
+}

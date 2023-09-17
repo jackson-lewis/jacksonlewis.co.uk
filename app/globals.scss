@@ -1,0 +1,151 @@
+:root {
+    --primary: #F41C51;
+    --primary-light: #D87485;
+    // --secondary: #2C85FF;
+    --secondary: #10b6f2;
+    // --secondary-light: #A7D7FF;
+    --secondary-light: #73bfda;
+
+    --blue: #45BDDA;
+
+    --white: #FFFBFB;
+    --pure-white: #FFFFFF;
+    --dark-white: #BAADB0;
+    --very-dark-white: #bbb7b7;
+    --black: #130207;
+    --pure-black: #000000;
+    --dark-grey: #191113;
+    --grey: #D8CCCC;
+
+    --body-color: var( --black );
+    --heading-color: #D9D4D5;
+    --link-color: var( --blue );
+    --outline-color: #403838;
+    --text-primary-color: var( --dark-white );
+
+    --header-height: 60px; 
+    --site-margin: 20px;
+    --site-gutter: 20px;
+
+    --border-radius: 4px;
+
+    --serif-font: 'Vollkorn', serif;
+    --sans-font: 'Source Sans Pro', sans-serif;
+    --heading-font: 'Rubik', sans-serif;
+
+    --base-font-size: 1rem;
+    --base-line-height: 1.75;
+    --baseline: calc( var( --base-font-size ) * var( --base-line-height ) );
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*::selection {
+    color: var( --black );
+    background: var( --primary );
+    text-shadow: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    
+    font-family: var( --sans-font );
+    font-size: var( --base-font-size );
+    font-weight: 400;
+    font-style: normal;
+    line-height: var( --base-line-height );
+    color: var( --white );
+    background-color: var( --body-color );
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.section {
+    margin-bottom: 100px;
+    padding-left: var( --site-margin );
+    padding-right: var( --site-margin );
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 150px;
+    }
+}
+
+.container {
+    max-width: 72.5em;
+    margin: auto;
+}
+
+p {
+    margin: 0 0 1.5rem;
+
+    font-weight: 600;
+    color: var( --text-primary-color );
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 1.125rem;
+    }
+}
+
+a {
+    color: var( --link-color );
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-family: var( --serif-font );
+    color: var( --heading-color );
+    line-height: 1.5;
+}
+
+del {
+    opacity: .35;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: clamp( 3rem, 4vw, 4rem );
+}
+
+h2 {
+    margin: 0 0 1rem;
+
+    font-size: clamp( 1.8rem, 3vw, 2.4rem );
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+}
+
+.sans-font {
+    font-family: var( --sans-font );
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+small {
+    font-size: 1rem;
+}
