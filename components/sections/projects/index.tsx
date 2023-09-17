@@ -89,7 +89,6 @@ export default function Projects() {
     const loopRef = useRef<HTMLUListElement>(null)
 
     useEffect(() => {
-        return
         const observer = new IntersectionObserver(
             function(entries, observer) {
                 entries.forEach(entry => {
@@ -104,11 +103,12 @@ export default function Projects() {
                 threshold: [0, 1]
             }
         )
-        if (!loopRef) {
-            return
-        }
 
-        observer.observe(loopRef.current)
+        const target = document.querySelector(`.${styles.loop}`)
+
+        if (target) {
+            observer.observe(target)
+        }
     }, [loopRef])
 
     return (
