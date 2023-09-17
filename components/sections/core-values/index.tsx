@@ -10,7 +10,7 @@ export default function CoreValues() {
                 <div  className={styles.columns}>
                     <div className={styles.column}>
                         <h3>Problem Solving</h3>
-                        <p>Over 5 years I’ve delivered positive impacts to marketing teams through greater autonomy to everyday tasks.</p>
+                        <p>Over 5 years I&apos;ve delivered positive impacts to marketing teams through greater autonomy to everyday tasks.</p>
                     </div>
                     <div className={styles.column}>
                         <h3>Innovation</h3>

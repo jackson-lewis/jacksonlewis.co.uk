@@ -116,7 +116,7 @@ export default function Projects() {
             <div className={`container ${styles.container}`}>
                 <div ref={headingRef} className={styles.heading}>
                     <h2>Projects</h2>
-                    <p>A collection of what I've worked on over the years, from in-house tools to client sites.</p>
+                    <p>A collection of what I&apos;ve worked on over the years, from in-house tools to client sites.</p>
                 </div>
                 <ul ref={loopRef} className={styles.projects}>
                     {projectData.map(project => (
