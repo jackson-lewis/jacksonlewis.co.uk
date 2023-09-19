@@ -128,6 +128,20 @@
         filter: grayscale(1);
     
         object-fit: cover;
+
+        &:last-child {
+            display: none;
+        }
+
+        @media screen and (min-width: 768px) {
+            &:first-child {
+                display: none;
+            }
+
+            &:last-child {
+                display: block;
+            }
+        }
     }
 }
 
