@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 import HeroLarge from '../components/hero-large'
 import WorkLifeBalance from '../components/sections/work-life-balance'
 import PageContent from '../components/page-content'
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-        <HeroLarge />
-        <PageContent>
-            <WorkLifeBalance />
-            <CoreValues />
-            <Projects />
-        </PageContent>
+      <HeroLarge />
+      <PageContent>
+        <WorkLifeBalance />
+        <CoreValues />
+        <Projects />
+      </PageContent>
     </main>
   )
 }

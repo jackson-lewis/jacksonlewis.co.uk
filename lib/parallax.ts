@@ -1,29 +1,29 @@
-import { RefObject, useEffect } from 'react'
+import {RefObject, useEffect} from 'react'
 
 /**
  * Apply a simple parallax effect to an element.
  * 
- * @param {object} ref The React Ref object
- * @param {number} speed Set the vertical speed of the effect
- * @param {boolean} setOpacity Apply opacity to the element
+ * @param ref The React Ref object
+ * @param speed the vertical speed of the effect
+ * @param setOpacity Apply opacity to the element
  */
 export default function useParallax(ref: RefObject<HTMLElement>, speed: number = 0, setOpacity: boolean = false) {
-    useEffect(() => {
-        function parallax() {
-            const el = ref.current
+  useEffect(() => {
+    function parallax() {
+      const el = ref.current
 
-            if (!el) {
-                return
-            }
+      if (!el) {
+        return
+      }
 
-            el.style.transform = `translateY(${window.scrollY * speed}px)`
+      el.style.transform = `translateY(${window.scrollY * speed}px)`
 
-            if (setOpacity) {
-                el.style.opacity = `${1 - (window.scrollY / 400)}`
-            }
-        }
-        window.addEventListener('scroll', parallax)
+      if (setOpacity) {
+        el.style.opacity = `${1 - (window.scrollY / 400)}`
+      }
+    }
+    window.addEventListener('scroll', parallax)
 
-        return () => window.removeEventListener('scroll', parallax)
-    }, [ref, speed, setOpacity])
+    return () => window.removeEventListener('scroll', parallax)
+  }, [ref, speed, setOpacity])
 }

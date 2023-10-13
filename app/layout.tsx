@@ -1,9 +1,8 @@
 import './globals.scss'
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 import SiteHeader from '../components/site-header'
 import SiteFooter from '../components/site-footer'
-import { roboto, robotoCondensed, robotoSerif } from './fonts'
-
+import {roboto, robotoCondensed, robotoSerif} from './fonts'
 
 
 export const metadata: Metadata = {

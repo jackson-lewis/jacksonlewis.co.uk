@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 
 export const metadata: Metadata = {
   title: 'Connect - Jackson Lewis',
@@ -6,11 +6,11 @@ export const metadata: Metadata = {
 }
 
 export default function Connect() {
-    return (
-      <main>
-        <h1>Connect</h1>
-        <p>Let&apos;s get in touch</p>
-      </main>
-    )
-  }
+  return (
+    <main>
+      <h1>Connect</h1>
+      <p>Let&apos;s get in touch</p>
+    </main>
+  )
+}
   
