@@ -1,3 +1,15 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "indent": ["warn", 2],
+    "object-curly-spacing": "warn",
+    "space-in-parens": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-curly-spacing": "warn",
+    "no-multiple-empty-lines": "error",
+    "template-curly-spacing": "warn"
+  }
 }
