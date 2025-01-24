@@ -15,7 +15,30 @@ interface Project {
 
 const projectData: Project[] = [
   {
-    title: 'Raptor SDK',
+    title: 'Sumzy - Personal Finance Tracker',
+    description: [
+      'Featuring a Next.js (App Router) frontend with SWR for data fetching, and a Node.js microservice architecture using Express, JWT for authentication and Nodemailer for emails.',
+      'Written in TypeScript and containerised with Docker. PostgreSQL is used as the database, managed via Prisma, with RabbitMQ used for communication between microservices.',
+      'Testing is handled using Jest and React Testing Library, using mocks where required, all integrated into CI deployments.',
+      'The infrastructure utilizes the following AWS services: ECS, ECR, ELB, RDS, MQ, ACM, Route 53, and IAM.'
+    ],
+    date: '2024 -',
+    stack: [
+      'TypeScript',
+      'Node.js',
+      'Next.js',
+      'Docker',
+      'AWS',
+      'Supabase',
+      'PostgreSQL',
+      'Prisma',
+      'Jest',
+      'React Testing Library'
+    ],
+    'link': 'https://sumzy.vercel.app'
+  },
+  {
+    title: 'Raptor - Web SDK',
     description: [
       'Built in-house as an end-to-end suite of packages, that has become an integral part of day-to-day operations. For the developers, marketers and end-users.',
       'The biggest achievement of the SDK by far is the commitment to meaningful change in an era of automation and forward-thinking, with plans to explore AI integration.',
@@ -24,18 +47,19 @@ const projectData: Project[] = [
     ],
     date: '2018 -',
     stack: [
+      'TypeScript',
+      'Next.js',
+      'Node.js',
       'bash',
       'webpack',
-      'JavaSript',
-      'SCSS',
-      'PHP',
+      'scss',
+      'php',
+      'MySQL',
       'WordPress',
-      'Next.js',
-      'Node.js'
     ]
   },
   {
-    title: 'Care Concern Group',
+    title: 'CCG - Next.js Website Cluster',
     description: [
       'Care homes websites on the same design with unique branding capabilities for each, built in its entirety from the ground up as we took the plunge into the headless ecosystem.',
       'Next.js frontend, with Styled Components for styling, paired with WordPress as the CMS over a GraphQL connection.',
@@ -45,22 +69,12 @@ const projectData: Project[] = [
     stack: [
       'Next.js',
       'GraphQL',
-      'JavaSript',
-      'Styled Components',
-      'SCSS',
-      'PHP',
+      'JavaScript',
+      'scss',
+      'php',
       'WordPress'
     ],
     link: 'https://penrosecourt.com'
-  },
-  {
-    title: 'Hosting Migration',
-    description: [
-      'Leading a large-scale hosting migration plan, involving ~150 websites. I led the initial scoping meetings and created the strategies for migrations, as well as sharing company-wide bulletins.',
-      'The move is seeing websites receive core/plugin updated more regularly thanks to a new automated tool, saving man-hours in the support team.',
-      'Other tasks now handled by the platform include: environment provisioning, SSL setup, developer access, server updates. In total saving a projected ~£10K annually.'
-    ],
-    date: '2023'
   }
 ]
 
@@ -116,7 +130,7 @@ export default function Projects() {
       <div className={`container ${styles.container}`}>
         <div ref={headingRef} className={styles.heading}>
           <h2>Projects</h2>
-          <p>A collection of what I&apos;ve worked on over the years, from in-house tools to client sites.</p>
+          <p>A collection of my very best work, from personal projects to in-house products to client websites.</p>
         </div>
         <ul ref={loopRef} className={styles.projects}>
           {projectData.map(project => (

@@ -6,8 +6,8 @@ import CoreValues from '../components/sections/core-values'
 import Projects from '../components/sections/projects'
 
 export const metadata: Metadata = {
-  title: 'Jackson Lewis | Backend Developer',
-  description: 'A backend developer with a love for problem solving and embracing the outdoors',
+  title: 'Jackson Lewis | Full Stack Developer',
+  description: 'A full stack developer with a love for problem solving and embracing the outdoors',
 }
 
 export default function Home() {
