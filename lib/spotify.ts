@@ -1,4 +1,4 @@
-const baseUrl = 'https://api.spotify.com'
+export const baseUrl = 'https://api.spotify.com'
 
 
 export type AblumImage = {
@@ -27,17 +27,24 @@ export type SpotifyItem = {
   context: any
 }
 
-export async function recentlyPlayed() {
-  return await fetch(`${baseUrl}/v1/me/player/recently-played?limit=3`, {
-    headers: {
-      Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}`
-    },
-    cache: 'no-cache'
-  })
-    .then(res => res.json())
-    .then((data: { items: SpotifyItem[] }) => {
-      return data.items
+export async function recentlyPlayed(): Promise<SpotifyItem[] | null> {
+  try {
+    const res = await fetch(`${baseUrl}/v1/me/player/recently-played?limit=3`, {
+      headers: {
+        Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}`
+      },
+      cache: 'no-cache'
     })
+  
+    if (!res.ok) {
+      const error = await res.json()
+      throw new Error(error.message)
+    }
+
+    return await res.json()
+  } catch (error) {
+    return null
+  }
 }
 
 export async function player(): Promise<Track | false> {

@@ -1,13 +1,11 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { SpotifyItem, lastPlayedTimeStamp } from '../../lib/spotify'
+import { useEffect, useState } from 'react'
+import { lastPlayedTimeStamp, SpotifyItem } from '../../lib/spotify'
 
-export function LastPlayedTime({ recentItem }: { recentItem: SpotifyItem }) {
-  const lastPlayedTime = lastPlayedTimeStamp(recentItem)
+export default function LastPlayedTime({ item }: { item: SpotifyItem }) {
   const [time, setTime] = useState(0)
-  const interval = useRef<number>(null)
-
+  const lastPlayedTime = lastPlayedTimeStamp(item)
   const unitMatch = lastPlayedTime.match(/(second|minute|hour)/)
   const unit = unitMatch ? unitMatch[0] : ''
   const lastPlayedTimeModified = lastPlayedTime.replace(/^[0-9]+\s/, '')
@@ -20,12 +18,10 @@ export function LastPlayedTime({ recentItem }: { recentItem: SpotifyItem }) {
 
     if (unit === 'minute') {
       const interval = setInterval(() => {
-        console.log('doing interval')
-
         setTime((time) => {
           return time + 1
         })
-      }, 1000 * 60 )
+      }, 1000 * 60)
 
       return () => {
         clearInterval(interval)
