@@ -7,7 +7,7 @@ import {RefObject, useEffect} from 'react'
  * @param speed the vertical speed of the effect
  * @param setOpacity Apply opacity to the element
  */
-export default function useParallax(ref: RefObject<HTMLElement>, speed: number = 0, setOpacity: boolean = false) {
+export default function useParallax(ref: RefObject<HTMLElement | null>, speed: number = 0, setOpacity: boolean = false) {
   useEffect(() => {
     function parallax() {
       const el = ref.current
