@@ -13,7 +13,7 @@ export default function CoreValues() {
             <p>Over 5 years I&apos;ve delivered positive impacts to marketing teams through greater autonomy to everyday tasks.</p>
           </div>
           <div className={styles.column}>
-            <h3>Innovation</h3>
+            <h3>Innovating</h3>
             <p>Searching for new ways of working with the foresight of where technology is headed.</p>
           </div>
           <div className={styles.column}>

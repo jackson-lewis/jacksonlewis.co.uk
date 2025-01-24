@@ -32,7 +32,7 @@ export default function HeroLarge() {
       <div className={styles.content}>
         <div className="container">
           <div ref={heroContentRef}>
-            <h1 className={styles.h1}>A <strong>backend developer</strong> with a craft for <strong>problem solving</strong> and&nbsp;embracing the outdoors</h1>
+            <h1 className={styles.h1}>A <strong>full stack developer</strong> with a craft for <strong>problem solving</strong> and&nbsp;embracing the outdoors</h1>
           </div>
         </div>
       </div>
