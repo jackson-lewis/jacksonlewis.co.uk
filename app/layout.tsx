@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-gb">
-      <GoogleAnalytics gaId="G-5PKSSSCT6E" />
+      <GoogleAnalytics gaId="G-5PKSSSCT6E" debugMode={!!process.env.VERCEL} />
       <body className={`${roboto.variable} ${robotoSerif.variable} ${robotoCondensed.variable}`}>
         <SiteHeader />
         {children}
