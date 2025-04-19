@@ -3,7 +3,7 @@ import type {Metadata} from 'next'
 import SiteHeader from '../components/site-header'
 import SiteFooter from '../components/site-footer'
 import {roboto, robotoCondensed, robotoSerif} from './fonts'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: 'Jackson Lewis',
@@ -20,6 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-gb">
+      <GoogleAnalytics gaId="G-5PKSSSCT6E" debugMode={!!process.env.VERCEL} />
       <body className={`${roboto.variable} ${robotoSerif.variable} ${robotoCondensed.variable}`}>
         <SiteHeader />
         {children}
