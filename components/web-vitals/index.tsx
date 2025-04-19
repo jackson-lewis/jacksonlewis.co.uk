@@ -14,4 +14,6 @@ export function WebVitals() {
       non_interaction: true
     })
   })
+
+  return null
 }
